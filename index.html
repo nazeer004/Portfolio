@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nazeer Mukhasam | Portfolio</title>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
+  <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -17,17 +17,19 @@
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: #000000; /* Set all text to black */
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: #e0e0e0;
       overflow-x: hidden;
+      position: relative;
     }
 
     .navbar {
       transition: background-color 0.3s;
+      background-color: rgba(10, 10, 10, 0.9);
     }
 
     .navbar.scrolled {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(10, 10, 10, 1);
     }
 
     .hero-section {
@@ -37,140 +39,402 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
+      position: relative;
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(45, 45, 45, 0.8));
     }
 
     .hero-section img {
-      border: 5px solid #ffffff;
+      border: 5px solid #00ccff;
       border-radius: 50%;
-      animation: zoomIn 0.8s ease-in-out;
+      width: 120px;
+      max-width: 100%;
+      box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+      animation: pulse-img 2s infinite;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes pulse-img {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    #game-area {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid #444;
+      overflow: hidden;
+    }
+
+    #target {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: #ff9500;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 10px rgba(255, 149, 0, 0.7);
     }
 
     .section {
       padding: 60px 0;
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 10px;
       margin: 20px 0;
-      backdrop-filter: blur(10px);
-      animation: slideIn 0.5s ease-in-out;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-    @keyframes slideIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       font-family: 'Roboto', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      color: #00ccff;
       margin-bottom: 20px;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-      color: #00c6ff; /* Primary color for headings */
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
+      letter-spacing: 1px;
+      position: relative;
     }
 
-    .skills {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.5s;
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #ff9500;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .skill {
-      width: 30%;
-      text-align: center;
-      margin-bottom: 20px;
-      transition: transform 0.3s;
-      background-color: #ffffff; /* White background for skill cards */
-      border-radius: 10px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.05);
       padding: 20px;
-      color: #000000; /* Black text for skill cards */
+      border-radius: 10px;
+      border: 1px solid #444;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .skill:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    .skill-card:hover {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+    }
+
+    .progress {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+
+    .progress-bar {
+      background: #ff9500;
+      transition: width 1s ease-in-out;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: #00ccff;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      position: relative;
+      width: 45%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #444;
+    }
+
+    .experience-card:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+    }
+
+    .experience-card.left {
+      left: 0;
+    }
+
+    .experience-card.right {
+      left: 55%;
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #ff9500;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .experience-card.left::before {
+      right: -20px;
+    }
+
+    .experience-card.right::before {
+      left: -20px;
+    }
+
+    /* Revamped Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .education-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .education-card:hover {
+      transform: translateY(-10px) rotate(3deg);
+      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+    }
+
+    .education-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #00ccff, #ff9500);
+    }
+
+    .education-card h5 {
+      color: #00ccff;
+      margin-bottom: 10px;
+    }
+
+    .education-card p {
+      margin: 0;
+      font-size: 0.9rem;
     }
 
     footer {
-      font-size: 0.9rem;
-      background-color: #343a40;
-      color: white;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      position: relative;
     }
 
     .whatsapp-float a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #25d366;
-      color: white;
-      width: 55px;
-      height: 55px border-radius: 50%;
-      font-size: 24px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      transition: background-color 0.3s;
+      background-color: #ff9500;
     }
 
     .whatsapp-float a:hover {
-      background-color: #1ebe5d;
+      background-color: #e08500;
     }
 
     .fancy {
+      border: 2px solid #00ccff;
+      color: #00ccff;
       background-color: transparent;
-      border: 2px solid #00c6ff; /* Primary color for buttons */
       border-radius: 5px;
-      color: #00c6ff; /* Primary color for button text */
-      cursor: pointer;
       padding: 10px 20px;
-      text-align: center;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fancy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 204, 255, 0.2);
+      transition: left 0.3s ease;
+    }
+
+    .fancy:hover::before {
+      left: 0;
     }
 
     .fancy:hover {
-      background-color: #00c6ff; /* Button hover background */
-      color: #ffffff; /* Button hover text color */
+      color: #1a1a1a;
     }
 
-    .testimonial {
-      background-color: rgba(255, 255, 255, 0.2);
+    .form-control {
+      border: 2px solid #ff9500;
+      background: rgba(255, 255, 255, 0.05);
+      color: #e0e0e0;
+    }
+
+    .form-control:focus + span,
+    .form-control:not(:placeholder-shown) + span {
+      color: #ff9500;
+      background: #1a1a1a;
+    }
+
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 2000;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: #ff9500;
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+    }
+
+    .popup-content {
+      background: #1a1a1a;
+      padding: 30px;
       border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      color: #e0e0e0;
+      border: 1px solid #444;
+    }
+
+    .popup-content h3 {
+      color: #00ccff;
+    }
+
+    #back-to-top {
+      width: 50px;
+      height: 50px;
+      background: #ff9500;
+      border: none;
+      border-radius: 50%;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 1000;
+      display: none;
+    }
+
+    #back-to-top:hover {
+      background: #00ccff;
+      color: #1a1a1a;
+    }
+
+    #quote-container {
+      text-align: center;
       padding: 20px;
-      margin: 20px 0;
-      animation: fadeIn 1s forwards;
-      color: #000000; /* Black text for testimonials */
+      background: rgba(0, 204, 255, 0.1);
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+      border: 1px solid #444;
     }
 
-    .testimonial p {
+    .quote {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
       font-style: italic;
+      color: #ff9500;
+      font-size: 1.2rem;
     }
 
-    .testimonial-author {
-      text-align: right;
-      font-weight: bold;
+    .quote.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 20px;
+      }
+      .experience-card {
+        width: 100%;
+        left: 40px;
+      }
+      .experience-card.right {
+        left: 40px;
+      }
+      .experience-card::before {
+        left: -15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        height: auto;
+        padding: 80px 0;
+      }
+      .hero-section img {
+        width: 100px;
+      }
+      #game-area {
+        width: 250px;
+        height: 150px;
+      }
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="scrollProgress"></div>
+  </div>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
@@ -191,53 +455,86 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Mini-Game -->
   <section id="home" class="hero-section">
     <div class="container">
-      <img src="my-profile-img.png" class="rounded-circle mb-3" width="140" alt="Profile">
+      <img src="my-profile-img.png" class="rounded-circle mb-3" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
-      <p class="lead">Web Developer | UI/UX Designer | Freelancer</p>
-      <a href="Nazeer_Mukhasam_Resume.pdf" download class="fancy"><i class="bi bi-download"></i> Download Resume</a>
+      <p class="lead">Unleashing wild ideas into epic digital realities.</p>
+      <a href="Nazeer_Mukhasam_Resume.pdf" download class="fancy"><i class="bi bi-download"></i> Grab My Resume</a>
+      <div id="game-area">
+        <div id="target"></div>
+        <p id="score" class="mt-2">Score: 0</p>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="section text-center">
     <div class="container">
-      <h2 class="fw-bold">About Me</h2>
-      <p class="lead">I am a results-driven Web Developer with expertise in both frontend and backend development. Proficient in HTML, CSS, JavaScript, Django, and Laravel, I am passionate about creating responsive, user-friendly websites.</p>
+      <h2 class="fw-bold">Who Am I?</h2>
+      <p class="lead">I’m a Web Developer and UI/UX Designer with a knack for crafting insane, user-obsessed experiences. Got a wild idea? Let’s make it scream.</p>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section bg-light">
+  <section id="skills" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Technical Skills</h2>
-      <div class="skills">
-        <div class="skill">
-          <h5>Frontend</h5>
-          <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-          </ul>
+      <h2 class="fw-bold text-center">Skill Arsenal</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h5>HTML5</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 90%;"></div>
+          </div>
         </div>
-        <div class="skill">
-          <h5>Backend</h5>
-          <ul>
-            <li>Django</li>
-            <li>Laravel</li>
-            <li>PHP</li>
-            <li>MySQL</li>
-          </ul>
+        <div class="skill-card">
+          <h5>CSS3</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 85%;"></div>
+          </div>
         </div>
-        <div class="skill">
-          <h5>UI/UX</h5>
-          <ul>
-            <li>Figma</li>
-            <li>Photoshop</li>
-            <li>CorelDRAW</li>
-          </ul>
+        <div class="skill-card">
+          <h5>JavaScript</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>Django</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 75%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>Laravel</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>PHP</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 65%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>MySQL</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>Figma</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h5>Photoshop</h5>
+          <div class="progress">
+            <div class="progress-bar" style="width: 60%;"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -246,55 +543,57 @@
   <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Work Experience</h2>
-      <ul>
-        <li><strong>Web Developer | M&M Retail</strong> (May 2024 - June 2024)
-          <ul>
-            <li>Built stock management system using Laravel, reducing inventory errors by 30%.</li>
-            <li>Implemented secure database connections and backend logic.</li>
-          </ul>
-        </li>
-        <li><strong>Web Developer | Muskan Engineering Works</strong> (Sep 2024 - Oct 2024)
-          <ul>
-            <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
-            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
-          </ul>
-        </li>
-        <li><strong>Web Developer | Gujarat Corporations</strong> (Nov 2023 - Dec 2023)
-          <ul>
-            <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
-            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
-          </ul>
-        </li>
-        <li><strong>Intern, UI/UX | Cognifyz Technologies</strong> (January 2025 - February 2025)</li>
-      </ul>
+      <h2 class="fw-bold text-center">Battle Stories</h2>
+      <div class="timeline">
+        <div class="experience-card left">
+          <h5>Web Developer | M&M Retail</h5>
+          <p><small>May 2024 - June 2024</small></p>
+          <p>Conquered inventory chaos with a Laravel stock system—errors down 30%. Backend locked tight.</p>
+        </div>
+        <div class="experience-card right">
+          <h5>Web Developer | Muskan Engineering Works</h5>
+          <p><small>Sep 2024 - Oct 2024</small></p>
+          <p>Unleashed a responsive site with HTML, CSS, and JS—UI/UX that hooks users hard.</p>
+        </div>
+        <div class="experience-card left">
+          <h5>Web Developer | Gujarat Corporations</h5>
+          <p><small>Nov 2023 - Dec 2023</small></p>
+          <p>Built a lean, mean website machine—speed and style on overdrive.</p>
+        </div>
+        <div class="experience-card right">
+          <h5>Intern, UI/UX | Cognifyz Technologies</h5>
+          <p><small>Jan 2025 - Feb 2025</small></p>
+          <p>Dove into Figma, crafting designs that break the mold.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="section bg-light">
+  <section id="education" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Education</h2>
-      <ul>
-        <li><strong>L.J. University, Ahmedabad</strong> - Pursuing Integrated MCA (2022 - 2027)</li>
-        <li><strong>National Institute of Technology, Ahmedabad</strong> - Diploma in Computer Application & Business Accounting (2022 - 2023)</li>
-        <li><strong>Ankur School, Ahmedabad</strong> - HSC</li>
-        <li><strong>Ankur School, Ahmedabad</strong> - SSC</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2 class="fw-bold text-center">What People Say</h2>
-      <div class="testimonial">
-        <p>"Nazeer is a fantastic developer! His attention to detail and creativity made our project a success."</p>
-        <div class="testimonial-author">- Client Name</div>
-      </div>
-      <div class="testimonial">
-        <p>"Working with Nazeer was a pleasure. He delivered high-quality work on time and exceeded our expectations."</p>
-        <div class="testimonial-author">- Another Client</div>
+      <h2 class="fw-bold text-center">Brain Forge</h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <h5>L.J. University, Ahmedabad</h5>
+          <p>Integrated MCA (2022 - 2027)</p>
+          <p>Mastering the art of code and design, one insane project at a time.</p>
+        </div>
+        <div class="education-card">
+          <h5>National Institute of Technology, Ahmedabad</h5>
+          <p>Diploma in Computer Application & Business Accounting (2022 - 2023)</p>
+          <p>Sharpened my tech edge with a mix of logic and numbers.</p>
+        </div>
+        <div class="education-card">
+          <h5>Ankur School, Ahmedabad</h5>
+          <p>HSC</p>
+          <p>Where the hustle began—building the foundation.</p>
+        </div>
+        <div class="education-card">
+          <h5>Ankur School, Ahmedabad</h5>
+          <p>SSC</p>
+          <p>Early days of dreaming big and breaking rules.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -302,46 +601,158 @@
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Contact Me</h2>
-      <form class="form">
-        <label>
-          <input type="text" class="input" required placeholder=" " />
+      <h2 class="fw-bold text-center">Drop a Wild Idea</h2>
+      <p class="text-center lead">Got a project that needs a crazy designer? Let’s make it epic—hit me up!</p>
+      <form class="form mt-4">
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder=" " />
           <span>Name</span>
-        </label>
-        <label>
-          <input type="email" class="input" required placeholder=" " />
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" required placeholder=" " />
           <span>Email</span>
-        </label>
-        <label>
-          <textarea class="input" required placeholder=" "></textarea>
-          <span>Message</span>
-        </label>
-        <button type="submit" class="fancy">Send Message</button>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" rows="4" required placeholder=" "></textarea>
+          <span>Your Crazy Idea</span>
+        </div>
+        <button type="submit" class="fancy w-100">Launch It!</button>
       </form>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
-  <div class="whatsapp-float">
+  <div class="whatsapp-float" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
     <a href="https://wa.me/919825764333" target="_blank" title="Chat on WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
   </div>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="btn btn-primary rounded-circle">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Exit Intent Popup -->
+  <div id="exitPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3>Leaving So Soon?</h3>
+      <p>Don’t bail yet—let’s cook up something insane for your business!</p>
+      <button id="stayBtn" class="fancy">Stay & Create</button>
+      <button id="exitBtn" class="fancy">Exit Anyway</button>
+    </div>
+  </div>
+
+  <!-- Footer with Quotes -->
   <footer class="text-center py-4">
-    &copy; 2025 Nazeer Mukhasam. All rights reserved.
+    <div id="quote-container">
+      <div class="quote">"Ideas are chaos—let’s tame them into brilliance."</div>
+      <div class="quote">"Designs that don’t grab attention don’t exist."</div>
+      <div class="quote">"Code’s my weapon—users are my target."</div>
+      <div class="quote">"Your business needs a spark? I’ve got the fire."</div>
+      <div class="quote">"Let’s break the mold and build the future."</div>
+    </div>
+    © 2025 Nazeer Mukhasam. All rights reserved.
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    window.addEventListener('scroll', function() {
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+    });
+
+    // Section Reveal Animation
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth Scroll
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Exit Intent Popup
+    let popupShown = false;
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0 && !popupShown) {
+        document.getElementById('exitPopup').style.display = 'flex';
+        popupShown = true;
       }
     });
+    document.getElementById('stayBtn').addEventListener('click', () => {
+      document.getElementById('exitPopup').style.display = 'none';
+    });
+    document.getElementById('exitBtn').addEventListener('click', () => {
+      document.getElementById('exitPopup').style.display = 'none';
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mini-Game Logic
+    const target = document.getElementById('target');
+    const gameArea = document.getElementById('game-area');
+    const scoreDisplay = document.getElementById('score');
+    let score = 0;
+
+    function moveTarget() {
+      const maxX = gameArea.offsetWidth - target.offsetWidth;
+      const maxY = gameArea.offsetHeight - target.offsetHeight;
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+      target.style.left = newX + 'px';
+      target.style.top = newY + 'px';
+    }
+
+    target.addEventListener('click', () => {
+      score += 1;
+      scoreDisplay.textContent = `Score: ${score}`;
+      moveTarget();
+      target.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
+    });
+
+    moveTarget();
+
+    // Quote Animation
+    const quotes = document.querySelectorAll('.quote');
+    let currentQuote = 0;
+
+    function showNextQuote() {
+      quotes.forEach(q => q.classList.remove('active'));
+      quotes[currentQuote].classList.add('active');
+      currentQuote = (currentQuote + 1) % quotes.length;
+    }
+
+    showNextQuote();
+    setInterval(showNextQuote, 3000);
   </script>
 </body>
-</html
+</html>
