@@ -26,6 +26,7 @@
     .navbar {
       transition: background-color 0.3s;
       background-color: rgba(10, 10, 10, 0.9);
+      z-index: 1000;
     }
 
     .navbar.scrolled {
@@ -33,7 +34,7 @@
     }
 
     .hero-section {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -41,6 +42,8 @@
       text-align: center;
       position: relative;
       background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(45, 45, 45, 0.8));
+      background-size: 150% 150%;
+      padding: 20px;
     }
 
     .hero-section img {
@@ -67,6 +70,7 @@
       border-radius: 10px;
       border: 1px solid #444;
       overflow: hidden;
+      z-index: 1;
     }
 
     #target {
@@ -90,6 +94,8 @@
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.5s ease, transform 0.5s ease;
+      position: relative;
+      background-size: 150% 150%;
     }
 
     .section.visible {
@@ -167,13 +173,14 @@
 
     .experience-card {
       background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
+      padding: 15px; /* Reduced padding to fit content */
       border-radius: 10px;
       margin: 20px 0;
       position: relative;
-      width: 45%;
+      width: 40%; /* Adjusted width to prevent overlap */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #444;
+      box-sizing: border-box; /* Ensure padding stays within width */
     }
 
     .experience-card:hover {
@@ -182,7 +189,7 @@
     }
 
     .experience-card.left {
-      left: 0;
+      left: 5%; /* Adjusted to keep content clear of timeline */
     }
 
     .experience-card.right {
@@ -267,15 +274,15 @@
 
     .fancy {
       border: 2px solid #00ccff;
-      color: #e0e0e0; /* Light gray for better readability */
-      background-color: rgba(0, 204, 255, 0.1); /* Subtle cyan bg */
+      color: #e0e0e0;
+      background-color: rgba(0, 204, 255, 0.1);
       border-radius: 5px;
       padding: 10px 20px;
       text-decoration: none;
-      font-family: 'Roboto', sans-serif; /* Bolder, cleaner font */
-      font-weight: 700; /* Bold text */
-      text-transform: uppercase; /* Uppercase for impact */
-      letter-spacing: 1px; /* Spacing for style */
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: all 0.3s ease-in-out;
       position: relative;
       overflow: hidden;
@@ -289,18 +296,20 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: #ff9500; /* Orange fill on hover */
-      transition: left 0.3s ease;
+      background: #ff9500;
+      opacity: 0; /* Hidden by default */
+      transition: left 0.3s ease, opacity 0.3s ease;
       z-index: -1;
     }
 
     .fancy:hover::before {
       left: 0;
+      opacity: 1; /* Visible on hover */
     }
 
     .fancy:hover {
-      color: #1a1a1a; /* Dark text on hover for contrast */
-      box-shadow: 0 0 15px rgba(255, 149, 0, 0.7); /* Orange glow */
+      color: #1a1a1a;
+      box-shadow: 0 0 15px rgba(255, 149, 0, 0.7);
     }
 
     .form-control {
@@ -401,13 +410,35 @@
       transform: translateY(0);
     }
 
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      .hero-section {
+        min-height: 80vh;
+      }
+      .hero-section img {
+        width: 100px;
+      }
+      #game-area {
+        width: 250px;
+        height: 150px;
+      }
+      #target {
+        width: 30px;
+        height: 30px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .lead {
+        font-size: 1rem;
+      }
       .timeline::before {
         left: 20px;
       }
       .experience-card {
-        width: 100%;
+        width: 80%; /* Full width minus margin */
         left: 40px;
+        margin-left: 10px; /* Ensure no overlap with timeline */
       }
       .experience-card.right {
         left: 40px;
@@ -419,18 +450,36 @@
 
     @media (max-width: 576px) {
       .hero-section {
-        height: auto;
-        padding: 80px 0;
+        min-height: 70vh;
+        padding: 40px 15px;
       }
       .hero-section img {
-        width: 100px;
+        width: 80px;
       }
       #game-area {
-        width: 250px;
-        height: 150px;
+        width: 200px;
+        height: 120px;
+      }
+      #target {
+        width: 25px;
+        height: 25px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      .lead {
+        font-size: 0.9rem;
+      }
+      .fancy {
+        padding: 8px 15px;
+        font-size: 0.8rem;
       }
       .education-grid {
         grid-template-columns: 1fr;
+      }
+      .experience-card {
+        width: 85%; /* Slightly more compact */
+        padding: 10px;
       }
     }
   </style>
@@ -467,7 +516,7 @@
       <img src="my-profile-img.png" class="rounded-circle mb-3" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
       <p class="lead">Unleashing wild ideas into epic digital realities.</p>
-      <a href="Nazeer_Mukhasam_Resume.pdf" download class="fancy"><i class="bi bi-download"></i> Grab My Resume</a>
+      <a href="Nazeer_Mukhasam_Resume.pdf" download class="fancy mb-3"><i class="bi bi-download"></i> Grab My Resume</a>
       <div id="game-area">
         <div id="target"></div>
         <p id="score" class="mt-2">Score: 0</p>
@@ -676,6 +725,20 @@
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+    });
+
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const hero = document.querySelector('.hero-section');
+      hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (scrollPosition > sectionTop - window.innerHeight) {
+          section.style.backgroundPositionY = `${(scrollPosition - sectionTop) * 0.2}px`;
+        }
+      });
     });
 
     // Section Reveal Animation
