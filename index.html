@@ -208,7 +208,6 @@
       left: -20px;
     }
 
-    /* Revamped Education Section */
     .education-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,14 +267,19 @@
 
     .fancy {
       border: 2px solid #00ccff;
-      color: #00ccff;
-      background-color: transparent;
+      color: #e0e0e0; /* Light gray for better readability */
+      background-color: rgba(0, 204, 255, 0.1); /* Subtle cyan bg */
       border-radius: 5px;
       padding: 10px 20px;
       text-decoration: none;
+      font-family: 'Roboto', sans-serif; /* Bolder, cleaner font */
+      font-weight: 700; /* Bold text */
+      text-transform: uppercase; /* Uppercase for impact */
+      letter-spacing: 1px; /* Spacing for style */
       transition: all 0.3s ease-in-out;
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
     .fancy::before {
@@ -285,8 +289,9 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: rgba(0, 204, 255, 0.2);
+      background: #ff9500; /* Orange fill on hover */
       transition: left 0.3s ease;
+      z-index: -1;
     }
 
     .fancy:hover::before {
@@ -294,7 +299,8 @@
     }
 
     .fancy:hover {
-      color: #1a1a1a;
+      color: #1a1a1a; /* Dark text on hover for contrast */
+      box-shadow: 0 0 15px rgba(255, 149, 0, 0.7); /* Orange glow */
     }
 
     .form-control {
