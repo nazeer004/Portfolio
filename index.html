@@ -54,6 +54,21 @@
       padding: 60px 0;
     }
 
+    .skills {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .skill {
+      width: 30%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     footer {
       font-size: 0.9rem;
       background-color: #343a40;
@@ -99,7 +114,8 @@
           <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
@@ -108,11 +124,11 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
-    <div class="container">
+ <div class="container">
       <img src="my-profile-img.png" class="rounded-circle mb-3" width="140" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
       <p class="lead">Web Developer | UI/UX Designer | Freelancer</p>
-      <a href="Nazeer_Mukhasam_Resume.pdf" download class="btn btn-outline-light"><i class="bi bi-download"></i > Download Resume</a>
+      <a href="Nazeer_Mukhasam_Resume.pdf" download class="btn btn-outline-light"><i class="bi bi-download"></i> Download Resume</a>
     </div>
   </section>
 
@@ -128,8 +144,8 @@
   <section id="skills" class="section bg-light">
     <div class="container">
       <h2 class="fw-bold text-center">Technical Skills</h2>
-      <div class="row">
-        <div class="col-md-6">
+      <div class="skills">
+        <div class="skill">
           <h5>Frontend</h5>
           <ul>
             <li>HTML5</li>
@@ -137,7 +153,7 @@
             <li>JavaScript</li>
           </ul>
         </div>
-        <div class="col-md-6">
+        <div class="skill">
           <h5>Backend</h5>
           <ul>
             <li>Django</li>
@@ -146,20 +162,61 @@
             <li>MySQL</li>
           </ul>
         </div>
+        <div class="skill">
+          <h5>UI/UX</h5>
+          <ul>
+            <li>Figma</li>
+            <li>Photoshop</li>
+            <li>CorelDRAW</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Resume Section -->
-  <section id="resume" class="section">
+  <!-- Experience Section -->
+  <section id="experience" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Resume</h2>
-      <p class="text-center">Download my full resume <a href="Nazeer_Mukhasam_Resume.pdf" download>here</a>.</p>
+      <h2 class="fw-bold text-center">Work Experience</h2>
+      <ul>
+        <li><strong>Web Developer | M&M Retail</strong> (May 2024 - June 2024)
+          <ul>
+            <li>Built stock management system using Laravel, reducing inventory errors by 30%.</li>
+            <li>Implemented secure database connections and backend logic.</li>
+          </ul>
+        </li>
+        <li><strong>Web Developer | Muskan Engineering Works</strong> (Sep 2024 - Oct 2024)
+          <ul>
+            <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
+            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
+          </ul>
+        </li>
+        <li><strong>Web Developer | Gujarat Corporations</strong> (Nov 2023 - Dec 2023)
+          <ul>
+            <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
+            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
+          </ul>
+        </li>
+        <li><strong>Intern, UI/UX | Cognifyz Technologies</strong> (January 2025 - February 2025)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section bg-light">
+    <div class="container">
+      <h2 class="fw-bold text-center">Education</h2>
+      <ul>
+        <li><strong>L.J. University, Ahmedabad</strong> - Pursuing Integrated MCA (2022 - 2027)</li>
+        <li><strong>National Institute of Technology, Ahmedabad</strong> - Diploma in Computer Application & Business Accounting (2022 - 2023)</li>
+        <li><strong>Ankur School, Ahmedabad</strong> - HSC</li>
+        <li><strong>Ankur School, Ahmedabad</strong> - SSC</li>
+      </ul>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section bg-light">
+  <section id="contact" class="section">
     <div class="container">
       <h2 class="fw-bold text-center">Contact Me</h2>
       <form class="form">
