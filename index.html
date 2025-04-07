@@ -6,8 +6,7 @@
   <title>Nazeer Mukhasam | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,61 +15,80 @@
   <!-- Custom Styles -->
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e2a44, #2d2d2d), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGD4z8DAwMgABXAGNgGwSHe/bEAgGDA2NjAwMAQIArlgQ9gAAAABJRU5ErkJggg==');
+      color: #f0f0f0;
       overflow-x: hidden;
       position: relative;
+      background-blend-mode: overlay;
     }
 
     .navbar {
+      background: rgba(30, 42, 68, 0.9);
       transition: background-color 0.3s;
-      background-color: rgba(10, 10, 10, 0.9);
       z-index: 1000;
     }
 
     .navbar.scrolled {
-      background-color: rgba(10, 10, 10, 1);
+      background: rgba(30, 42, 68, 1);
+    }
+
+    .navbar-brand, .nav-link {
+      color: #f0f0f0 !important;
+      font-weight: 600;
     }
 
     .hero-section {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       position: relative;
-      background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(45, 45, 45, 0.8));
-      background-size: 150% 150%;
+      background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(255, 149, 0, 0.2));
+      background-size: 200% 200%;
       padding: 20px;
     }
 
+    .hero-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .hero-section img {
-      border: 5px solid #00ccff;
+      border: 4px solid #00ccff;
       border-radius: 50%;
-      width: 120px;
+      width: 140px;
       max-width: 100%;
-      box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+      box-shadow: 0 0 20px rgba(0, 204, 255, 0.6);
       animation: pulse-img 2s infinite;
     }
 
     @keyframes pulse-img {
       0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.03); }
       100% { transform: scale(1); }
     }
 
     #game-area {
-      position: relative;
       width: 300px;
       height: 200px;
       margin-top: 20px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      border: 1px solid #444;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       overflow: hidden;
-      z-index: 1;
+      position: relative;
     }
 
     #target {
@@ -85,11 +103,11 @@
     }
 
     .section {
-      padding: 60px 0;
+      padding: 80px 0;
       background: rgba(255, 255, 255, 0.03);
-      border-radius: 10px;
-      margin: 20px 0;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      margin: 30px 0;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.1);
       opacity: 0;
       transform: translateY(50px);
@@ -104,53 +122,49 @@
     }
 
     h2 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       color: #00ccff;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
-      letter-spacing: 1px;
-      position: relative;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
     }
 
     h2::after {
       content: '';
-      position: absolute;
-      width: 50px;
-      height: 3px;
-      background: #ff9500;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #00ccff, #ff9500);
+      margin: 10px auto;
     }
 
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .skill-card {
       background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #444;
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .skill-card:hover {
-      transform: translateY(-10px) rotate(2deg);
-      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.2);
     }
 
     .progress {
-      height: 10px;
+      height: 8px;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
+      border-radius: 4px;
     }
 
     .progress-bar {
-      background: #ff9500;
+      background: linear-gradient(to right, #00ccff, #ff9500);
       transition: width 1s ease-in-out;
     }
 
@@ -158,6 +172,7 @@
       position: relative;
       max-width: 800px;
       margin: 0 auto;
+      padding: 20px 0;
     }
 
     .timeline::before {
@@ -167,75 +182,62 @@
       background: #00ccff;
       top: 0;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 30px; /* Fixed left position for all screens */
     }
 
     .experience-card {
       background: rgba(255, 255, 255, 0.05);
-      padding: 15px; /* Reduced padding to fit content */
-      border-radius: 10px;
-      margin: 20px 0;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0 20px 60px; /* Offset from timeline */
       position: relative;
-      width: 40%; /* Adjusted width to prevent overlap */
+      width: calc(100% - 80px); /* Full width minus offset */
+      max-width: 600px; /* Cap width for larger screens */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #444;
-      box-sizing: border-box; /* Ensure padding stays within width */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-sizing: border-box;
+      animation: fadeIn 0.5s ease-in;
     }
 
     .experience-card:hover {
-      transform: scale(1.05) rotate(-1deg);
-      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
-    }
-
-    .experience-card.left {
-      left: 5%; /* Adjusted to keep content clear of timeline */
-    }
-
-    .experience-card.right {
-      left: 55%;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
     }
 
     .experience-card::before {
       content: '';
       position: absolute;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       background: #ff9500;
       border-radius: 50%;
       top: 50%;
+      left: -45px; /* Positioned to right of timeline */
       transform: translateY(-50%);
-    }
-
-    .experience-card.left::before {
-      right: -20px;
-    }
-
-    .experience-card.right::before {
-      left: -20px;
+      box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
     }
 
     .education-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      gap: 25px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
     .education-card {
       background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      position: relative;
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
       overflow: hidden;
     }
 
     .education-card:hover {
-      transform: translateY(-10px) rotate(3deg);
-      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.2);
     }
 
     .education-card::before {
@@ -244,48 +246,30 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: linear-gradient(to right, #00ccff, #ff9500);
     }
 
-    .education-card h5 {
-      color: #00ccff;
-      margin-bottom: 10px;
-    }
-
-    .education-card p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
     footer {
-      background-color: #0a0a0a;
-      color: #e0e0e0;
-      position: relative;
-    }
-
-    .whatsapp-float a {
-      background-color: #ff9500;
-    }
-
-    .whatsapp-float a:hover {
-      background-color: #e08500;
+      background: #1e2a44;
+      padding: 40px 0;
+      color: #f0f0f0;
     }
 
     .fancy {
-      border: 2px solid #00ccff;
-      color: #e0e0e0;
-      background-color: rgba(0, 204, 255, 0.1);
-      border-radius: 5px;
-      padding: 10px 20px;
+      border: 2px solid transparent;
+      background: linear-gradient(to right, #00ccff, #ff9500);
+      background-clip: padding-box;
+      color: #f0f0f0;
+      border-radius: 25px;
+      padding: 12px 25px;
       text-decoration: none;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
+      display: inline-block;
       z-index: 1;
     }
 
@@ -293,35 +277,35 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
+      left: 0;
       width: 100%;
       height: 100%;
-      background: #ff9500;
-      opacity: 0; /* Hidden by default */
-      transition: left 0.3s ease, opacity 0.3s ease;
+      background: linear-gradient(to right, #00ccff, #ff9500);
+      border-radius: 25px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
       z-index: -1;
     }
 
     .fancy:hover::before {
-      left: 0;
-      opacity: 1; /* Visible on hover */
+      opacity: 1;
     }
 
     .fancy:hover {
-      color: #1a1a1a;
-      box-shadow: 0 0 15px rgba(255, 149, 0, 0.7);
+      color: #1e2a44;
+      box-shadow: 0 0 20px rgba(255, 149, 0, 0.5);
     }
 
     .form-control {
-      border: 2px solid #ff9500;
+      border: 2px solid #00ccff;
       background: rgba(255, 255, 255, 0.05);
-      color: #e0e0e0;
+      color: #f0f0f0;
+      border-radius: 10px;
     }
 
-    .form-control:focus + span,
-    .form-control:not(:placeholder-shown) + span {
-      color: #ff9500;
-      background: #1a1a1a;
+    .form-control:focus {
+      border-color: #ff9500;
+      box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
     }
 
     .progress-container {
@@ -329,14 +313,14 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: rgba(255, 255, 255, 0.1);
       z-index: 2000;
     }
 
     .progress-bar {
       height: 100%;
-      background: #ff9500;
+      background: linear-gradient(to right, #00ccff, #ff9500);
       width: 0%;
       transition: width 0.2s ease;
     }
@@ -355,23 +339,19 @@
     }
 
     .popup-content {
-      background: #1a1a1a;
+      background: #1e2a44;
       padding: 30px;
-      border-radius: 10px;
+      border-radius: 20px;
       text-align: center;
       max-width: 500px;
-      color: #e0e0e0;
-      border: 1px solid #444;
-    }
-
-    .popup-content h3 {
-      color: #00ccff;
+      color: #f0f0f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     #back-to-top {
       width: 50px;
       height: 50px;
-      background: #ff9500;
+      background: linear-gradient(to right, #00ccff, #ff9500);
       border: none;
       border-radius: 50%;
       position: fixed;
@@ -382,18 +362,15 @@
     }
 
     #back-to-top:hover {
-      background: #00ccff;
-      color: #1a1a1a;
+      background: #ff9500;
     }
 
     #quote-container {
-      text-align: center;
       padding: 20px;
-      background: rgba(0, 204, 255, 0.1);
-      border-radius: 10px;
-      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
       max-width: 800px;
-      border: 1px solid #444;
+      margin: 20px auto;
     }
 
     .quote {
@@ -402,7 +379,7 @@
       transition: opacity 0.5s ease, transform 0.5s ease;
       font-style: italic;
       color: #ff9500;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .quote.active {
@@ -414,6 +391,9 @@
     @media (max-width: 768px) {
       .hero-section {
         min-height: 80vh;
+      }
+      .hero-card {
+        padding: 30px;
       }
       .hero-section img {
         width: 100px;
@@ -432,19 +412,16 @@
       .lead {
         font-size: 1rem;
       }
+      .experience-card {
+        width: calc(100% - 70px); /* Slightly tighter */
+        margin: 15px 0 15px 50px;
+        padding: 15px;
+      }
       .timeline::before {
         left: 20px;
       }
-      .experience-card {
-        width: 80%; /* Full width minus margin */
-        left: 40px;
-        margin-left: 10px; /* Ensure no overlap with timeline */
-      }
-      .experience-card.right {
-        left: 40px;
-      }
       .experience-card::before {
-        left: -15px;
+        left: -35px;
       }
     }
 
@@ -452,6 +429,9 @@
       .hero-section {
         min-height: 70vh;
         padding: 40px 15px;
+      }
+      .hero-card {
+        padding: 20px;
       }
       .hero-section img {
         width: 80px;
@@ -471,15 +451,30 @@
         font-size: 0.9rem;
       }
       .fancy {
-        padding: 8px 15px;
+        padding: 10px 20px;
         font-size: 0.8rem;
       }
       .education-grid {
         grid-template-columns: 1fr;
       }
       .experience-card {
-        width: 85%; /* Slightly more compact */
-        padding: 10px;
+        width: calc(100% - 60px);
+        margin: 10px 0 10px 40px;
+        padding: 12px;
+      }
+      .timeline::before {
+        left: 15px;
+      }
+      .experience-card::before {
+        left: -30px;
+        width: 12px;
+        height: 12px;
+      }
+      h5 {
+        font-size: 1rem;
+      }
+      .experience-card p {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -512,11 +507,11 @@
 
   <!-- Hero Section with Mini-Game -->
   <section id="home" class="hero-section">
-    <div class="container">
+    <div class="hero-card">
       <img src="my-profile-img.png" class="rounded-circle mb-3" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
-      <p class="lead">Unleashing wild ideas into epic digital realities.</p>
-      <a href="Nazeer_Mukhasam_Resume.pdf" download class="fancy mb-3"><i class="bi bi-download"></i> Grab My Resume</a>
+      <p class="lead">Turning wild ideas into stunning digital realities.</p>
+      <a href="#experience" class="fancy mb-3"><i class="bi bi-eye"></i> View My Work</a>
       <div id="game-area">
         <div id="target"></div>
         <p id="score" class="mt-2">Score: 0</p>
@@ -528,7 +523,7 @@
   <section id="about" class="section text-center">
     <div class="container">
       <h2 class="fw-bold">Who Am I?</h2>
-      <p class="lead">I’m a Web Developer and UI/UX Designer with a knack for crafting insane, user-obsessed experiences. Got a wild idea? Let’s make it scream.</p>
+      <p class="lead">I’m a Web Developer and UI/UX Designer obsessed with crafting bold, user-centric experiences. Let’s turn your vision into something extraordinary.</p>
     </div>
   </section>
 
@@ -600,25 +595,25 @@
     <div class="container">
       <h2 class="fw-bold text-center">Battle Stories</h2>
       <div class="timeline">
-        <div class="experience-card left">
+        <div class="experience-card">
           <h5>Web Developer | M&M Retail</h5>
           <p><small>May 2024 - June 2024</small></p>
-          <p>Conquered inventory chaos with a Laravel stock system—errors down 30%. Backend locked tight.</p>
+          <p>Slashed inventory errors by 30% with a slick Laravel stock system.</p>
         </div>
-        <div class="experience-card right">
+        <div class="experience-card">
           <h5>Web Developer | Muskan Engineering Works</h5>
           <p><small>Sep 2024 - Oct 2024</small></p>
-          <p>Unleashed a responsive site with HTML, CSS, and JS—UI/UX that hooks users hard.</p>
+          <p>Built a responsive site with HTML, CSS, and JS that hooks users instantly.</p>
         </div>
-        <div class="experience-card left">
+        <div class="experience-card">
           <h5>Web Developer | Gujarat Corporations</h5>
           <p><small>Nov 2023 - Dec 2023</small></p>
-          <p>Built a lean, mean website machine—speed and style on overdrive.</p>
+          <p>Crafted a fast, stylish website that runs like a dream.</p>
         </div>
-        <div class="experience-card right">
+        <div class="experience-card">
           <h5>Intern, UI/UX | Cognifyz Technologies</h5>
           <p><small>Jan 2025 - Feb 2025</small></p>
-          <p>Dove into Figma, crafting designs that break the mold.</p>
+          <p>Designed bold UI/UX prototypes in Figma that push boundaries.</p>
         </div>
       </div>
     </div>
@@ -632,22 +627,22 @@
         <div class="education-card">
           <h5>L.J. University, Ahmedabad</h5>
           <p>Integrated MCA (2022 - 2027)</p>
-          <p>Mastering the art of code and design, one insane project at a time.</p>
+          <p>Honing my craft in code and design with every project.</p>
         </div>
         <div class="education-card">
           <h5>National Institute of Technology, Ahmedabad</h5>
           <p>Diploma in Computer Application & Business Accounting (2022 - 2023)</p>
-          <p>Sharpened my tech edge with a mix of logic and numbers.</p>
+          <p>Blending tech skills with sharp business logic.</p>
         </div>
         <div class="education-card">
           <h5>Ankur School, Ahmedabad</h5>
           <p>HSC</p>
-          <p>Where the hustle began—building the foundation.</p>
+          <p>Where the grind started—building the base.</p>
         </div>
         <div class="education-card">
           <h5>Ankur School, Ahmedabad</h5>
           <p>SSC</p>
-          <p>Early days of dreaming big and breaking rules.</p>
+          <p>Early days of dreaming big and breaking norms.</p>
         </div>
       </div>
     </div>
@@ -656,56 +651,51 @@
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Drop a Wild Idea</h2>
-      <p class="text-center lead">Got a project that needs a crazy designer? Let’s make it epic—hit me up!</p>
-      <form class="form mt-4">
-        <div class="form-group">
-          <input type="text" class="form-control" required placeholder=" " />
-          <span>Name</span>
+      <h2 class="fw-bold text-center">Drop a Bold Idea</h2>
+      <p class="text-center lead">Got a project that needs a visionary touch? Let’s make it legendary.</p>
+      <form class="mt-4">
+        <div class="mb-3">
+          <input type="text" class="form-control" required placeholder="Your Name" />
         </div>
-        <div class="form-group">
-          <input type="email" class="form-control" required placeholder=" " />
-          <span>Email</span>
+        <div class="mb-3">
+          <input type="email" class="form-control" required placeholder="Your Email" />
         </div>
-        <div class="form-group">
-          <textarea class="form-control" rows="4" required placeholder=" "></textarea>
-          <span>Your Crazy Idea</span>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" required placeholder="Your Vision"></textarea>
         </div>
-        <button type="submit" class="fancy w-100">Launch It!</button>
+        <button type="submit" class="fancy w-100">Send It!</button>
       </form>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
   <div class="whatsapp-float" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-    <a href="https://wa.me/919825764333" target="_blank" title="Chat on WhatsApp">
-      <i class="bi bi-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/919825764333" target="_blank" title="Chat on WhatsApp" class="fancy"><i class="bi bi-whatsapp"></i></a>
   </div>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="btn btn-primary rounded-circle">
+  <button id="back-to-top" class="btn rounded-circle">
     <i class="bi bi-arrow-up"></i>
   </button>
 
   <!-- Exit Intent Popup -->
   <div id="exitPopup" class="popup" style="display: none;">
     <div class="popup-content">
-      <h3>Leaving So Soon?</h3>
-      <p>Don’t bail yet—let’s cook up something insane for your business!</p>
-      <button id="stayBtn" class="fancy">Stay & Create</button>
+      <h3>Hold Up!</h3>
+      <p>Don’t leave yet—let’s create something epic together!</p>
+      <button id="stayBtn" class="fancy">Stay & Build</button>
       <button id="exitBtn" class="fancy">Exit Anyway</button>
     </div>
   </div>
 
   <!-- Footer with Quotes -->
-  <footer class="text-center py-4">
+  <footer class="text-center">
     <div id="quote-container">
-      <div class="quote">"Ideas are chaos—let’s tame them into brilliance."</div>
-      <div class="quote">"Designs that don’t grab attention don’t exist."</div>
-      <div class="quote">"Code’s my weapon—users are my target."</div>
-      <div class="quote">"Your business needs a spark? I’ve got the fire."</div>
-      <div class="quote">"Let’s break the mold and build the future."</div>
+      <div class="quote">"Ideas are raw—let’s sculpt them into brilliance."</div>
+      <div class="quote">"Designs that don’t pop don’t matter."</div>
+      <div class="quote">"Code is my canvas, users my muse."</div>
+      <div class="quote">"Need a spark? I bring the blaze."</div>
+      <div class="quote">"Let’s shatter norms and shape tomorrow."</div>
     </div>
     © 2025 Nazeer Mukhasam. All rights reserved.
   </footer>
@@ -731,12 +721,12 @@
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY;
       const hero = document.querySelector('.hero-section');
-      hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      hero.style.backgroundPositionY = `${scrollPosition * 0.4}px`;
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top + window.scrollY;
         if (scrollPosition > sectionTop - window.innerHeight) {
-          section.style.backgroundPositionY = `${(scrollPosition - sectionTop) * 0.2}px`;
+          section.style.backgroundPositionY = `${(scrollPosition - sectionTop) * 0.15}px`;
         }
       });
     });
@@ -805,7 +795,7 @@
       score += 1;
       scoreDisplay.textContent = `Score: ${score}`;
       moveTarget();
-      target.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
+      target.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
     });
 
     moveTarget();
