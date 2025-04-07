@@ -16,7 +16,7 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       color: #ffffff;
       overflow-x: hidden;
     }
@@ -130,15 +130,32 @@
       border-radius: 5px;
       color: #ffffff;
       cursor: pointer;
-      padding: 10px 20px;
+      padding: 10px 20 px;
       text-align: center;
       text-decoration: none;
-      transition: all 0 .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .fancy:hover {
       background-color: #ffffff;
       color: #0072ff;
+    }
+
+    .testimonial {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .testimonial p {
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      text-align: right;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -235,7 +252,7 @@
         <li><strong>Web Developer | Gujarat Corporations</strong> (Nov 2023 - Dec 2023)
           <ul>
             <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
-            <li> Improved website performance and enhanced UI/UX for better engagement.</li>
+            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
           </ul>
         </li>
         <li><strong>Intern, UI/UX | Cognifyz Technologies</strong> (January 2025 - February 2025)</li>
@@ -253,6 +270,21 @@
         <li><strong>Ankur School, Ahmedabad</strong> - HSC</li>
         <li><strong>Ankur School, Ahmedabad</strong> - SSC</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="fw-bold text-center">What People Say</h2>
+      <div class="testimonial">
+        <p>"Nazeer is a fantastic developer! His attention to detail and creativity made our project a success."</p>
+        <div class="testimonial-author">- Client Name</div>
+      </div>
+      <div class="testimonial">
+        <p>"Working with Nazeer was a pleasure. He delivered high-quality work on time and exceeded our expectations."</p>
+        <div class="testimonial-author">- Another Client</div>
+      </div>
     </div>
   </section>
 
