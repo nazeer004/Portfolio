@@ -16,7 +16,7 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       color: #ffffff;
       overflow-x: hidden;
     }
@@ -60,6 +60,12 @@
       border-radius: 10px;
       margin: 20px 0;
       backdrop-filter: blur(10px);
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .skills {
@@ -76,10 +82,14 @@
       text-align: center;
       margin-bottom: 20px;
       transition: transform 0.3s;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
     }
 
     .skill:hover {
       transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     footer {
@@ -123,12 +133,12 @@
       padding: 10px 20px;
       text-align: center;
       text-decoration: none;
-      transition: all 0.3s ease-in-out;
+      transition: all 0 .3s ease-in-out;
     }
 
     .fancy:hover {
       background-color: #ffffff;
-      color: #2575fc;
+      color: #0072ff;
     }
   </style>
 </head>
@@ -138,7 +148,7 @@
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">Nazeer Mukhasam</a>
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class=" navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
@@ -225,7 +235,7 @@
         <li><strong>Web Developer | Gujarat Corporations</strong> (Nov 2023 - Dec 2023)
           <ul>
             <li>Developed responsive website using HTML, CSS, and JavaScript.</li>
-            <li>Improved website performance and enhanced UI/UX for better engagement.</li>
+            <li> Improved website performance and enhanced UI/UX for better engagement.</li>
           </ul>
         </li>
         <li><strong>Intern, UI/UX | Cognifyz Technologies</strong> (January 2025 - February 2025)</li>
