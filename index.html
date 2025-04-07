@@ -6,7 +6,7 @@
   <title>Nazeer Mukhasam | Portfolio</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,12 +15,13 @@
   <!-- Custom Styles -->
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       background: linear-gradient(135deg, #1e2a44, #2d2d2d), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGD4z8DAwMgABXAGNgGwSHe/bEAgGDA2NjAwMAQIArlgQ9gAAAABJRU5ErkJggg==');
       color: #f0f0f0;
       overflow-x: hidden;
       position: relative;
       background-blend-mode: overlay;
+      line-height: 1.6; /* Improved readability */
     }
 
     .navbar {
@@ -36,6 +37,7 @@
     .navbar-brand, .nav-link {
       color: #f0f0f0 !important;
       font-weight: 600;
+      font-size: 1.1rem; /* Slightly larger for clarity */
     }
 
     .hero-section {
@@ -122,7 +124,7 @@
     }
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem; /* Larger for emphasis */
       color: #00ccff;
       font-weight: 700;
       margin-bottom: 30px;
@@ -136,6 +138,11 @@
       height: 4px;
       background: linear-gradient(to right, #00ccff, #ff9500);
       margin: 10px auto;
+    }
+
+    .lead {
+      font-size: 1.2rem; /* Slightly larger for readability */
+      font-weight: 400;
     }
 
     .skills-grid {
@@ -182,17 +189,17 @@
       background: #00ccff;
       top: 0;
       bottom: 0;
-      left: 30px; /* Fixed left position for all screens */
+      left: 30px;
     }
 
     .experience-card {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
       border-radius: 15px;
-      margin: 20px 0 20px 60px; /* Offset from timeline */
+      margin: 20px 0 20px 60px;
       position: relative;
-      width: calc(100% - 80px); /* Full width minus offset */
-      max-width: 600px; /* Cap width for larger screens */
+      width: calc(100% - 80px);
+      max-width: 600px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-sizing: border-box;
@@ -212,7 +219,7 @@
       background: #ff9500;
       border-radius: 50%;
       top: 50%;
-      left: -45px; /* Positioned to right of timeline */
+      left: -45px;
       transform: translateY(-50%);
       box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
     }
@@ -265,6 +272,7 @@
       padding: 12px 25px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
@@ -301,6 +309,7 @@
       background: rgba(255, 255, 255, 0.05);
       color: #f0f0f0;
       border-radius: 10px;
+      font-size: 1rem;
     }
 
     .form-control:focus {
@@ -407,13 +416,16 @@
         height: 30px;
       }
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 2.2rem;
       }
       .lead {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .experience-card {
-        width: calc(100% - 70px); /* Slightly tighter */
+        width: calc(100% - 70px);
         margin: 15px 0 15px 50px;
         padding: 15px;
       }
@@ -445,14 +457,17 @@
         height: 25px;
       }
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.8rem;
       }
       .lead {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
       .fancy {
         padding: 10px 20px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
       .education-grid {
         grid-template-columns: 1fr;
@@ -471,10 +486,10 @@
         height: 12px;
       }
       h5 {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .experience-card p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -510,7 +525,7 @@
     <div class="hero-card">
       <img src="my-profile-img.png" class="rounded-circle mb-3" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
-      <p class="lead">Turning wild ideas into stunning digital realities.</p>
+      <p class="lead">I create websites and designs that people love to use.</p>
       <a href="#experience" class="fancy mb-3"><i class="bi bi-eye"></i> View My Work</a>
       <div id="game-area">
         <div id="target"></div>
@@ -522,15 +537,15 @@
   <!-- About Section -->
   <section id="about" class="section text-center">
     <div class="container">
-      <h2 class="fw-bold">Who Am I?</h2>
-      <p class="lead">I’m a Web Developer and UI/UX Designer obsessed with crafting bold, user-centric experiences. Let’s turn your vision into something extraordinary.</p>
+      <h2 class="fw-bold">About Me</h2>
+      <p class="lead">I’m a Web Developer and Designer who builds easy-to-use, beautiful websites. I love turning ideas into real solutions that make a difference.</p>
     </div>
   </section>
 
   <!-- Skills Section -->
   <section id="skills" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Skill Arsenal</h2>
+      <h2 class="fw-bold text-center">My Skills</h2>
       <div class="skills-grid">
         <div class="skill-card">
           <h5>HTML5</h5>
@@ -593,27 +608,27 @@
   <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Battle Stories</h2>
+      <h2 class="fw-bold text-center">My Experience</h2>
       <div class="timeline">
         <div class="experience-card">
           <h5>Web Developer | M&M Retail</h5>
           <p><small>May 2024 - June 2024</small></p>
-          <p>Slashed inventory errors by 30% with a slick Laravel stock system.</p>
+          <p>Improved an inventory system using Laravel, reducing errors by 30%.</p>
         </div>
         <div class="experience-card">
           <h5>Web Developer | Muskan Engineering Works</h5>
           <p><small>Sep 2024 - Oct 2024</small></p>
-          <p>Built a responsive site with HTML, CSS, and JS that hooks users instantly.</p>
+          <p>Created a user-friendly website with HTML, CSS, and JavaScript.</p>
         </div>
         <div class="experience-card">
           <h5>Web Developer | Gujarat Corporations</h5>
           <p><small>Nov 2023 - Dec 2023</small></p>
-          <p>Crafted a fast, stylish website that runs like a dream.</p>
+          <p>Built a fast and stylish website for better user experience.</p>
         </div>
         <div class="experience-card">
-          <h5>Intern, UI/UX | Cognifyz Technologies</h5>
+          <h5>UI/UX Intern | Cognifyz Technologies</h5>
           <p><small>Jan 2025 - Feb 2025</small></p>
-          <p>Designed bold UI/UX prototypes in Figma that push boundaries.</p>
+          <p>Designed creative website layouts using Figma.</p>
         </div>
       </div>
     </div>
@@ -622,27 +637,27 @@
   <!-- Education Section -->
   <section id="education" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Brain Forge</h2>
+      <h2 class="fw-bold text-center">Education</h2>
       <div class="education-grid">
         <div class="education-card">
           <h5>L.J. University, Ahmedabad</h5>
           <p>Integrated MCA (2022 - 2027)</p>
-          <p>Honing my craft in code and design with every project.</p>
+          <p>Learning web development and design through hands-on projects.</p>
         </div>
         <div class="education-card">
           <h5>National Institute of Technology, Ahmedabad</h5>
           <p>Diploma in Computer Application & Business Accounting (2022 - 2023)</p>
-          <p>Blending tech skills with sharp business logic.</p>
+          <p>Gained skills in technology and business basics.</p>
         </div>
         <div class="education-card">
           <h5>Ankur School, Ahmedabad</h5>
           <p>HSC</p>
-          <p>Where the grind started—building the base.</p>
+          <p>Completed high school with a strong foundation.</p>
         </div>
         <div class="education-card">
           <h5>Ankur School, Ahmedabad</h5>
           <p>SSC</p>
-          <p>Early days of dreaming big and breaking norms.</p>
+          <p>Started my journey with a focus on learning.</p>
         </div>
       </div>
     </div>
@@ -651,8 +666,8 @@
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Drop a Bold Idea</h2>
-      <p class="text-center lead">Got a project that needs a visionary touch? Let’s make it legendary.</p>
+      <h2 class="fw-bold text-center">Get in Touch</h2>
+      <p class="text-center lead">Have a project idea? Let’s work together to make it happen.</p>
       <form class="mt-4">
         <div class="mb-3">
           <input type="text" class="form-control" required placeholder="Your Name" />
@@ -661,9 +676,9 @@
           <input type="email" class="form-control" required placeholder="Your Email" />
         </div>
         <div class="mb-3">
-          <textarea class="form-control" rows="4" required placeholder="Your Vision"></textarea>
+          <textarea class="form-control" rows="4" required placeholder="Your Message"></textarea>
         </div>
-        <button type="submit" class="fancy w-100">Send It!</button>
+        <button type="submit" class="fancy w-100">Send Message</button>
       </form>
     </div>
   </section>
@@ -681,21 +696,21 @@
   <!-- Exit Intent Popup -->
   <div id="exitPopup" class="popup" style="display: none;">
     <div class="popup-content">
-      <h3>Hold Up!</h3>
-      <p>Don’t leave yet—let’s create something epic together!</p>
-      <button id="stayBtn" class="fancy">Stay & Build</button>
-      <button id="exitBtn" class="fancy">Exit Anyway</button>
+      <h3>Wait a Second!</h3>
+      <p>Before you go, let’s talk about your next big project!</p>
+      <button id="stayBtn" class="fancy">Stay & Chat</button>
+      <button id="exitBtn" class="fancy">Leave Anyway</button>
     </div>
   </div>
 
   <!-- Footer with Quotes -->
   <footer class="text-center">
     <div id="quote-container">
-      <div class="quote">"Ideas are raw—let’s sculpt them into brilliance."</div>
-      <div class="quote">"Designs that don’t pop don’t matter."</div>
-      <div class="quote">"Code is my canvas, users my muse."</div>
-      <div class="quote">"Need a spark? I bring the blaze."</div>
-      <div class="quote">"Let’s shatter norms and shape tomorrow."</div>
+      <div class="quote">"Great ideas deserve great solutions."</div>
+      <div class="quote">"I design websites that work for everyone."</div>
+      <div class="quote">"Simple code, big impact."</div>
+      <div class="quote">"Let’s bring your vision to life."</div>
+      <div class="quote">"Building the future, one project at a time."</div>
     </div>
     © 2025 Nazeer Mukhasam. All rights reserved.
   </footer>
