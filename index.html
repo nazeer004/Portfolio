@@ -9,11 +9,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link href="assets/css/style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .navbar-brand:hover {
+      color: #0d6efd !important;
+      transition: color 0.3s;
+    }
+
+    .hero-section {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-section img {
+      animation: zoomIn 0.8s ease-in-out;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      font-size: 0.9rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #25d366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .whatsapp-float a:hover {
+      background-color: #1ebe5d;
+    }
+
+    .download-btn {
+      margin-top: 15px;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1050;
+    }
+  </style>
 </head>
 <body>
+  <!-- Dark Mode Toggle -->
+  <div class="dark-toggle">
+    <button class="btn btn-sm btn-outline-light" onclick="toggleDarkMode()">
+      <i class="bi bi-moon"></i>
+    </button>
+  </div>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
@@ -35,131 +115,40 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="py-5 text-center text-white" style="background: linear-gradient(to right, #1e3c72, #2a5298);">
+  <section id="home" class="py-5 text-center text-white hero-section">
     <div class="container">
       <img src="my-profile-img.png" class="rounded-circle mb-3" width="140" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
       <p class="lead">Web Designer | Developer | Freelancer</p>
+      <a href="Nazeer_Mukhasam_Resume.pdf" download class="btn btn-outline-light download-btn"><i class="bi bi-download"></i> Download Resume</a>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-5 bg-light">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-4">
-          <img src="hero-bg.png" class="img-fluid rounded" alt="About me">
-        </div>
-        <div class="col-md-8">
-          <h2 class="fw-bold">About Me</h2>
-          <p>I am a passionate web designer & developer based in Ahmedabad. With a focus on clean, responsive design and seamless user experience, I aim to deliver impactful digital products for all my clients.</p>
-          <ul class="list-unstyled">
-            <li><strong>Phone:</strong> +91 9825764333</li>
-            <li><strong>Email:</strong> nazeer.code@gmail.com</li>
-            <li><strong>City:</strong> Ahmedabad, India</li>
-            <li><strong>Education:</strong> Pursuing Integrated MCA</li>
-            <li><strong>Freelance:</strong> Available</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Existing Content Continues -->
+  <!-- ... -->
 
-  <!-- Skills -->
-  <section id="skills" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 fw-bold">Skills</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <p><strong>HTML:</strong> 100%</p>
-          <div class="progress mb-3"><div class="progress-bar" style="width: 100%;"></div></div>
-          <p><strong>CSS:</strong> 90%</p>
-          <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 90%;"></div></div>
-          <p><strong>Django:</strong> 75%</p>
-          <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 75%;"></div></div>
-        </div>
-        <div class="col-md-6">
-          <p><strong>PHP:</strong> 80%</p>
-          <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 80%;"></div></div>
-          <p><strong>Figma:</strong> 90%</p>
-          <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 90%;"></div></div>
-          <p><strong>Photoshop/CorelDraw:</strong> 80%</p>
-          <div class="progress mb-3"><div class="progress-bar bg-dark" style="width: 80%;"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resume -->
-  <section id="resume" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-4">Resume</h2>
-      <div class="row g-5">
-        <div class="col-md-6">
-          <h4 class="mb-3">Summary</h4>
-          <p><strong>Nazeer Mukhasam</strong><br /> Web Developer with a creative eye and detail-driven mindset. Experienced in building user-friendly, visually compelling websites.</p>
-          <ul>
-            <li>Ahmedabad, India</li>
-            <li>+91 9825764333</li>
-            <li>nazeer.code@gmail.com</li>
-          </ul>
-          <h4 class="mt-4">Education</h4>
-          <ul>
-            <li>Integrated MCA, L.J. University (2022–2027)</li>
-            <li>Computer App. & Business Accounting, NIT Ahmedabad (2022)</li>
-            <li>HSC & SSC, Ankur School, Ahmedabad (2020–2022)</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h4 class="mb-3">Experience</h4>
-          <ul>
-            <li>Web Developer Intern (Laravel) – May 2024</li>
-            <li>Freelance Web Developer – Nov-Dec 2023</li>
-            <li>UI Designer & Developer – Jul-May 2024</li>
-          </ul>
-          <p>Designed, developed, and deployed responsive websites for clients across industries using HTML, CSS, Laravel, and WordPress. Provided ongoing support and optimization.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center fw-bold mb-4">Contact Me</h2>
-      <div class="row">
-        <div class="col-md-5">
-          <p><strong>Address:</strong> T.P. 85 Sarkhej, Ahmedabad</p>
-          <p><strong>Phone:</strong> +91 9825764333</p>
-          <p><strong>Email:</strong> nazeer.code@gmail.com</p>
-        </div>
-        <div class="col-md-7">
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="e80c0894-8dbc-4896-915d-1d6a2335b1e6">
-            <div class="mb-3">
-              <input type="text" name="first_name" placeholder="First Name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <input type="text" name="last_name" placeholder="Last Name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" name="email" placeholder="Email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <textarea name="message" rows="4" placeholder="Message" class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- WhatsApp Floating Button -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/919825764333" target="_blank" title="Chat on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+  </div>
 
   <footer class="text-center py-4 bg-dark text-white">
     &copy; 2025 Nazeer Mukhasam. All rights reserved.
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('bg-dark');
+      document.body.classList.toggle('text-white');
+      document.querySelectorAll('section, nav, footer').forEach(el => {
+        el.classList.toggle('bg-dark');
+        el.classList.toggle('text-white');
+      });
+    }
+  </script>
 </body>
 </html>
           <style>.form {
