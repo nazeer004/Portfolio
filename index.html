@@ -1,412 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Nzeer Mukhasam</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nazeer Mukhasam | Portfolio</title>
 
-  <!-- Favicons -->
-  <link href="nazeer.png" rel="icon">
-  <link href="nazeer2.png" rel="apple-touch-icon">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="./assets/css/main.css" rel="stylesheet">
-
- 
+  <!-- Stylesheets -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+<body>
 
-<body class="index-page">
-
-  <header id="header" class="header d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-
-    <div class="profile-img">
-      <img src="my-profile-img.png" alt="" class="img-fluid rounded-circle">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Nazeer Mukhasam</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Nazeer Mukhasam</h1>
-    </a>
-
-    <div class="social-links text-center">
-      
-      
-      
-      <a href="https://wa.me/9825764333" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-      <a href="tel:+91 9825764333" class="phone"><i class="bi bi-phone "></i></a>
-      <a href="mailto:nmukhasam@gmail.com" class="email"><i class="bi bi-envelope "></i></a>
-  
+  <!-- Hero Section -->
+  <section id="home" class="py-5 text-center text-white" style="background: linear-gradient(to right, #1e3c72, #2a5298);">
+    <div class="container">
+      <img src="my-profile-img.png" class="rounded-circle mb-3" width="140" alt="Profile">
+      <h1 class="fw-bold">Nazeer Mukhasam</h1>
+      <p class="lead">Web Designer | Developer | Freelancer</p>
     </div>
+  </section>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <!-- <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li> -->
-        
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <img src="hero-bg.png" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Nazeer Mukhasam</h2>
-        <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="hero-bg.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Web Designer &amp; Web Developer.</h2>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 9825764333</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>AHMEDABAD, INDIA</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Pursing Integrated MCA</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>nmukhasam@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          </div>
+  <!-- About -->
+  <section id="about" class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-4">
+          <img src="hero-bg.png" class="img-fluid rounded" alt="About me">
         </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> </p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-       
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Django</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Figma</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Photoshop/Coreldraw</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
+        <div class="col-md-8">
+          <h2 class="fw-bold">About Me</h2>
+          <p>I am a passionate web designer & developer based in Ahmedabad. With a focus on clean, responsive design and seamless user experience, I aim to deliver impactful digital products for all my clients.</p>
+          <ul class="list-unstyled">
+            <li><strong>Phone:</strong> +91 9825764333</li>
+            <li><strong>Email:</strong> nazeer.code@gmail.com</li>
+            <li><strong>City:</strong> Ahmedabad, India</li>
+            <li><strong>Education:</strong> Pursuing Integrated MCA</li>
+            <li><strong>Freelance:</strong> Available</li>
+          </ul>
         </div>
-
       </div>
+    </div>
+  </section>
 
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
-
-            <div class="resume-item pb-0">
-              <h4>Nazeer Mukhasam </h4>
-              <p><em>Innovative and deadline-driven web developer 3 months of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-              <ul>
-                <li>AHMEDABAD</li>
-                <li>+91 9825764333</li>
-                <li>nmukhasam@gmail.com</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-
-
-              <h4>Pursing integrated MCA</h4>
-              <h5>2022 - 2027</h5>
-              <p><em>L.J. University, AHMEDABAD</em></p>		
-
-<h4>computer application ,business accounting</h4>
-              <h5>2022</h5>
-              <p><em>National Institue of technology and information technology, AHMEDABAD</em></p>
-              <br>              
-
-		<h4>HSC</h4>
-              <h5>2022</h5>
-              <p><em>Ankur School, AHMEDABAD</em></p>
-              <br>
-
-              <h4>SSC</h4>
-              <h5>2020</h5>
-              <p><em>Ankur School, AHMEDABAD</em></p>
-              <br>
-
-              
-            </div><!-- Edn Resume Item -->
-
-
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title"> Experience</h3>
-            <div class="resume-item">
-              <h4>web developer</h4>
-              <h5>November 2023- December 2023</h5>
-              <p><em> AHMEDABAD </em></p>
-              <ul>
-                <li>created responsive and modern website designs for client</li>
-                <li>provided excellent technical support to client </li>
-                <li>advised client on optimal design choices for user experience.</li>
-                <li>maintained and updated website for client to ensure quality and responsiveness</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            
-            <div class="resume-item">
-              <h4>web developer</h4>
-              <h5>November 2023- December 2023</h5>
-              <p><em> AHMEDABAD </em></p>
-              <ul>
-                <li>created responsive and modern website designs for client</li>
-                <li>provided excellent technical support to client </li>
-                <li>advised client on optimal design choices for user experience.</li>
-                <li>maintained and updated website for client to ensure quality and responsiveness</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>web developer</h4>
-              <h5>2nd may 2024-29th may 2024</h5>
-              <p><em>AHMEDABAD</em></p>
-              <ul>
-                <li>created stock management in laravel.</li>
-                <li>ensured client service excellence and collected regular feedback</li>
-                <li>designed responsive and efficient website design for client</li>
-                <li>provided excellent support and expertise to client </li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>web developer</h4>
-              <h5>26 jul 2024 - 3th may 2024</h5>
-              <p><em>AHMEDABAD</em></p>
-              <ul>
-                <li>created responsive and modern website designs for client</li>
-                <li>ensured client service excellence and collected regular feedback</li>
-                <li>designed responsive and efficient website design for client</li>
-                <li>provided excellent support and expertise to client </li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-
-          </div>
-
+  <!-- Skills -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Skills</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>HTML:</strong> 100%</p>
+          <div class="progress mb-3"><div class="progress-bar" style="width: 100%;"></div></div>
+          <p><strong>CSS:</strong> 90%</p>
+          <div class="progress mb-3"><div class="progress-bar bg-success" style="width: 90%;"></div></div>
+          <p><strong>Django:</strong> 75%</p>
+          <div class="progress mb-3"><div class="progress-bar bg-info" style="width: 75%;"></div></div>
         </div>
-
+        <div class="col-md-6">
+          <p><strong>PHP:</strong> 80%</p>
+          <div class="progress mb-3"><div class="progress-bar bg-warning" style="width: 80%;"></div></div>
+          <p><strong>Figma:</strong> 90%</p>
+          <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 90%;"></div></div>
+          <p><strong>Photoshop/CorelDraw:</strong> 80%</p>
+          <div class="progress mb-3"><div class="progress-bar bg-dark" style="width: 80%;"></div></div>
+        </div>
       </div>
+    </div>
+  </section>
 
-    </section><!-- /Resume Section -->
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+  <!-- Resume -->
+  <section id="resume" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Resume</h2>
+      <div class="row g-5">
+        <div class="col-md-6">
+          <h4 class="mb-3">Summary</h4>
+          <p><strong>Nazeer Mukhasam</strong><br /> Web Developer with a creative eye and detail-driven mindset. Experienced in building user-friendly, visually compelling websites.</p>
+          <ul>
+            <li>Ahmedabad, India</li>
+            <li>+91 9825764333</li>
+            <li>nazeer.code@gmail.com</li>
+          </ul>
+          <h4 class="mt-4">Education</h4>
+          <ul>
+            <li>Integrated MCA, L.J. University (2022–2027)</li>
+            <li>Computer App. & Business Accounting, NIT Ahmedabad (2022)</li>
+            <li>HSC & SSC, Ankur School, Ahmedabad (2020–2022)</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4 class="mb-3">Experience</h4>
+          <ul>
+            <li>Web Developer Intern (Laravel) – May 2024</li>
+            <li>Freelance Web Developer – Nov-Dec 2023</li>
+            <li>UI Designer & Developer – Jul-May 2024</li>
+          </ul>
+          <p>Designed, developed, and deployed responsive websites for clients across industries using HTML, CSS, Laravel, and WordPress. Provided ongoing support and optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact Me</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>T.P. 85 Sarkhej, AHMEDABAD</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call me</h3>
-                  <p>+91 9825764333</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Me</h3>
-                  <p>nmukhasam@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-             
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Contact Me</h2>
+      <div class="row">
+        <div class="col-md-5">
+          <p><strong>Address:</strong> T.P. 85 Sarkhej, Ahmedabad</p>
+          <p><strong>Phone:</strong> +91 9825764333</p>
+          <p><strong>Email:</strong> nazeer.code@gmail.com</p>
+        </div>
+        <div class="col-md-7">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="e80c0894-8dbc-4896-915d-1d6a2335b1e6">
+            <div class="mb-3">
+              <input type="text" name="first_name" placeholder="First Name" class="form-control" required>
             </div>
-          </div>
+            <div class="mb-3">
+              <input type="text" name="last_name" placeholder="Last Name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" placeholder="Email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <textarea name="message" rows="4" placeholder="Message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="col-lg-7">
-            <form action="https://api.web3forms.com/submit" method="POST" class="form">
-    
-              <div class="flex">
-                  <label>
-                    <input type="hidden" name="access_key" value="e80c0894-8dbc-4896-915d-1d6a2335b1e6">
-                      <input required="first_name" placeholder="" type="text" name="first name" class="input">
-                      <span>first name</span>
-                  </label>
-          
-                  <label>
-                      <input required="last_name" placeholder="" type="text" name="last name" class="input">
-                      <span>last name</span>
-                  </label>
-              </div>  
-                      
-              <label>
-                  <input required="email" placeholder="" type="email" name="Email" class="input">
-                  <span>email</span>
-              </label> 
-                  
-               <label>
-                  <textarea required="" rows="3" placeholder="" name="message" class="input01"></textarea>
-                  <span>message</span>
-              </label>
-              
-              <button class="fancy" href="#">
-                <span class="top-key"></span>
-                <span class="text">submit</span>
-                <span class="bottom-key-1"></span>
-                <span class="bottom-key-2"></span>
-              </button>
+  <footer class="text-center py-4 bg-dark text-white">
+    &copy; 2025 Nazeer Mukhasam. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
           </form>         
           <style>.form {
             display: flex;
