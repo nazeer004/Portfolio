@@ -42,7 +42,6 @@
       50% { opacity: 0.2; }
     }
 
-    /* Progress Tracker */
     .progress-tracker {
       position: fixed;
       top: 0;
@@ -54,7 +53,6 @@
       transition: width 0.3s ease;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 20px;
@@ -85,7 +83,6 @@
       box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
     }
 
-    /* Cursor Ring */
     .cursor-ring {
       position: fixed;
       width: 60px;
@@ -126,7 +123,6 @@
       display: block;
     }
 
-    /* Hero Section */
     .hero-section {
       min-height: 100vh;
       display: flex;
@@ -186,7 +182,6 @@
       margin-top: 10px;
     }
 
-    /* Sections */
     .section {
       min-height: 100vh;
       display: flex;
@@ -226,7 +221,6 @@
       text-align: center;
     }
 
-    /* Skills */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
@@ -279,7 +273,6 @@
       font-weight: 600;
     }
 
-    /* Experience */
     .timeline-3d {
       display: grid;
       gap: 30px;
@@ -294,7 +287,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
-      min-height: 150px; /* Ensure enough space for hover text */
+      min-height: 150px;
     }
 
     .experience-card:hover {
@@ -324,7 +317,6 @@
       bottom: 10px;
     }
 
-    /* Projects */
     .projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -365,7 +357,6 @@
       bottom: 10px;
     }
 
-    /* Education */
     .education-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -411,7 +402,6 @@
       bottom: 10px;
     }
 
-    /* Contact */
     .form-3d {
       position: relative;
     }
@@ -473,7 +463,6 @@
       50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
     }
 
-    /* Sticky Chat Bubble */
     .chat-bubble {
       position: fixed;
       bottom: 80px;
@@ -492,7 +481,6 @@
       transform: scale(1.1);
     }
 
-    /* Popup */
     .popup {
       position: fixed;
       top: 0;
@@ -532,7 +520,6 @@
       pointer-events: none;
     }
 
-    /* Footer */
     footer {
       padding: 40px 0;
       text-align: center;
@@ -550,16 +537,17 @@
       color: #2ECC71;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero-panel { width: 350px; padding: 30px; }
       h2 { font-size: 2.2rem; }
       .panel-3d { padding: 20px; }
       .skill-card { width: 120px; height: 120px; }
       .project-card { width: 150px; }
-      .project-card:hover { width: 150px; } /* Prevent width change on small screens */
+      .project-card:hover { width: 150px; }
       .experience-card, .project-card, .education-card { padding: 15px; min-height: 140px; }
-      .timeline-3Najd, .projects-container, .education-container { gap: 20px; }
+      .timeline-3d, .projects-container, .education-container { gap: 20px; }
+      .chat-bubble { bottom: 100px; }
+      .sticky-cta { bottom: 20px; }
     }
 
     @media (max-width: 576px) {
@@ -573,10 +561,8 @@
   </style>
 </head>
 <body>
-  <!-- Progress Tracker -->
   <div class="progress-tracker" id="progressTracker"></div>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -596,7 +582,6 @@
     </div>
   </nav>
 
-  <!-- Cursor Ring -->
   <div class="cursor-ring" id="cursorRing">
     <div class="tooltip">
       <a href="cheatsheet.pdf" download style="color: #fff; text-decoration: none;">Free Cheat Sheet</a> | 
@@ -604,18 +589,16 @@
     </div>
   </div>
 
-  <!-- Hero Section with Mini-Game -->
   <section id="home" class="hero-section section">
     <div class="hero-panel">
       <h1>Hey, I’m Nazeer!</h1>
       <p>Your Web Dev Partner</p>
       <div class="game-area" id="gameArea"></div>
       <p id="gameScore">Score: 0</p>
-      <p id="gameMessage" style="color: #2ECC71; display: none;">Great job! Share your idea now!</p>
+      <p id="gameMessage" style="color: #2ECC71; display: none;">Great job! Ready to share your idea?</p>
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="section">
     <div class="panel-3d">
       <h2>About Me</h2>
@@ -624,47 +607,19 @@
     </div>
   </section>
 
-  <!-- Skills Section with Quiz -->
   <section id="skills" class="section">
     <div class="panel-3d">
       <h2>Skills for You</h2>
       <div class="skills-container">
-        <div class="skill-card">
-          <h5>HTML5</h5>
-          <span>Better structure for your site</span>
-        </div>
-        <div class="skill-card">
-          <h5>CSS3</h5>
-          <span>Eye-catching designs</span>
-        </div>
-        <div class="skill-card">
-          <h5>JavaScript</h5>
-          <span>Interactive features</span>
-        </div>
-        <div class="skill-card">
-          <h5>Django</h5>
-          <span>Secure, fast backends</span>
-        </div>
-        <div class="skill-card">
-          <h5>Laravel</h5>
-          <span>Streamlined systems</span>
-        </div>
-        <div class="skill-card">
-          <h5>PHP</h5>
-          <span>Custom functionality</span>
-        </div>
-        <div class="skill-card">
-          <h5>MySQL</h5>
-          <span>Reliable data storage</span>
-        </div>
-        <div class="skill-card">
-          <h5>Figma</h5>
-          <span>User-friendly designs</span>
-        </div>
-        <div class="skill-card">
-          <h5>Photoshop</h5>
-          <span>Stunning visuals</span>
-        </div>
+        <div class="skill-card"><h5>HTML5</h5><span>Better structure for your site</span></div>
+        <div class="skill-card"><h5>CSS3</h5><span>Eye-catching designs</span></div>
+        <div class="skill-card"><h5>JavaScript</h5><span>Interactive features</span></div>
+        <div class="skill-card"><h5>Django</h5><span>Secure, fast backends</span></div>
+        <div class="skill-card"><h5>Laravel</h5><span>Streamlined systems</span></div>
+        <div class="skill-card"><h5>PHP</h5><span>Custom functionality</span></div>
+        <div class="skill-card"><h5>MySQL</h5><span>Reliable data storage</span></div>
+        <div class="skill-card"><h5>Figma</h5><span>User-friendly designs</span></div>
+        <div class="skill-card"><h5>Photoshop</h5><span>Stunning visuals</span></div>
       </div>
       <button id="quizBtn" class="fancy mt-3">Which Skill Fits Your Project?</button>
       <div id="skillQuiz">
@@ -677,7 +632,6 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="panel-3d">
       <h2>Experience for You</h2>
@@ -711,7 +665,6 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" class="section">
     <div class="panel-3d">
       <h2>Projects for You</h2>
@@ -736,7 +689,6 @@
     </div>
   </section>
 
-  <!-- Education Section -->
   <section id="education" class="section">
     <div class="panel-3d">
       <h2>Education for You</h2>
@@ -766,7 +718,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="panel-3d">
       <h2>Let’s Build Your Vision</h2>
@@ -786,13 +737,9 @@
     </div>
   </section>
 
-  <!-- Sticky CTA -->
   <a href="#contact" class="sticky-cta fancy"><i class="bi bi-gift"></i> Free Consultation</a>
-
-  <!-- Sticky Chat Bubble -->
   <div class="chat-bubble" id="chatBubble">Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;" class="chat-link">Chat?</a></div>
 
-  <!-- Popup with Spin Game -->
   <div id="exitPopup" class="popup">
     <div class="popup-content">
       <h3 style="color: #4A90E2;">Wait, Spin to Win!</h3>
@@ -805,7 +752,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="social-links">
       <a href="mailto:nmukhasam@gmail.com"><i class="bi bi-envelope"></i></a>
@@ -815,7 +761,6 @@
     <p>© 2025 Nazeer Mukhasam. Your Success is My Goal!</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Smooth Scroll
@@ -837,12 +782,16 @@
     const progressTracker = document.getElementById('progressTracker');
     const totalSections = sections.length;
     const observer = new IntersectionObserver(entries => {
+      let visibleCount = 0;
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          const visibleSections = document.querySelectorAll('.section.visible').length;
-          progressTracker.style.width = `${(visibleSections / totalSections) * 100}%`;
+          visibleCount = document.querySelectorAll('.section.visible').length;
+        } else {
+          entry.target.classList.remove('visible');
+          visibleCount = document.querySelectorAll('.section.visible').length;
         }
+        progressTracker.style.width = `${(visibleCount / totalSections) * 100}%`;
       });
     }, { threshold: 0.3 });
     sections.forEach(section => observer.observe(section));
@@ -856,9 +805,10 @@
       cursorRing.style.top = `${y}px`;
     });
 
-    // Hero Mini-Game with Collision Prevention
+    // Hero Mini-Game
     const gameArea = document.getElementById('gameArea');
     let score = 0;
+    let lastClickTime = Date.now();
     function getRandomPosition(existingPositions) {
       let x, y, overlap;
       do {
@@ -883,29 +833,34 @@
 
       sphere.addEventListener('click', () => {
         score++;
+        lastClickTime = Date.now();
         document.getElementById('gameScore').textContent = `Score: ${score}`;
         const index = activeSpheres.findIndex(p => p.x === pos.x && p.y === pos.y);
         if (index !== -1) activeSpheres.splice(index, 1);
         sphere.remove();
         if (score >= 5) {
           document.getElementById('gameMessage').style.display = 'block';
-          setTimeout(() => smoothScroll('#contact'), 2000);
+          setTimeout(() => {
+            if (Date.now() - lastClickTime >= 2000 && confirm('Ready to share your idea?')) {
+              smoothScroll('#contact');
+            }
+          }, 2000);
         }
         spawnSphere();
       });
 
       setTimeout(() => {
-        if (sphere.parentNode) {
+        if (sphere.parentNode && !sphere.clicked) {
           const index = activeSpheres.findIndex(p => p.x === pos.x && p.y === pos.y);
           if (index !== -1) activeSpheres.splice(index, 1);
           sphere.remove();
           spawnSphere();
         }
-      }, 2000);
+      }, 3000);
     }
     for (let i = 0; i < 3; i++) spawnSphere();
 
-    // Skill Quiz with Reset
+    // Skill Quiz
     const quizBtn = document.getElementById('quizBtn');
     const skillQuiz = document.getElementById('skillQuiz');
     const quizReset = document.getElementById('quizReset');
@@ -943,6 +898,13 @@
       tipIndex = (tipIndex + 1) % tips.length;
       chatBubble.innerHTML = tips[tipIndex];
     }, 5000);
+
+    // Contact Form Feedback
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thanks for reaching out! I’ll get back to you soon.');
+      e.target.reset();
+    });
 
     // Exit Popup with Spin Game
     let timeSpent = 0;
