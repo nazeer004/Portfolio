@@ -940,7 +940,7 @@
       <p id="popupMessage">Spin for a freebie before you go!</p>
       <div class="spin-wheel" id="spinWheel" role="button" aria-label="Spin the wheel"></div>
       <p id="spinResult" style="color: #2ECC71;"></p>
-      <a href="Flat_40.pdf" download="Flat_40.pdf" class="fancy" id="downloadBtn" style="display: none;">Special Discount Coupon</a>
+      <a href="../clients/Flat_40.pdf" download="" class="fancy" id="downloadBtn" style="display: none;" target="_blank";>Special Discount Coupon</a>
       <a href="#contact" class="fancy mt-3" id="chatBtn" style="display: none;">Claim Free Chat</a>
       <button id="exitBtn" class="fancy mt-3">Exit</button>
     </div>
@@ -1176,7 +1176,7 @@
         const result = randomDeg % 360 < 120 ? 'Free Chat' : randomDeg % 360 < 240 ? 'Special Discount' : 'Try Again!';
         document.getElementById('spinResult').textContent = `You won: ${result}`;
         if (result === 'Free Chat') document.getElementById('chatBtn').style.display = 'inline-block';
-        else if (result === 'Special Discount') document.getElementById('downloadBtn').style.display = 'inline-block';
+        else if (result === 'Special Discount')  document.getElementById('downloadBtn').style.display = 'inline-block';
         isSpinning = false;
         spinWheel.classList.remove('spinning');
       }, 2000);
