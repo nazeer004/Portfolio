@@ -319,8 +319,8 @@
 
     .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
       justify-content: center;
     }
 
@@ -332,29 +332,34 @@
       padding: 20px;
       position: relative;
       overflow: hidden;
-      min-height: 120px;
+      min-height: 140px;
     }
 
     .project-card:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
-      z-index: 10;
+      z-index: 20;
     }
 
     .project-card .benefit {
       position: absolute;
-      bottom: -30px;
+      bottom: -40px;
       left: 50%;
       transform: translateX(-50%);
-      margin-top: 10px;
+      background: rgba(46, 204, 113, 0.9);
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: #FFFFFF;
       opacity: 0;
       transition: opacity 0.3s ease, bottom 0.3s ease;
-      z-index: 15;
+      z-index: 25;
     }
 
     .project-card:hover .benefit {
       opacity: 1;
-      bottom: 10px;
+      bottom: 15px;
     }
 
     .education-container {
@@ -542,10 +547,11 @@
       h2 { font-size: 2.2rem; }
       .panel-3d { padding: 20px; }
       .skill-card { width: 120px; height: 120px; }
-      .project-card { width: 150px; }
-      .project-card:hover { width: 150px; }
-      .experience-card, .project-card, .education-card { padding: 15px; min-height: 140px; }
-      .timeline-3d, .projects-container, .education-container { gap: 20px; }
+      .project-card { min-height: 150px; padding: 15px; }
+      .projects-container { gap: 30px; }
+      .project-card .benefit { font-size: 0.75rem; padding: 6px 12px; }
+      .experience-card, .education-card { padding: 15px; min-height: 140px; }
+      .timeline-3d, .education-container { gap: 20px; }
       .chat-bubble { bottom: 100px; }
       .sticky-cta { bottom: 20px; }
     }
@@ -556,7 +562,9 @@
       .nav-link { font-size: 1rem; padding: 8px 15px; }
       .fancy { padding: 10px 20px; font-size: 0.9rem; }
       .cursor-ring { width: 40px; height: 40px; }
-      .experience-card .benefit, .project-card .benefit, .education-card .benefit { font-size: 0.7rem; }
+      .projects-container { gap: 20px; }
+      .project-card .benefit { font-size: 0.7rem; }
+      .experience-card .benefit, .education-card .benefit { font-size: 0.7rem; }
     }
   </style>
 </head>
