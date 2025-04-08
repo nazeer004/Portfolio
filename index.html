@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nazeer Mukhasam | Portfolio</title>
+  <title>Nazeer Mukhasam | Your Web Dev Partner</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,504 +16,567 @@
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #1e2a44, #2d2d2d);
-      color: #ffffff;
+      background: linear-gradient(135deg, #F5F7FA, #DDE5F4);
+      color: #333333;
+      margin: 0;
+      padding: 0;
       overflow-x: hidden;
-      position: relative;
-      line-height: 1.6;
+      height: 100vh;
     }
 
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="#4A90E2"/><circle cx="90" cy="20" r="1" fill="#4A90E2"/><circle cx="50" cy="80" r="1" fill="#4A90E2"/><circle cx="30" cy="50" r="1" fill="#4A90E2"/><circle cx="70" cy="70" r="1" fill="#4A90E2"/></svg>');
+      opacity: 0.1;
+      z-index: -1;
+      animation: twinkle 5s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* Progress Tracker */
+    .progress-tracker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background: #2ECC71;
+      z-index: 2000;
+      transition: width 0.3s ease;
+    }
+
+    /* Navbar */
     .navbar {
-      background: rgba(30, 42, 68, 0.95);
-      transition: background-color 0.3s;
+      position: fixed;
+      top: 20px;
+      width: 100%;
       z-index: 1000;
     }
 
-    .navbar.scrolled {
-      background: rgba(30, 42, 68, 1);
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
-    .navbar-brand, .nav-link {
-      color: #ffffff !important;
+    .nav-link {
+      color: #4A90E2 !important;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      background: rgba(245, 247, 250, 0.9);
+      border-radius: 10px;
+      margin: 0 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .nav-link:hover {
+      transform: scale(1.05);
+      color: #2ECC71 !important;
+      box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+    }
+
+    /* Cursor Ring */
+    .cursor-ring {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      border: 3px solid #4A90E2;
+      border-radius: 50%;
+      z-index: 1000;
+      pointer-events: none;
+      transition: transform 0.1s ease, border-color 0.3s ease;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cursor-ring:hover {
+      border-color: #2ECC71;
+    }
+
+    .cursor-ring .tooltip {
+      display: none;
+      position: absolute;
+      left: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(74, 144, 226, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      pointer-events: auto;
+      color: #FFFFFF;
+    }
+
+    .cursor-ring:hover .tooltip {
+      display: block;
+    }
+
+    /* Hero Section */
     .hero-section {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       position: relative;
-      background: linear-gradient(135deg, #00ccff, #ff6f61, #ff9500);
-      background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
-      padding: 20px;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      padding: 50px;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 1s ease-in;
-    }
-
-    .hero-section img {
-      border: 5px solid #ff6f61;
-      border-radius: 50%;
-      width: 150px;
-      max-width: 100%;
-      box-shadow: 0 0 25px rgba(255, 111, 97, 0.8);
-      transition: transform 0.3s ease;
-    }
-
-    .hero-section img:hover {
-      transform: scale(1.1);
-    }
-
-    #game-area {
-      width: 320px;
-      height: 220px;
-      margin-top: 25px;
-      background: rgba(255, 255, 255, 0.05);
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #4A90E2;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      overflow: hidden;
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+      transition: transform 0.5s ease;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
       position: relative;
     }
 
-    #target {
+    .hero-panel:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-panel h1 {
+      font-size: 2.5rem;
+      color: #4A90E2;
+      text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .game-area {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .game-sphere {
       position: absolute;
       width: 40px;
       height: 40px;
-      background: #ff9500;
+      background: linear-gradient(135deg, #4A90E2, #2ECC71);
       border-radius: 50%;
       cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 15px rgba(255, 149, 0, 0.8);
+      transition: transform 0.3s ease;
     }
 
-    #target:hover {
-      box-shadow: 0 0 20px rgba(255, 111, 97, 1);
+    .game-sphere:hover {
+      transform: scale(1.2);
     }
 
+    #gameScore {
+      font-size: 1.2rem;
+      color: #2ECC71;
+      margin-top: 10px;
+    }
+
+    /* Sections */
     .section {
-      padding: 80px 0;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 20px;
-      margin: 30px 0;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
     .section.visible {
-      animation: fadeIn 0.8s ease-in;
+      opacity: 1;
+    }
+
+    .panel-3d {
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #4A90E2;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      width: 90%;
+      transition: transform 0.5s ease;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+    }
+
+    .panel-3d:hover {
+      transform: scale(1.05);
     }
 
     h2 {
       font-size: 2.8rem;
-      color: #00ccff;
       font-weight: 700;
+      color: #4A90E2;
+      text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
       margin-bottom: 30px;
-      text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+      text-align: center;
     }
 
-    h2::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      margin: 10px auto;
-    }
-
-    .lead {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #ffffff;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    /* Skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
     .skill-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 25px;
+      width: 150px;
+      height: 150px;
+      background: #E6ECF0;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 10px;
     }
 
     .skill-card:hover {
-      transform: translateY(-10px) rotate(2deg);
-      box-shadow: 0 15px 30px rgba(255, 111, 97, 0.3);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+      z-index: 10;
     }
 
-    .progress {
-      height: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
+    .skill-card span {
+      font-size: 0.9rem;
+      color: #2ECC71;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .progress-bar {
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      transition: width 1s ease-in-out;
+    .skill-card:hover span {
+      opacity: 1;
     }
 
-    .timeline {
+    #skillQuiz {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    #quizResult {
+      margin-top: 10px;
+      color: #2ECC71;
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .timeline-3d {
+      display: grid;
+      gap: 20px;
       position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      width: 2px;
-      background: #00ccff;
-      top: 0;
-      bottom: 0;
-      left: 30px;
     }
 
     .experience-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: #E6ECF0;
+      border: 1px solid #4A90E2;
       padding: 20px;
       border-radius: 15px;
-      margin: 20px 0 20px 60px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      width: calc(100% - 80px);
-      max-width: 600px;
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
     }
 
     .experience-card:hover {
-      transform: translateY(-5px) rotate(-2deg);
-      box-shadow: 0 15px 25px rgba(0, 204, 255, 0.3);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+      z-index: 10;
     }
 
-    .experience-card::before {
-      content: '';
+    .experience-card .benefit {
       position: absolute;
-      width: 14px;
-      height: 14px;
-      background: #ff6f61;
-      border-radius: 50%;
-      top: 50%;
-      left: -45px;
-      transform: translateY(-50%);
-      box-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(74, 144, 226, 0.9);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+      z-index: 15;
     }
 
-    .education-grid {
+    .experience-card:hover .benefit {
+      opacity: 1;
+      bottom: 10px;
+    }
+
+    /* Projects */
+    .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      max-width: 1000px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .project-card {
+      background: #E6ECF0;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+      z-index: 10;
+    }
+
+    .project-card .benefit {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+    }
+
+    .project-card:hover .benefit {
+      opacity: 1;
+      bottom: 10px;
+    }
+
+    /* Education */
+    .education-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
     }
 
     .education-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 25px;
+      background: #E6ECF0;
+      border: 1px solid #4A90E2;
+      padding: 20px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .education-card:hover {
-      transform: translateY(-10px) rotate(1deg);
-      box-shadow: 0 15px 30px rgba(255, 111, 97, 0.3);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+      z-index: 10;
     }
 
-    .education-card::before {
-      content: '';
+    .education-card .benefit {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(to right, #ff6f61, #ff9500);
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(46, 204, 113, 0.9);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: #333333;
+      opacity: 0;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+      z-index: 15;
     }
 
-    .section-divider {
-      width: 100%;
-      height: 50px;
-      fill: rgba(255, 255, 255, 0.03);
+    .education-card:hover .benefit {
+      opacity: 1;
+      bottom: 10px;
     }
 
-    footer {
-      background: #1e2a44;
-      padding: 40px 0;
-      color: #ffffff;
+    /* Contact */
+    .form-3d {
       position: relative;
     }
 
+    .form-control {
+      border: 2px solid #4A90E2;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333333;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #2ECC71;
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
+      outline: none;
+    }
+
+    .form-3d.active {
+      transform: scale(1.02);
+    }
+
     .fancy {
-      border: 2px solid transparent;
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      color: #ffffff;
+      border: 2px solid #4A90E2;
+      background: linear-gradient(135deg, #4A90E2, #2ECC71);
+      color: #FFFFFF;
       border-radius: 25px;
       padding: 12px 25px;
-      text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: all 0.3s ease;
-      position: relative;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
       display: inline-block;
-      z-index: 1;
-    }
-
-    .fancy::before {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      width: calc(100% + 10px);
-      height: calc(100% + 10px);
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      border-radius: 30px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    .fancy:hover::before {
-      opacity: 0.3;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
     }
 
     .fancy:hover {
-      color: #1e2a44;
-      box-shadow: 0 0 20px rgba(255, 111, 97, 0.8);
+      background: linear-gradient(135deg, #2ECC71, #4A90E2);
+      box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+      transform: scale(1.05);
+      color: #FFFFFF;
     }
 
     .sticky-cta {
       position: fixed;
-      bottom: 90px;
+      bottom: 20px;
       right: 20px;
       z-index: 1000;
-      animation: pulse 2s infinite;
+      animation: glow 2s infinite;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(74, 144, 226, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
     }
 
-    .form-control {
-      border: 2px solid #ff6f61;
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
-      border-radius: 10px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-control:focus {
-      border-color: #ff9500;
-      box-shadow: 0 0 15px rgba(255, 149, 0, 0.5);
-    }
-
-    .progress-container {
+    /* Sticky Chat Bubble */
+    .chat-bubble {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      z-index: 2000;
+      bottom: 80px;
+      right: 20px;
+      background: #2ECC71;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      width: 0%;
-      transition: width 0.2s ease;
+    .chat-bubble:hover {
+      transform: scale(1.1);
     }
 
+    /* Popup */
     .popup {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 3000;
+      display: none;
     }
 
     .popup-content {
-      background: #1e2a44;
+      background: rgba(245, 247, 250, 0.95);
       padding: 40px;
       border-radius: 20px;
       text-align: center;
       max-width: 500px;
-      color: #ffffff;
-      border: 1px solid rgba(255, 111, 97, 0.5);
-      box-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
+      border: 1px solid #4A90E2;
+      box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+      color: #333333;
     }
 
-    #back-to-top {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(to right, #ff6f61, #ff9500);
-      border: none;
+    .spin-wheel {
+      width: 100px;
+      height: 100px;
+      background: conic-gradient(#4A90E2 0% 33%, #2ECC71 33% 66%, #E6ECF0 66% 100%);
       border-radius: 50%;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: none;
-    }
-
-    #back-to-top:hover {
-      background: #ff6f61;
-    }
-
-    #testimonial {
-      padding: 20px;
-      background: rgba(255, 111, 97, 0.1);
-      border-radius: 15px;
-      max-width: 800px;
       margin: 20px auto;
-      font-style: italic;
-      color: #ff6f61;
-      font-size: 1.2rem;
-      transition: opacity 0.5s ease;
+      cursor: pointer;
+      transition: transform 2s ease-out;
     }
 
-    /* Responsive Adjustments */
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .social-links a {
+      color: #4A90E2;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.1);
+      color: #2ECC71;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .hero-section {
-        min-height: 80vh;
-      }
-      .hero-card {
-        padding: 30px;
-      }
-      .hero-section img {
-        width: 120px;
-      }
-      #game-area {
-        width: 250px;
-        height: 180px;
-      }
-      #target {
-        width: 30px;
-        height: 30px;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 2.2rem;
-      }
-      .lead {
-        font-size: 1.1rem;
-      }
-      .experience-card {
-        width: calc(100% - 70px);
-        margin: 15px 0 15px 50px;
-        padding: 15px;
-      }
-      .timeline::before {
-        left: 20px;
-      }
-      .experience-card::before {
-        left: -35px;
-      }
+      .hero-panel { width: 350px; padding: 30px; }
+      h2 { font-size: 2.2rem; }
+      .panel-3d { padding: 20px; }
+      .skill-card { width: 120px; height: 120px; }
+      .project-card { width: 150px; }
+      .project-card:hover { width: 200px; }
     }
 
     @media (max-width: 576px) {
-      .hero-section {
-        min-height: 70vh;
-        padding: 40px 15px;
-      }
-      .hero-card {
-        padding: 20px;
-      }
-      .hero-section img {
-        width: 100px;
-      }
-      #game-area {
-        width: 200px;
-        height: 140px;
-      }
-      #target {
-        width: 25px;
-        height: 25px;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-      .lead {
-        font-size: 1rem;
-      }
-      .fancy {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-      .education-grid {
-        grid-template-columns: 1fr;
-      }
-      .experience-card {
-        width: calc(100% - 60px);
-        margin: 10px 0 10px 40px;
-        padding: 12px;
-      }
-      .timeline::before {
-        left: 15px;
-      }
-      .experience-card::before {
-        left: -30px;
-        width: 12px;
-        height: 12px;
-      }
+      .hero-panel { width: 300px; padding: 20px; }
+      h2 { font-size: 1.8rem; }
+      .nav-link { font-size: 1rem; padding: 8px 15px; }
+      .fancy { padding: 10px 20px; font-size: 0.9rem; }
+      .cursor-ring { width: 40px; height: 40px; }
     }
   </style>
 </head>
 <body>
-  <!-- Progress Bar -->
-  <div class="progress-container">
-    <div class="progress-bar" id="scrollProgress"></div>
-  </div>
+  <!-- Progress Tracker -->
+  <div class="progress-tracker" id="progressTracker"></div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Nazeer Mukhasam</a>
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav">
           <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
           <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
           <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -521,180 +584,181 @@
     </div>
   </nav>
 
+  <!-- Cursor Ring -->
+  <div class="cursor-ring" id="cursorRing">
+    <div class="tooltip">
+      <a href="cheatsheet.pdf" download style="color: #fff; text-decoration: none;">Free Cheat Sheet</a> | 
+      <a href="#contact" style="color: #fff; text-decoration: none;">Quick Chat</a>
+    </div>
+  </div>
+
   <!-- Hero Section with Mini-Game -->
-  <section id="home" class="hero-section">
-    <div class="hero-card">
-      <img src="my-profile-img.png" class="rounded-circle mb-4" alt="Profile">
-      <h1 class="fw-bold">Nazeer Mukhasam</h1>
-      <p class="lead">I craft websites and designs that make your ideas shine.</p>
-      <a href="#experience" class="fancy mb-4"><i class="bi bi-eye"></i> View My Work</a>
-      <div id="game-area">
-        <div id="target"></div>
-        <p id="score" class="mt-2">Score: <span id="score-value">0</span></p>
-      </div>
+  <section id="home" class="hero-section section">
+    <div class="hero-panel">
+      <h1>Hey, I’m Nazeer!</h1>
+      <p>Your Web Dev Partner</p>
+      <div class="game-area" id="gameArea"></div>
+      <p id="gameScore">Score: 0</p>
+      <p id="gameMessage" style="color: #2ECC71; display: none;">Great job! Share your idea now!</p>
     </div>
   </section>
-
-  <!-- Section Divider -->
-  <svg class="section-divider" viewBox="0 0 1440 50">
-    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
-  </svg>
 
   <!-- About Section -->
-  <section id="about" class="section text-center">
-    <div class="container">
-      <h2 class="fw-bold">About Me</h2>
-      <p class="lead">I’m a Web Developer and Designer who loves building websites that are easy to use and look amazing. Let’s create something awesome together!</p>
+  <section id="about" class="section">
+    <div class="panel-3d">
+      <h2>About Me</h2>
+      <p>I’m Nazeer Mukhasam, here to build responsive, user-friendly websites with HTML, CSS, JavaScript, Django, and Laravel. I’m pursuing an Integrated MCA at L.J. University and love solving your challenges.</p>
+      <a href="#contact" class="fancy mt-3"><i class="bi bi-chat"></i> Share Your Idea</a>
     </div>
   </section>
 
-  <!-- Section Divider -->
-  <svg class="section-divider" viewBox="0 0 1440 50">
-    <path d="M0,50 C360,100 1080,0 1440,50 L1440,50 L0,50 Z" />
-  </svg>
-
-  <!-- Skills Section -->
+  <!-- Skills Section with Quiz -->
   <section id="skills" class="section">
-    <div class="container">
-      <h2 class="fw-bold text-center">My Skills</h2>
-      <div class="skills-grid">
+    <div class="panel-3d">
+      <h2>Skills for You</h2>
+      <div class="skills-container">
         <div class="skill-card">
           <h5>HTML5</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 90%;"></div>
-          </div>
+          <span>Better structure for your site</span>
         </div>
         <div class="skill-card">
           <h5>CSS3</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 85%;"></div>
-          </div>
+          <span>Eye-catching designs</span>
         </div>
         <div class="skill-card">
           <h5>JavaScript</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 80%;"></div>
-          </div>
+          <span>Interactive features</span>
         </div>
         <div class="skill-card">
           <h5>Django</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 75%;"></div>
-          </div>
+          <span>Secure, fast backends</span>
         </div>
         <div class="skill-card">
           <h5>Laravel</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 70%;"></div>
-          </div>
+          <span>Streamlined systems</span>
         </div>
         <div class="skill-card">
           <h5>PHP</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 65%;"></div>
-          </div>
+          <span>Custom functionality</span>
         </div>
         <div class="skill-card">
           <h5>MySQL</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 70%;"></div>
-          </div>
+          <span>Reliable data storage</span>
         </div>
         <div class="skill-card">
           <h5>Figma</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 85%;"></div>
-          </div>
+          <span>User-friendly designs</span>
         </div>
         <div class="skill-card">
           <h5>Photoshop</h5>
-          <div class="progress">
-            <div class="progress-bar" style="width: 60%;"></div>
-          </div>
+          <span>Stunning visuals</span>
         </div>
+      </div>
+      <button id="quizBtn" class="fancy mt-3">Which Skill Fits Your Project?</button>
+      <div id="skillQuiz">
+        <p>Do you need a fast backend?</p>
+        <button class="fancy quiz-option" data-answer="yes">Yes</button>
+        <button class="fancy quiz-option" data-answer="no">No</button>
+        <p id="quizResult"></p>
       </div>
     </div>
   </section>
 
-  <!-- Section Divider -->
-  <svg class="section-divider" viewBox="0 0 1440 50">
-    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
-  </svg>
-
   <!-- Experience Section -->
   <section id="experience" class="section">
-    <div class="container">
-      <h2 class="fw-bold text-center">My Experience</h2>
-      <div class="timeline">
+    <div class="panel-3d">
+      <h2>Experience for You</h2>
+      <div class="timeline-3d">
         <div class="experience-card">
-          <h5>Web Developer | M&M Retail</h5>
-          <p><small>May 2024 - June 2024</small></p>
-          <p>Improved an inventory system using Laravel, reducing errors by 30%.</p>
+          <h5>UI/UX Intern | Cognifyz</h5>
+          <p><small>Jan 2025 - Feb 2025</small></p>
+          <p>Designed layouts that boost usability.</p>
+          <span class="benefit">Fun Fact: Improved click rates by 20%!</span>
         </div>
         <div class="experience-card">
-          <h5>Web Developer | Muskan Engineering Works</h5>
+          <h5>Web Developer | Muskan Engineering</h5>
           <p><small>Sep 2024 - Oct 2024</small></p>
-          <p>Created a user-friendly website with HTML, CSS, and JavaScript.</p>
+          <p>Built a site that drives engagement.</p>
+          <span class="benefit">Your Benefit: More user clicks!</span>
+        </div>
+        <div class="experience-card">
+          <h5>Web Developer | M&M Retail</h5>
+          <p><small>May 2024 - Jun 2024</small></p>
+          <p>Cut errors by 30% with a stock system.</p>
+          <span class="benefit">Your Benefit: Save time!</span>
         </div>
         <div class="experience-card">
           <h5>Web Developer | Gujarat Corporations</h5>
           <p><small>Nov 2023 - Dec 2023</small></p>
-          <p>Built a fast and stylish website for better user experience.</p>
-        </div>
-        <div class="experience-card">
-          <h5>UI/UX Intern | Cognifyz Technologies</h5>
-          <p><small>Jan 2025 - Feb 2025</small></p>
-          <p>Designed creative website layouts using Figma.</p>
+          <p>Delivered a fast, stylish site.</p>
+          <span class="benefit">Fun Fact: Loaded in under 2s!</span>
         </div>
       </div>
+      <a href="#contact" class="fancy mt-3"><i class="bi bi-briefcase"></i> Want These Results?</a>
     </div>
   </section>
 
-  <!-- Section Divider -->
-  <svg class="section-divider" viewBox="0 0 1440 50">
-    <path d="M0,50 C360,100 1080,0 1440,50 L1440,50 L0,50 Z" />
-  </svg>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="panel-3d">
+      <h2>Projects for You</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <h5>Stock System</h5>
+          <p>Laravel, 30% error cut</p>
+          <a href="#" class="fancy benefit">Your Benefit: Efficiency Boost</a>
+        </div>
+        <div class="project-card">
+          <h5>Engineering Site</h5>
+          <p>HTML, CSS, JS</p>
+          <a href="#" class="fancy benefit">Fun Fact: 100% Responsive!</a>
+        </div>
+        <div class="project-card">
+          <h5>Corporate Site</h5>
+          <p>Fast & Stylish</p>
+          <a href="#" class="fancy benefit">Your Benefit: Stand Out</a>
+        </div>
+      </div>
+      <a href="#contact" class="fancy mt-3"><i class="bi bi-rocket"></i> Start Your Project</a>
+    </div>
+  </section>
 
   <!-- Education Section -->
   <section id="education" class="section">
-    <div class="container">
-      <h2 class="fw-bold text-center">Education</h2>
-      <div class="education-grid">
+    <div class="panel-3d">
+      <h2>Education for You</h2>
+      <div class="education-container">
         <div class="education-card">
-          <h5>L.J. University, Ahmedabad</h5>
-          <p>Integrated MCA (2022 - 2027)</p>
-          <p>Learning web development and design through hands-on projects.</p>
+          <h5>Integrated MCA</h5>
+          <p>L.J. University (2022-2027)</p>
+          <span class="benefit">Latest tech knowledge</span>
         </div>
         <div class="education-card">
-          <h5>National Institute of Technology, Ahmedabad</h5>
-          <p>Diploma in Computer Application & Business Accounting (2022 - 2023)</p>
-          <p>Gained skills in technology and business basics.</p>
+          <h5>Diploma</h5>
+          <p>NIT Ahmedabad (2022-2023)</p>
+          <span class="benefit">Practical skills</span>
         </div>
         <div class="education-card">
-          <h5>Ankur School, Ahmedabad</h5>
-          <p>HSC</p>
-          <p>Completed high school with a strong foundation.</p>
+          <h5>Full-Stack Dev</h5>
+          <p>U Michigan (Coursera)</p>
+          <span class="benefit">End-to-end expertise</span>
         </div>
         <div class="education-card">
-          <h5>Ankur School, Ahmedabad</h5>
-          <p>SSC</p>
-          <p>Started my journey with a focus on learning.</p>
+          <h5>UI/UX Design</h5>
+          <p>Google (Coursera)</p>
+          <span class="benefit">User-focused design</span>
         </div>
       </div>
+      <a href="#contact" class="fancy mt-3"><i class="bi bi-book"></i> Use My Knowledge</a>
     </div>
   </section>
 
-  <!-- Section Divider -->
-  <svg class="section-divider" viewBox="0 0 1440 50">
-    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
-  </svg>
-
   <!-- Contact Section -->
   <section id="contact" class="section">
-    <div class="container">
-      <h2 class="fw-bold text-center" style="text-shadow: 0 0 15px rgba(255, 111, 97, 0.8);">Get in Touch</h2>
-      <p class="text-center lead">Have a project idea? Let’s make it real—reach out now!</p>
-      <form class="mt-4">
+    <div class="panel-3d">
+      <h2>Let’s Build Your Vision</h2>
+      <p class="text-center">Tell me what you need—I’ll make it happen!</p>
+      <form class="form-3d mt-4" id="contactForm">
         <div class="mb-3">
           <input type="text" class="form-control" required placeholder="Your Name" />
         </div>
@@ -702,67 +766,164 @@
           <input type="email" class="form-control" required placeholder="Your Email" />
         </div>
         <div class="mb-3">
-          <textarea class="form-control" rows="4" required placeholder="Tell me about your project"></textarea>
+          <textarea class="form-control" rows="4" required placeholder="Your Project Idea"></textarea>
         </div>
-        <button type="submit" class="fancy w-100">Send Now</button>
+        <button type="submit" class="fancy w-100">Send & Get a Free Chat</button>
       </form>
     </div>
   </section>
 
-  <!-- Sticky CTA Button -->
-  <a href="#contact" class="sticky-cta fancy"><i class="bi bi-chat"></i> Let’s Talk</a>
+  <!-- Sticky CTA -->
+  <a href="#contact" class="sticky-cta fancy"><i class="bi bi-gift"></i> Free Consultation</a>
 
-  <!-- Exit Intent Popup -->
-  <div id="exitPopup" class="popup" style="display: none;">
+  <!-- Sticky Chat Bubble -->
+  <div class="chat-bubble" id="chatBubble">Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a></div>
+
+  <!-- Popup with Spin Game -->
+  <div id="exitPopup" class="popup">
     <div class="popup-content">
-      <h3 style="color: #ff6f61;">Don’t Go Yet!</h3>
-      <p>Get a FREE consultation for your project—let’s make it happen!</p>
-      <a href="#contact" class="fancy">Claim Your Free Chat</a>
-      <button id="exitBtn" class="fancy mt-3">No Thanks</button>
+      <h3 style="color: #4A90E2;">Wait, Spin to Win!</h3>
+      <p id="popupMessage">Spin for a freebie before you go!</p>
+      <div class="spin-wheel" id="spinWheel"></div>
+      <p id="spinResult" style="color: #2ECC71;"></p>
+      <a href="portfolio.pdf" download class="fancy" id="downloadBtn" style="display: none;">Download PDF</a>
+      <a href="#contact" class="fancy mt-3" id="chatBtn" style="display: none;">Claim Free Chat</a>
+      <button id="exitBtn" class="fancy mt-3">Exit</button>
     </div>
   </div>
 
-  <!-- Footer with Testimonial -->
-  <footer class="text-center">
-    <div id="testimonial">"Nazeer turned my idea into a website that’s better than I imagined!" - Happy Client</div>
-    © 2025 Nazeer Mukhasam. All rights reserved.
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="mailto:nmukhasam@gmail.com"><i class="bi bi-envelope"></i></a>
+      <a href="https://github.com/nazeer004" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="tel:+919825764333"><i class="bi bi-telephone"></i></a>
+    </div>
+    <p>© 2025 Nazeer Mukhasam. Your Success is My Goal!</p>
   </footer>
-
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="btn rounded-circle">
-    <i class="bi bi-arrow-up"></i>
-  </button>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Progress Bar
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.getElementById('scrollProgress').style.width = scrollPercent + '%';
-    });
-
-    // Parallax Effect
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY;
-      const hero = document.querySelector('.hero-section');
-      hero.style.backgroundPositionY = `${scrollPosition * 0.4}px`;
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-        if (scrollPosition > sectionTop - window.innerHeight * 0.8) {
-          section.classList.add('visible');
-        }
+    // Smooth Scroll
+    document.querySelectorAll('.nav-link, .fancy[href]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Section Visibility & Progress Tracker
+    const sections = document.querySelectorAll('.section');
+    const progressTracker = document.getElementById('progressTracker');
+    const totalSections = sections.length;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const visibleSections = document.querySelectorAll('.section.visible').length;
+          progressTracker.style.width = `${(visibleSections / totalSections) * 100}%`;
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(section => observer.observe(section));
+
+    // Cursor Ring Movement
+    const cursorRing = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX - 30;
+      const y = e.clientY - 30;
+      cursorRing.style.left = `${x}px`;
+      cursorRing.style.top = `${y}px`;
+    });
+
+    // Hero Mini-Game
+    const gameArea = document.getElementById('gameArea');
+    let score = 0;
+    function spawnSphere() {
+      const sphere = document.createElement('div');
+      sphere.classList.add('game-sphere');
+      sphere.style.left = `${Math.random() * (gameArea.offsetWidth - 40)}px`;
+      sphere.style.top = `${Math.random() * (gameArea.offsetHeight - 40)}px`;
+      gameArea.appendChild(sphere);
+
+      sphere.addEventListener('click', () => {
+        score++;
+        document.getElementById('gameScore').textContent = `Score: ${score}`;
+        sphere.remove();
+        if (score >= 5) {
+          document.getElementById('gameMessage').style.display = 'block';
+          setTimeout(() => {
+            document.querySelector('#home .fancy')?.click();
+          }, 2000);
+        }
+        spawnSphere();
+      });
+
+      setTimeout(() => {
+        if (sphere.parentNode) sphere.remove();
+        spawnSphere();
+      }, 2000);
+    }
+    for (let i = 0; i < 3; i++) spawnSphere();
+
+    // Skill Quiz
+    const quizBtn = document.getElementById('quizBtn');
+    const skillQuiz = document.getElementById('skillQuiz');
+    quizBtn.addEventListener('click', () => {
+      skillQuiz.style.display = 'block';
+      quizBtn.style.display = 'none';
+    });
+    document.querySelectorAll('.quiz-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        const answer = e.target.dataset.answer;
+        document.getElementById('quizResult').textContent = answer === 'yes' 
+          ? 'Django or Laravel is your fit!' 
+          : 'HTML, CSS, JS will do the trick!';
+        skillQuiz.querySelectorAll('button').forEach(btn => btn.disabled = true);
+      });
+    });
+
+    // Chat Bubble Rotation
+    const chatBubble = document.getElementById('chatBubble');
+    const tips = [
+      'Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>',
+      'Fun Fact: I code faster than I type! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>',
+      'Need help? I’m here! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>'
+    ];
+    let tipIndex = 0;
+    setInterval(() => {
+      tipIndex = (tipIndex + 1) % tips.length;
+      chatBubble.innerHTML = tips[tipIndex];
+    }, 5000);
+
+    // Exit Popup with Spin Game
+    let timeSpent = 0;
+    setInterval(() => timeSpent += 1, 1000);
+    let popupShown = false;
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0 && !popupShown) {
+        document.getElementById('exitPopup').style.display = 'flex';
+        popupShown = true;
+      }
+ - (self.ownscript.js
+
+  8a5f92f8e523fede3e77a0a8751b52b8bc7b4f0f
+
+  script.js
+
+  script.js
+
+  script.js
+
+  script.js
+
+  script.js
+
+  script.js
+
+  script.js
 
     // Smooth Scroll
     document.querySelectorAll('.nav-link, .fancy[href]').forEach(anchor => {
@@ -773,7 +934,93 @@
       });
     });
 
-    // Exit Intent Popup
+    // Section Visibility & Progress Tracker
+    const sections = document.querySelectorAll('.section');
+    const progressTracker = document.getElementById('progressTracker');
+    const totalSections = sections.length;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const visibleSections = document.querySelectorAll('.section.visible').length;
+          progressTracker.style.width = `${(visibleSections / totalSections) * 100}%`;
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(section => observer.observe(section));
+
+    // Cursor Ring Movement
+    const cursorRing = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX - 30;
+      const y = e.clientY - 30;
+      cursorRing.style.left = `${x}px`;
+      cursorRing.style.top = `${y}px`;
+    });
+
+    // Hero Mini-Game
+    const gameArea = document.getElementById('gameArea');
+    let score = 0;
+    function spawnSphere() {
+      const sphere = document.createElement('div');
+      sphere.classList.add('game-sphere');
+      sphere.style.left = `${Math.random() * (gameArea.offsetWidth - 40)}px`;
+      sphere.style.top = `${Math.random() * (gameArea.offsetHeight - 40)}px`;
+      gameArea.appendChild(sphere);
+
+      sphere.addEventListener('click', () => {
+        score++;
+        document.getElementById('gameScore').textContent = `Score: ${score}`;
+        sphere.remove();
+        if (score >= 5) {
+          document.getElementById('gameMessage').style.display = 'block';
+          setTimeout(() => {
+            document.querySelector('#home .fancy')?.click();
+          }, 2000);
+        }
+        spawnSphere();
+      });
+
+      setTimeout(() => {
+        if (sphere.parentNode) sphere.remove();
+        spawnSphere();
+      }, 2000);
+    }
+    for (let i = 0; i < 3; i++) spawnSphere();
+
+    // Skill Quiz
+    const quizBtn = document.getElementById('quizBtn');
+    const skillQuiz = document.getElementById('skillQuiz');
+    quizBtn.addEventListener('click', () => {
+      skillQuiz.style.display = 'block';
+      quizBtn.style.display = 'none';
+    });
+    document.querySelectorAll('.quiz-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        const answer = e.target.dataset.answer;
+        document.getElementById('quizResult').textContent = answer === 'yes' 
+          ? 'Django or Laravel is your fit!' 
+          : 'HTML, CSS, JS will do the trick!';
+        skillQuiz.querySelectorAll('button').forEach(btn => btn.disabled = true);
+      });
+    });
+
+    // Chat Bubble Rotation
+    const chatBubble = document.getElementById('chatBubble');
+    const tips = [
+      'Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>',
+      'Fun Fact: I code faster than I type! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>',
+      'Need help? I’m here! <a href="#contact" style="color: #fff; text-decoration: none;">Chat?</a>'
+    ];
+    let tipIndex = 0;
+    setInterval(() => {
+      tipIndex = (tipIndex + 1) % tips.length;
+      chatBubble.innerHTML = tips[tipIndex];
+    }, 5000);
+
+    // Exit Popup with Spin Game
+    let timeSpent = 0;
+    setInterval(() => timeSpent += 1, 1000);
     let popupShown = false;
     document.addEventListener('mouseleave', (e) => {
       if (e.clientY < 0 && !popupShown) {
@@ -781,55 +1028,20 @@
         popupShown = true;
       }
     });
+    const spinWheel = document.getElementById('spinWheel');
+    spinWheel.addEventListener('click', () => {
+      const randomDeg = Math.floor(Math.random() * 360) + 720;
+      spinWheel.style.transform = `rotate(${randomDeg}deg)`;
+      setTimeout(() => {
+        const result = randomDeg % 360 < 120 ? 'Free Chat' : randomDeg % 360 < 240 ? 'Portfolio PDF' : 'Try Again!';
+        document.getElementById('spinResult').textContent = `You won: ${result}`;
+        if (result === 'Free Chat') document.getElementById('chatBtn').style.display = 'inline-block';
+        else if (result === 'Portfolio PDF') document.getElementById('downloadBtn').style.display = 'inline-block';
+      }, 2000);
+    });
     document.getElementById('exitBtn').addEventListener('click', () => {
       document.getElementById('exitPopup').style.display = 'none';
     });
-
-    // Back to Top Button
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Mini-Game Logic
-    const target = document.getElementById('target');
-    const gameArea = document.getElementById('game-area');
-    const scoreValue = document.getElementById('score-value');
-    let score = 0;
-
-    function moveTarget() {
-      const maxX = gameArea.offsetWidth - target.offsetWidth;
-      const maxY = gameArea.offsetHeight - target.offsetHeight;
-      const newX = Math.floor(Math.random() * maxX);
-      const newY = Math.floor(Math.random() * maxY);
-      target.style.left = newX + 'px';
-      target.style.top = newY + 'px';
-    }
-
-    target.addEventListener('click', () => {
-      score += 1;
-      scoreValue.textContent = score;
-      scoreValue.style.animation = 'pop 0.3s ease';
-      setTimeout(() => scoreValue.style.animation = '', 300);
-      moveTarget();
-      target.style.background = `linear-gradient(135deg, #ff6f61, #ff9500)`;
-    });
-
-    moveTarget();
-
-    // Score Pop Animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes pop {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-        100% { transform: scale(1); }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 </body>
 </html>
