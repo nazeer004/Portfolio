@@ -26,10 +26,9 @@
       padding: 0;
       overflow-x: hidden;
       position: relative;
-      min-height: 100vh; /* Ensure body fills viewport */
+      min-height: 100vh;
     }
 
-    /* Preloader */
     #preloader {
       position: fixed;
       top: 0;
@@ -58,7 +57,6 @@
       animation: spin 1s linear infinite;
     }
 
-    /* Parallax Background */
     body::before {
       content: '';
       position: fixed;
@@ -490,6 +488,41 @@
       transform: scale(1.1);
     }
 
+    /* WhatsApp Floating Button Styles */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 80px;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .whatsapp-float.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+    }
+
+    .whatsapp-float i {
+      color: #FFFFFF;
+      font-size: 2rem;
+    }
+
     .popup {
       position: fixed;
       top: 0;
@@ -638,9 +671,10 @@
       .project-card .benefit { font-size: 0.75rem; padding: 6px 12px; }
       .experience-card, .education-card { padding: 15px; min-height: 140px; }
       .timeline-3d, .education-container { gap: 20px; }
-      .chat-bubble { bottom: 120px; } /* Adjusted for navbar */
-      .sticky-cta { bottom: 80px; } /* Adjusted for navbar */
-      #backToTop { bottom: 70px; left: 10px; } /* Adjusted for navbar */
+      .chat-bubble { bottom: 120px; }
+      .sticky-cta { bottom: 80px; }
+      .whatsapp-float { bottom: 80px; right: 70px; }
+      #backToTop { bottom: 70px; left: 10px; }
     }
 
     @media (max-width: 576px) {
@@ -686,7 +720,7 @@
 
   <div class="cursor-ring" id="cursorRing">
     <div class="tooltip">
-      <a href="cheatsheet.pdf" download style="color: #fff; text-decoration: none;">Free Cheat Sheet</a> | 
+      <p>Flat 33% Discount</p> | 
       <a href="#contact" style="color: #fff; text-decoration: none;">Quick Chat</a>
     </div>
   </div>
@@ -824,16 +858,20 @@
     <div class="panel-3d">
       <h2>Let’s Build Your Vision</h2>
       <p class="text-center">Tell me what you need—I’ll make it happen!</p>
-      <form class="form-3d mt-4" id="contactForm">
+      <form class="form-3d mt-4"  method="POST" action="https://api.web3forms.com/submit" > 
+        <input type="hidden" name="access_key" value="b3510973-a458-4d32-86ae-00697e1dd0bb">
+
         <div class="mb-3">
-          <input type="text" class="form-control" required placeholder="Your Name" aria-label="Your Name" />
+
+          <input type="text" class="form-control" required placeholder="Your Name" aria-label="Your Name" name="Name" />
         </div>
         <div class="mb-3">
-          <input type="email" class="form-control" required placeholder="Your Email" aria-label="Your Email" />
+          <input type="email" class="form-control" required placeholder="Your Email" aria-label="Your Email" name="Email" />
         </div>
         <div class="mb-3">
-          <textarea class="form-control" rows="4" required placeholder="Your Project Idea" aria-label="Your Project Idea"></textarea>
+          <textarea class="form-control" rows="4" required placeholder="Your Project Idea" aria-label="Your Project Idea" name="Message" ></textarea>
         </div>
+        <input type="hidden" name="redirect" value="https://web3forms.com/success">
         <button type="submit" class="fancy w-100">Send & Get a Free Chat</button>
       </form>
     </div>
@@ -841,6 +879,10 @@
 
   <a href="#contact" class="sticky-cta fancy" aria-label="Free Consultation"><i class="bi bi-gift" aria-hidden="true"></i> Free Consultation</a>
   <div class="chat-bubble" id="chatBubble">Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;" class="chat-link">Chat?</a></div>
+  
+  <a href="https://wa.me/919825764333" target="_blank" class="whatsapp-float" aria-label="Contact via WhatsApp">
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+  </a>
 
   <div id="exitPopup" class="popup">
     <div class="popup-content">
@@ -848,7 +890,7 @@
       <p id="popupMessage">Spin for a freebie before you go!</p>
       <div class="spin-wheel" id="spinWheel" role="button" aria-label="Spin the wheel"></div>
       <p id="spinResult" style="color: #2ECC71;"></p>
-      <a href="portfolio.pdf" download class="fancy" id="downloadBtn" style="display: none;">Download PDF</a>
+      <a href="Flat_40.pdf" download="Flat_40.pdf" class="fancy" id="downloadBtn" style="display: none;">Special Discount Coupon</a>
       <a href="#contact" class="fancy mt-3" id="chatBtn" style="display: none;">Claim Free Chat</a>
       <button id="exitBtn" class="fancy mt-3">Exit</button>
     </div>
@@ -856,9 +898,9 @@
 
   <footer>
     <div class="social-links">
-      <a href="mailto:nmukhasam@gmail.com" aria-label="Email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
-      <a href="https://github.com/nazeer004" target="_blank" aria-label="GitHub"><i class="bi bi-github" aria-hidden="true"></i></a>
-      <a href="tel:+919825764333" aria-label="Phone"><i class="bi bi-telephone" aria-hidden="true"></i></a>
+      <a href="mailto:nazeer.code@gmail.com" aria-label="Email"><i class="bi bi-envelope" aria-hidden="true"></i></a><p>nazeer.code@gmail.com</p>
+      <a href="https://github.com/nazeer004" target="_blank" aria-label="GitHub"><i class="bi bi-github" aria-hidden="true"></i></a><p>Github</p><br>
+      <a href="tel:+919825764333" aria-label="Phone"><i class="bi bi-telephone" aria-hidden="true"></i></a><p>+91 9825764333</p>
     </div>
     <p>© 2025 Nazeer Mukhasam. Your Success is My Goal!</p>
   </footer>
@@ -867,7 +909,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
-    // Utility: Throttle function to limit scroll event frequency
     function throttle(fn, wait) {
       let lastTime = 0;
       return function(...args) {
@@ -879,14 +920,12 @@
       };
     }
 
-    // Preloader
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       preloader.classList.add('fade-out');
       setTimeout(() => preloader.remove(), 500);
     });
 
-    // Smooth Scroll
     function smoothScroll(targetId) {
       const target = document.querySelector(targetId);
       if (target) {
@@ -902,13 +941,11 @@
       });
     });
 
-    // Parallax Background (Simplified for performance)
     window.addEventListener('scroll', throttle(() => {
       const scrollPos = window.scrollY;
       document.body.style.backgroundPosition = `center ${-scrollPos * 0.1}px`;
-    }, 16)); // ~60fps
+    }, 16));
 
-    // Scroll Animations with Cleanup
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -918,21 +955,19 @@
               setTimeout(() => card.classList.add('animate'), index * 100);
             });
           }
-          observer.unobserve(entry.target); // Stop observing once animated
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2 });
 
-    document.querySelectorAll('.section, .hero-panel, .form-3d, .sticky-cta, .chat-bubble, footer, h2').forEach(el => observer.observe(el));
+    document.querySelectorAll('.section, .hero-panel, .form-3d, .sticky-cta, .chat-bubble, .whatsapp-float, footer, h2').forEach(el => observer.observe(el));
 
-    // Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', throttle(() => {
       if (window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     }, 100));
 
-    // Back to Top Button
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', throttle(() => {
       if (window.scrollY > 300) backToTop.classList.add('visible');
@@ -940,7 +975,6 @@
     }, 100));
     backToTop.addEventListener('click', () => smoothScroll('#home'));
 
-    // Cursor Ring Movement
     const cursorRing = document.getElementById('cursorRing');
     document.addEventListener('mousemove', (e) => {
       const x = e.clientX - 30;
@@ -949,7 +983,6 @@
       cursorRing.style.top = `${y}px`;
     });
 
-    // Hero Mini-Game
     const gameArea = document.getElementById('gameArea');
     let score = 0;
     let lastClickTime = Date.now();
@@ -974,13 +1007,13 @@
       const pos = getRandomPosition(activeSpheres);
       sphere.style.left = `${pos.x}px`;
       sphere.style.top = `${pos.y}px`;
-      sphere.dataset.clicked = 'false'; // Track click state
+      sphere.dataset.clicked = 'false';
       gameArea.appendChild(sphere);
       activeSpheres.push(pos);
       requestAnimationFrame(() => sphere.classList.add('animate'));
 
       sphere.addEventListener('click', () => {
-        if (sphere.dataset.clicked === 'true') return; // Prevent double-click
+        if (sphere.dataset.clicked === 'true') return;
         sphere.dataset.clicked = 'true';
         score++;
         lastClickTime = Date.now();
@@ -1010,7 +1043,6 @@
     }
     for (let i = 0; i < 3; i++) spawnSphere();
 
-    // Skill Quiz
     const quizBtn = document.getElementById('quizBtn');
     const skillQuiz = document.getElementById('skillQuiz');
     const quizReset = document.getElementById('quizReset');
@@ -1036,7 +1068,6 @@
       quizReset.style.display = 'none';
     });
 
-    // Chat Bubble Rotation
     const chatBubble = document.getElementById('chatBubble');
     const tips = [
       'Tip: Try the game above! <a href="#contact" style="color: #fff; text-decoration: none;" class="chat-link">Chat?</a>',
@@ -1049,14 +1080,8 @@
       chatBubble.innerHTML = tips[tipIndex];
     }, 5000);
 
-    // Contact Form Feedback
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thanks for reaching out! I’ll get back to you soon.');
-      e.target.reset();
-    });
+    
 
-    // Exit Popup with Spin Game
     let popupShown = false;
     document.addEventListener('mouseleave', throttle((e) => {
       if (e.clientY < 0 && !popupShown) {
@@ -1065,7 +1090,7 @@
         requestAnimationFrame(() => popup.querySelector('.popup-content').classList.add('animate'));
         popupShown = true;
       }
-    }, 1000)); // Throttle to prevent spam
+    }, 1000));
 
     const spinWheel = document.getElementById('spinWheel');
     let isSpinning = false;
@@ -1076,10 +1101,10 @@
       const randomDeg = Math.floor(Math.random() * 360) + 720;
       spinWheel.style.transform = `rotate(${randomDeg}deg)`;
       setTimeout(() => {
-        const result = randomDeg % 360 < 120 ? 'Free Chat' : randomDeg % 360 < 240 ? 'Portfolio PDF' : 'Try Again!';
+        const result = randomDeg % 360 < 120 ? 'Free Chat' : randomDeg % 360 < 240 ? 'Special Discount' : 'Try Again!';
         document.getElementById('spinResult').textContent = `You won: ${result}`;
         if (result === 'Free Chat') document.getElementById('chatBtn').style.display = 'inline-block';
-        else if (result === 'Portfolio PDF') document.getElementById('downloadBtn').style.display = 'inline-block';
+        else if (result === 'Special Discount') document.getElementById('downloadBtn').style.display = 'inline-block';
         isSpinning = false;
         spinWheel.classList.remove('spinning');
       }, 2000);
