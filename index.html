@@ -78,6 +78,22 @@
       to { transform: rotate(360deg); }
     }
 
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(0.95); }
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+
     .progress-tracker {
       position: fixed;
       top: 0;
@@ -449,12 +465,27 @@
       animation: glow 2s infinite;
       opacity: 0;
       transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
     }
 
     .sticky-cta.animate {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .sticky-cta.hidden {
+      opacity: 0;
+      transform: translateY(100px);
+      visibility: hidden;
+    }
+
+    .sticky-cta:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 25px rgba(74, 144, 226, 0.8);
+    }
+
+    .sticky-cta:active {
+      animation: bounce 0.3s ease;
     }
 
     @keyframes glow {
@@ -472,7 +503,7 @@
       border-radius: 20px;
       font-size: 0.9rem;
       z-index: 1000;
-      transition: transform 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
       cursor: pointer;
       opacity: 0;
       transform: translateY(20px);
@@ -481,14 +512,23 @@
     .chat-bubble.animate {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .chat-bubble.hidden {
+      opacity: 0;
+      transform: translateY(100px);
+      visibility: hidden;
     }
 
     .chat-bubble:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(-3deg);
+      box-shadow: 0 0 15px rgba(46, 204, 113, 0.7);
     }
 
-    /* WhatsApp Floating Button Styles */
+    .chat-bubble:active {
+      animation: pulse 0.2s ease;
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -502,20 +542,30 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
       opacity: 0;
       transform: translateY(20px);
+      animation: pulse 2s infinite ease-in-out;
     }
 
     .whatsapp-float.animate {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .whatsapp-float.hidden {
+      opacity: 0;
+      transform: translateY(100px);
+      visibility: hidden;
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
+    }
+
+    .whatsapp-float:active {
+      animation: wobble 0.4s ease;
     }
 
     .whatsapp-float i {
@@ -574,6 +624,8 @@
       text-align: center;
       opacity: 0;
       transform: translateY(50px);
+      position: relative;
+      z-index: 900;
     }
 
     footer.animate {
@@ -673,7 +725,7 @@
       .timeline-3d, .education-container { gap: 20px; }
       .chat-bubble { bottom: 120px; }
       .sticky-cta { bottom: 80px; }
-      .whatsapp-float { bottom: 80px; right: 70px; }
+      .whatsapp-float { bottom: 80px; left: 20px; }
       #backToTop { bottom: 70px; left: 10px; }
     }
 
@@ -858,18 +910,16 @@
     <div class="panel-3d">
       <h2>Let’s Build Your Vision</h2>
       <p class="text-center">Tell me what you need—I’ll make it happen!</p>
-      <form class="form-3d mt-4"  method="POST" action="https://api.web3forms.com/submit" > 
+      <form class="form-3d mt-4" method="POST" action="https://api.web3forms.com/submit"> 
         <input type="hidden" name="access_key" value="b3510973-a458-4d32-86ae-00697e1dd0bb">
-
         <div class="mb-3">
-
           <input type="text" class="form-control" required placeholder="Your Name" aria-label="Your Name" name="Name" />
         </div>
         <div class="mb-3">
           <input type="email" class="form-control" required placeholder="Your Email" aria-label="Your Email" name="Email" />
         </div>
         <div class="mb-3">
-          <textarea class="form-control" rows="4" required placeholder="Your Project Idea" aria-label="Your Project Idea" name="Message" ></textarea>
+          <textarea class="form-control" rows="4" required placeholder="Your Project Idea" aria-label="Your Project Idea" name="Message"></textarea>
         </div>
         <input type="hidden" name="redirect" value="https://web3forms.com/success">
         <button type="submit" class="fancy w-100">Send & Get a Free Chat</button>
@@ -922,8 +972,10 @@
 
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
-      preloader.classList.add('fade-out');
-      setTimeout(() => preloader.remove(), 500);
+      if (preloader) {
+        preloader.classList.add('fade-out');
+        setTimeout(() => preloader.remove(), 500);
+      }
     });
 
     function smoothScroll(targetId) {
@@ -1080,7 +1132,27 @@
       chatBubble.innerHTML = tips[tipIndex];
     }, 5000);
 
-    
+    // Hide sticky elements when footer is in view
+    const footer = document.querySelector('footer');
+    const stickyCta = document.querySelector('.sticky-cta');
+    const chatBubbleEl = document.querySelector('.chat-bubble');
+    const whatsappFloat = document.querySelector('.whatsapp-float');
+
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyCta.classList.add('hidden');
+          chatBubbleEl.classList.add('hidden');
+          whatsappFloat.classList.add('hidden');
+        } else {
+          stickyCta.classList.remove('hidden');
+          chatBubbleEl.classList.remove('hidden');
+          whatsappFloat.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (footer) footerObserver.observe(footer);
 
     let popupShown = false;
     document.addEventListener('mouseleave', throttle((e) => {
