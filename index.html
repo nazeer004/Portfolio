@@ -16,16 +16,15 @@
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #1e2a44, #2d2d2d), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2NkYGD4z8DAwMgABXAGNgGwSHe/bEAgGDA2NjAwMAQIArlgQ9gAAAABJRU5ErkJggg==');
-      color: #f0f0f0;
+      background: linear-gradient(135deg, #1e2a44, #2d2d2d);
+      color: #ffffff;
       overflow-x: hidden;
       position: relative;
-      background-blend-mode: overlay;
-      line-height: 1.6; /* Improved readability */
+      line-height: 1.6;
     }
 
     .navbar {
-      background: rgba(30, 42, 68, 0.9);
+      background: rgba(30, 42, 68, 0.95);
       transition: background-color 0.3s;
       z-index: 1000;
     }
@@ -35,9 +34,9 @@
     }
 
     .navbar-brand, .nav-link {
-      color: #f0f0f0 !important;
+      color: #ffffff !important;
       font-weight: 600;
-      font-size: 1.1rem; /* Slightly larger for clarity */
+      font-size: 1.1rem;
     }
 
     .hero-section {
@@ -47,48 +46,48 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      background: linear-gradient(135deg, rgba(0, 204, 255, 0.2), rgba(255, 149, 0, 0.2));
-      background-size: 200% 200%;
+      background: linear-gradient(135deg, #00ccff, #ff6f61, #ff9500);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
       padding: 20px;
     }
 
+    @keyframes gradientShift {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
     .hero-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
       animation: fadeIn 1s ease-in;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .hero-section img {
-      border: 4px solid #00ccff;
+      border: 5px solid #ff6f61;
       border-radius: 50%;
-      width: 140px;
+      width: 150px;
       max-width: 100%;
-      box-shadow: 0 0 20px rgba(0, 204, 255, 0.6);
-      animation: pulse-img 2s infinite;
+      box-shadow: 0 0 25px rgba(255, 111, 97, 0.8);
+      transition: transform 0.3s ease;
     }
 
-    @keyframes pulse-img {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
+    .hero-section img:hover {
+      transform: scale(1.1);
     }
 
     #game-area {
-      width: 300px;
-      height: 200px;
-      margin-top: 20px;
+      width: 320px;
+      height: 220px;
+      margin-top: 25px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       overflow: hidden;
       position: relative;
     }
@@ -101,7 +100,11 @@
       border-radius: 50%;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 0 10px rgba(255, 149, 0, 0.7);
+      box-shadow: 0 0 15px rgba(255, 149, 0, 0.8);
+    }
+
+    #target:hover {
+      box-shadow: 0 0 20px rgba(255, 111, 97, 1);
     }
 
     .section {
@@ -111,20 +114,15 @@
       margin: 30px 0;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
       position: relative;
-      background-size: 150% 150%;
     }
 
     .section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeIn 0.8s ease-in;
     }
 
     h2 {
-      font-size: 2.8rem; /* Larger for emphasis */
+      font-size: 2.8rem;
       color: #00ccff;
       font-weight: 700;
       margin-bottom: 30px;
@@ -134,15 +132,16 @@
     h2::after {
       content: '';
       display: block;
-      width: 60px;
+      width: 70px;
       height: 4px;
-      background: linear-gradient(to right, #00ccff, #ff9500);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
       margin: 10px auto;
     }
 
     .lead {
-      font-size: 1.2rem; /* Slightly larger for readability */
+      font-size: 1.2rem;
       font-weight: 400;
+      color: #ffffff;
     }
 
     .skills-grid {
@@ -152,26 +151,26 @@
     }
 
     .skill-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
       padding: 25px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
     }
 
     .skill-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.2);
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 0 15px 30px rgba(255, 111, 97, 0.3);
     }
 
     .progress {
-      height: 8px;
+      height: 10px;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
+      border-radius: 5px;
     }
 
     .progress-bar {
-      background: linear-gradient(to right, #00ccff, #ff9500);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
       transition: width 1s ease-in-out;
     }
 
@@ -193,22 +192,20 @@
     }
 
     .experience-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
       border-radius: 15px;
       margin: 20px 0 20px 60px;
       position: relative;
       width: calc(100% - 80px);
       max-width: 600px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-sizing: border-box;
-      animation: fadeIn 0.5s ease-in;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .experience-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
+      transform: translateY(-5px) rotate(-2deg);
+      box-shadow: 0 15px 25px rgba(0, 204, 255, 0.3);
     }
 
     .experience-card::before {
@@ -216,12 +213,12 @@
       position: absolute;
       width: 14px;
       height: 14px;
-      background: #ff9500;
+      background: #ff6f61;
       border-radius: 50%;
       top: 50%;
       left: -45px;
       transform: translateY(-50%);
-      box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
     }
 
     .education-grid {
@@ -233,18 +230,16 @@
     }
 
     .education-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
       padding: 25px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
     }
 
     .education-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 204, 255, 0.2);
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 15px 30px rgba(255, 111, 97, 0.3);
     }
 
     .education-card::before {
@@ -254,20 +249,26 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(to right, #00ccff, #ff9500);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 50px;
+      fill: rgba(255, 255, 255, 0.03);
     }
 
     footer {
       background: #1e2a44;
       padding: 40px 0;
-      color: #f0f0f0;
+      color: #ffffff;
+      position: relative;
     }
 
     .fancy {
       border: 2px solid transparent;
-      background: linear-gradient(to right, #00ccff, #ff9500);
-      background-clip: padding-box;
-      color: #f0f0f0;
+      background: linear-gradient(to right, #ff6f61, #ff9500);
+      color: #ffffff;
       border-radius: 25px;
       padding: 12px 25px;
       text-decoration: none;
@@ -284,37 +285,52 @@
     .fancy::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, #00ccff, #ff9500);
-      border-radius: 25px;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
+      border-radius: 30px;
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: -1;
     }
 
     .fancy:hover::before {
-      opacity: 1;
+      opacity: 0.3;
     }
 
     .fancy:hover {
       color: #1e2a44;
-      box-shadow: 0 0 20px rgba(255, 149, 0, 0.5);
+      box-shadow: 0 0 20px rgba(255, 111, 97, 0.8);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     .form-control {
-      border: 2px solid #00ccff;
+      border: 2px solid #ff6f61;
       background: rgba(255, 255, 255, 0.05);
-      color: #f0f0f0;
+      color: #ffffff;
       border-radius: 10px;
       font-size: 1rem;
+      transition: all 0.3s ease;
     }
 
     .form-control:focus {
       border-color: #ff9500;
-      box-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
+      box-shadow: 0 0 15px rgba(255, 149, 0, 0.5);
     }
 
     .progress-container {
@@ -329,7 +345,7 @@
 
     .progress-bar {
       height: 100%;
-      background: linear-gradient(to right, #00ccff, #ff9500);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
       width: 0%;
       transition: width 0.2s ease;
     }
@@ -340,7 +356,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -349,51 +365,42 @@
 
     .popup-content {
       background: #1e2a44;
-      padding: 30px;
+      padding: 40px;
       border-radius: 20px;
       text-align: center;
       max-width: 500px;
-      color: #f0f0f0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 111, 97, 0.5);
+      box-shadow: 0 0 20px rgba(255, 111, 97, 0.5);
     }
 
     #back-to-top {
       width: 50px;
       height: 50px;
-      background: linear-gradient(to right, #00ccff, #ff9500);
+      background: linear-gradient(to right, #ff6f61, #ff9500);
       border: none;
       border-radius: 50%;
       position: fixed;
-      bottom: 80px;
+      bottom: 20px;
       right: 20px;
       z-index: 1000;
       display: none;
     }
 
     #back-to-top:hover {
-      background: #ff9500;
+      background: #ff6f61;
     }
 
-    #quote-container {
+    #testimonial {
       padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 111, 97, 0.1);
       border-radius: 15px;
       max-width: 800px;
       margin: 20px auto;
-    }
-
-    .quote {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
       font-style: italic;
-      color: #ff9500;
-      font-size: 1.1rem;
-    }
-
-    .quote.active {
-      opacity: 1;
-      transform: translateY(0);
+      color: #ff6f61;
+      font-size: 1.2rem;
+      transition: opacity 0.5s ease;
     }
 
     /* Responsive Adjustments */
@@ -405,11 +412,11 @@
         padding: 30px;
       }
       .hero-section img {
-        width: 100px;
+        width: 120px;
       }
       #game-area {
         width: 250px;
-        height: 150px;
+        height: 180px;
       }
       #target {
         width: 30px;
@@ -446,11 +453,11 @@
         padding: 20px;
       }
       .hero-section img {
-        width: 80px;
+        width: 100px;
       }
       #game-area {
         width: 200px;
-        height: 120px;
+        height: 140px;
       }
       #target {
         width: 25px;
@@ -485,12 +492,6 @@
         width: 12px;
         height: 12px;
       }
-      h5 {
-        font-size: 1.1rem;
-      }
-      .experience-card p {
-        font-size: 0.95rem;
-      }
     }
   </style>
 </head>
@@ -523,24 +524,34 @@
   <!-- Hero Section with Mini-Game -->
   <section id="home" class="hero-section">
     <div class="hero-card">
-      <img src="my-profile-img.png" class="rounded-circle mb-3" alt="Profile">
+      <img src="my-profile-img.png" class="rounded-circle mb-4" alt="Profile">
       <h1 class="fw-bold">Nazeer Mukhasam</h1>
-      <p class="lead">I create websites and designs that people love to use.</p>
-      <a href="#experience" class="fancy mb-3"><i class="bi bi-eye"></i> View My Work</a>
+      <p class="lead">I craft websites and designs that make your ideas shine.</p>
+      <a href="#experience" class="fancy mb-4"><i class="bi bi-eye"></i> View My Work</a>
       <div id="game-area">
         <div id="target"></div>
-        <p id="score" class="mt-2">Score: 0</p>
+        <p id="score" class="mt-2">Score: <span id="score-value">0</span></p>
       </div>
     </div>
   </section>
+
+  <!-- Section Divider -->
+  <svg class="section-divider" viewBox="0 0 1440 50">
+    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
+  </svg>
 
   <!-- About Section -->
   <section id="about" class="section text-center">
     <div class="container">
       <h2 class="fw-bold">About Me</h2>
-      <p class="lead">I’m a Web Developer and Designer who builds easy-to-use, beautiful websites. I love turning ideas into real solutions that make a difference.</p>
+      <p class="lead">I’m a Web Developer and Designer who loves building websites that are easy to use and look amazing. Let’s create something awesome together!</p>
     </div>
   </section>
+
+  <!-- Section Divider -->
+  <svg class="section-divider" viewBox="0 0 1440 50">
+    <path d="M0,50 C360,100 1080,0 1440,50 L1440,50 L0,50 Z" />
+  </svg>
 
   <!-- Skills Section -->
   <section id="skills" class="section">
@@ -605,6 +616,11 @@
     </div>
   </section>
 
+  <!-- Section Divider -->
+  <svg class="section-divider" viewBox="0 0 1440 50">
+    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
+  </svg>
+
   <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="container">
@@ -633,6 +649,11 @@
       </div>
     </div>
   </section>
+
+  <!-- Section Divider -->
+  <svg class="section-divider" viewBox="0 0 1440 50">
+    <path d="M0,50 C360,100 1080,0 1440,50 L1440,50 L0,50 Z" />
+  </svg>
 
   <!-- Education Section -->
   <section id="education" class="section">
@@ -663,11 +684,16 @@
     </div>
   </section>
 
+  <!-- Section Divider -->
+  <svg class="section-divider" viewBox="0 0 1440 50">
+    <path d="M0,50 C360,0 1080,100 1440,50 L1440,50 L0,50 Z" />
+  </svg>
+
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="fw-bold text-center">Get in Touch</h2>
-      <p class="text-center lead">Have a project idea? Let’s work together to make it happen.</p>
+      <h2 class="fw-bold text-center" style="text-shadow: 0 0 15px rgba(255, 111, 97, 0.8);">Get in Touch</h2>
+      <p class="text-center lead">Have a project idea? Let’s make it real—reach out now!</p>
       <form class="mt-4">
         <div class="mb-3">
           <input type="text" class="form-control" required placeholder="Your Name" />
@@ -676,44 +702,36 @@
           <input type="email" class="form-control" required placeholder="Your Email" />
         </div>
         <div class="mb-3">
-          <textarea class="form-control" rows="4" required placeholder="Your Message"></textarea>
+          <textarea class="form-control" rows="4" required placeholder="Tell me about your project"></textarea>
         </div>
-        <button type="submit" class="fancy w-100">Send Message</button>
+        <button type="submit" class="fancy w-100">Send Now</button>
       </form>
     </div>
   </section>
 
-  <!-- WhatsApp Floating Button -->
-  <div class="whatsapp-float" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-    <a href="https://wa.me/919825764333" target="_blank" title="Chat on WhatsApp" class="fancy"><i class="bi bi-whatsapp"></i></a>
+  <!-- Sticky CTA Button -->
+  <a href="#contact" class="sticky-cta fancy"><i class="bi bi-chat"></i> Let’s Talk</a>
+
+  <!-- Exit Intent Popup -->
+  <div id="exitPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h3 style="color: #ff6f61;">Don’t Go Yet!</h3>
+      <p>Get a FREE consultation for your project—let’s make it happen!</p>
+      <a href="#contact" class="fancy">Claim Your Free Chat</a>
+      <button id="exitBtn" class="fancy mt-3">No Thanks</button>
+    </div>
   </div>
+
+  <!-- Footer with Testimonial -->
+  <footer class="text-center">
+    <div id="testimonial">"Nazeer turned my idea into a website that’s better than I imagined!" - Happy Client</div>
+    © 2025 Nazeer Mukhasam. All rights reserved.
+  </footer>
 
   <!-- Back to Top Button -->
   <button id="back-to-top" class="btn rounded-circle">
     <i class="bi bi-arrow-up"></i>
   </button>
-
-  <!-- Exit Intent Popup -->
-  <div id="exitPopup" class="popup" style="display: none;">
-    <div class="popup-content">
-      <h3>Wait a Second!</h3>
-      <p>Before you go, let’s talk about your next big project!</p>
-      <button id="stayBtn" class="fancy">Stay & Chat</button>
-      <button id="exitBtn" class="fancy">Leave Anyway</button>
-    </div>
-  </div>
-
-  <!-- Footer with Quotes -->
-  <footer class="text-center">
-    <div id="quote-container">
-      <div class="quote">"Great ideas deserve great solutions."</div>
-      <div class="quote">"I design websites that work for everyone."</div>
-      <div class="quote">"Simple code, big impact."</div>
-      <div class="quote">"Let’s bring your vision to life."</div>
-      <div class="quote">"Building the future, one project at a time."</div>
-    </div>
-    © 2025 Nazeer Mukhasam. All rights reserved.
-  </footer>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -740,26 +758,14 @@
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-        if (scrollPosition > sectionTop - window.innerHeight) {
-          section.style.backgroundPositionY = `${(scrollPosition - sectionTop) * 0.15}px`;
+        if (scrollPosition > sectionTop - window.innerHeight * 0.8) {
+          section.classList.add('visible');
         }
       });
     });
 
-    // Section Reveal Animation
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-
     // Smooth Scroll
-    document.querySelectorAll('.nav-link').forEach(anchor => {
+    document.querySelectorAll('.nav-link, .fancy[href]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(anchor.getAttribute('href'));
@@ -774,9 +780,6 @@
         document.getElementById('exitPopup').style.display = 'flex';
         popupShown = true;
       }
-    });
-    document.getElementById('stayBtn').addEventListener('click', () => {
-      document.getElementById('exitPopup').style.display = 'none';
     });
     document.getElementById('exitBtn').addEventListener('click', () => {
       document.getElementById('exitPopup').style.display = 'none';
@@ -794,7 +797,7 @@
     // Mini-Game Logic
     const target = document.getElementById('target');
     const gameArea = document.getElementById('game-area');
-    const scoreDisplay = document.getElementById('score');
+    const scoreValue = document.getElementById('score-value');
     let score = 0;
 
     function moveTarget() {
@@ -808,25 +811,25 @@
 
     target.addEventListener('click', () => {
       score += 1;
-      scoreDisplay.textContent = `Score: ${score}`;
+      scoreValue.textContent = score;
+      scoreValue.style.animation = 'pop 0.3s ease';
+      setTimeout(() => scoreValue.style.animation = '', 300);
       moveTarget();
-      target.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
+      target.style.background = `linear-gradient(135deg, #ff6f61, #ff9500)`;
     });
 
     moveTarget();
 
-    // Quote Animation
-    const quotes = document.querySelectorAll('.quote');
-    let currentQuote = 0;
-
-    function showNextQuote() {
-      quotes.forEach(q => q.classList.remove('active'));
-      quotes[currentQuote].classList.add('active');
-      currentQuote = (currentQuote + 1) % quotes.length;
-    }
-
-    showNextQuote();
-    setInterval(showNextQuote, 3000);
+    // Score Pop Animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
