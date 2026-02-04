@@ -457,6 +457,30 @@
       transform: scale(1.05);
     }
 
+    .external-link {
+      border: 2px solid #4A90E2;
+      background: linear-gradient(135deg, #4A90E2, #2ECC71);
+      color: #FFFFFF;
+      border-radius: 25px;
+      padding: 12px 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+    }
+
+    .external-link:hover {
+      background: linear-gradient(135deg, #2ECC71, #4A90E2);
+      box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+      transform: scale(1.05);
+    }
+
     .sticky-cta {
       position: fixed;
       bottom: 20px;
@@ -763,6 +787,7 @@
           <li class="nav-item"><a href="#skills" class="nav-link"><i class="bi bi-tools" aria-hidden="true"></i> Skills</a></li>
           <li class="nav-item"><a href="#experience" class="nav-link"><i class="bi bi-briefcase" aria-hidden="true"></i> Experience</a></li>
           <li class="nav-item"><a href="#projects" class="nav-link"><i class="bi bi-rocket" aria-hidden="true"></i> Projects</a></li>
+          <li class="nav-item"><a href="#figma-designs" class="nav-link"><i class="bi bi-palette" aria-hidden="true"></i> Figma Designs</a></li>
           <li class="nav-item"><a href="#education" class="nav-link"><i class="bi bi-book" aria-hidden="true"></i> Education</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link"><i class="bi bi-chat" aria-hidden="true"></i> Contact</a></li>
         </ul>
@@ -870,7 +895,7 @@
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id= "projects" class="section">
     <div class="panel-3d">
       <h2>Projects for You</h2>
       <div class="projects-container">
@@ -891,6 +916,40 @@
         </div>
       </div>
       <a href="#contact" class="fancy mt-3"><i class="bi bi-rocket" aria-hidden="true"></i> Start Your Project</a>
+    </div>
+  </section>
+
+  <section id="figma-designs" class="section">
+    <div class="panel-3d">
+      <h2>Figma Designs</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <h5>Swipe to Delete (Email-like)</h5>
+          <p>Interactive UI with Dark and Light Mode</p>
+          <a href="https://www.figma.com/proto/7XWMbQn7O0DW3d8ZPMsdij/Tasks?page-id=26%3A89&node-id=126-6&starting-point-node-id=126%3A6&t=YoF5lHjDKvYr94I0-1" target="_blank" class="external-link">View Prototype</a>
+        </div>
+        <div class="project-card">
+          <h5>iPhone Notch Design</h5>
+          <p>Modern mobile UI design</p>
+          <a href="https://www.figma.com/proto/USoluTwWGQ16FMLXJpGaak/iphone-notch?page-id=0%3A1&node-id=0-559&t=aDiUy1USVtzLH4Fn-1" target="_blank" class="external-link">View Prototype</a>
+        </div>
+        <div class="project-card">
+          <h5>Evolve: Neuro-Adaptive Focus Hub</h5>
+          <p>Focus app for ADHD users</p>
+          <a href="https://www.figma.com/proto/6iCiioh8N9ba6PLAzeZCKm/Evolve---Neuro-Adaptive-Focus-Hub?page-id=0%3A1&node-id=54-26&starting-point-node-id=54%3A26&scaling=min-zoom&content-scaling=fixed&t=Sz7tSGuyN6hGsvk2-1" target="_blank" class="external-link">View Prototype</a>
+        </div>
+        <div class="project-card">
+          <h5>Hover Effect on Text</h5>
+          <p>Interactive text animations</p>
+          <a href="https://www.figma.com/proto/ugWbgTWZnLdYjcCxqr2sz9/Untitled?page-id=0%3A1&node-id=1-52&t=V8lx4MH8nuWCvKtQ-1" target="_blank" class="external-link">View Prototype</a>
+        </div>
+        <div class="project-card">
+          <h5>Portfolio Design</h5>
+          <p>Personal portfolio UI</p>
+          <a href="https://www.figma.com/proto/AW6dxp4CVlq0n0plRBbafZ/portfolio?page-id=0%3A1&node-id=4-2&p=f&viewport=300%2C204%2C0.07&t=umwutH8ns08uPWLr-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4%3A2" target="_blank" class="external-link">View Prototype</a>
+        </div>
+      </div>
+      <a href="#contact" class="fancy mt-3"><i class="bi bi-palette" aria-hidden="true"></i> Explore More Designs</a>
     </div>
   </section>
 
@@ -1005,9 +1064,18 @@
 
     document.querySelectorAll('.nav-link, .fancy[href], .chat-link').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
-        e.preventDefault();
         const href = anchor.getAttribute('href');
-        if (href && href.startsWith('#')) smoothScroll(href);
+        const target = anchor.getAttribute('target');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          smoothScroll(href);
+        } else if (target === '_blank') {
+          // Allow external links to open normally
+          return;
+        } else {
+          e.preventDefault();
+          if (href && href.startsWith('#')) smoothScroll(href);
+        }
       });
     });
 
