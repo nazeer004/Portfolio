@@ -37,28 +37,6 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   
-  <!-- Content Security Policy -->
-  
-  <!-- Structured Data - Person -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nazeer Mukhasam",
-    "jobTitle": "UI/UX Designer",
-    "url": "https://nazeermukhasam.portfolio",
-    "email": "nazeer.code@gmail.com",
-    "telephone": "+919825764333",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ahmedabad",
-      "addressRegion": "Gujarat",
-      "addressCountry": "IN"
-    },
-    "sameAs": ["https://github.com/nazeer004", "https://www.figma.com/@nazeer"]
-  }
-  </script>
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -254,54 +232,6 @@
       0%, 100% { transform: translate(0, 0) scale(1); }
       33% { transform: translate(30px, -30px) scale(1.1); }
       66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-
-    /* Preloader */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--bg-primary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 5000;
-      transition: opacity 0.6s ease;
-    }
-
-    #preloader.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .preloader-content {
-      text-align: center;
-    }
-
-    .preloader-logo {
-      width: 80px;
-      height: 80px;
-      border: 3px solid var(--glass-border);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-    }
-
-    .preloader-logo i {
-      font-size: 2rem;
-      color: var(--accent-primary);
-    }
-
-    .preloader-text {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--accent-primary);
     }
 
     /* Progress Bar */
@@ -1252,6 +1182,7 @@
   </style>
 </head>
 <body>
+
   <!-- Aurora Background Layers -->
   <div class="aurora">
     <div class="aurora-layer"></div>
@@ -1273,17 +1204,6 @@
     <div class="shape shape-3" data-speed="0.4"></div>
   </div>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="preloader-content">
-      <div class="preloader-logo">
-        <i class="bi bi-palette"></i>
-      </div>
-      <div class="preloader-text">Loading...</div>
-    </div>
-  </div>
-
-  <!-- Progress Bar -->
   <div class="progress-bar" id="progressBar"></div>
 
   <!-- Navbar -->
@@ -1558,7 +1478,7 @@
       </div>
       <div class="designs-showcase">
         <div class="design-card fade-in">
-          <div class="design-preview">
+          <div class="design-preview" loading="lazy">
             <i class="bi bi-envelope"></i>
           </div>
           <h4 class="design-title">Swipe to Delete</h4>
@@ -1566,7 +1486,7 @@
           <a href="https://www.figma.com/proto/7XWMbQn7O0DW3d8ZPMsdij/Tasks?page-id=26%3A89&node-id=126-6&starting-point-node-id=126%3A6&t=YoF5lHjDKvYr94I0-1" target="_blank" class="project-link">View Prototype <i class="bi bi-box-arrow-up-right"></i></a>
         </div>
         <div class="design-card fade-in">
-          <div class="design-preview">
+          <div class="design-preview" loading="lazy">
             <i class="bi bi-phone"></i>
           </div>
           <h4 class="design-title">iPhone Notch Design</h4>
@@ -1574,7 +1494,7 @@
           <a href="https://www.figma.com/proto/USoluTwWGQ16FMLXJpGaak/iphone-notch?page-id=0%3A1&node-id=0-559&t=aDiUy1USVtzLH4Fn-1" target="_blank" class="project-link">View Prototype <i class="bi bi-box-arrow-up-right"></i></a>
         </div>
         <div class="design-card fade-in">
-          <div class="design-preview">
+          <div class="design-preview" loading="lazy">
             <i class="bi bi-brain"></i>
           </div>
           <h4 class="design-title">Evolve Focus App</h4>
@@ -1582,7 +1502,7 @@
           <a href="https://www.figma.com/proto/6iCiioh8N9ba6PLAzeZCKm/Evolve---Neuro-Adaptive-Focus-Hub?page-id=0%3A1&node-id=54-26&starting-point-node-id=54%3A26&scaling=min-zoom&content-scaling=fixed&t=Sz7tSGuyN6hGsvk2-1" target="_blank" class="project-link">View Prototype <i class="bi bi-box-arrow-up-right"></i></a>
         </div>
         <div class="design-card fade-in">
-          <div class="design-preview">
+          <div class="design-preview" loading="lazy">
             <i class="bi bi-type"></i>
           </div>
           <h4 class="design-title">Hover Effect on Text</h4>
@@ -1590,7 +1510,7 @@
           <a href="https://www.figma.com/proto/ugWbgTWZnLdYjcCxqr2sz9/Untitled?page-id=0%3A1&node-id=1-52&t=V8lx4MH8nuWCvKtQ-1" target="_blank" class="project-link">View Prototype <i class="bi bi-box-arrow-up-right"></i></a>
         </div>
         <div class="design-card fade-in">
-          <div class="design-preview">
+          <div class="design-preview" loading="lazy">
             <i class="bi bi-person"></i>
           </div>
           <h4 class="design-title">Portfolio Design</h4>
@@ -1723,7 +1643,7 @@
           <a href="mailto:nazeer.code@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
           <a href="https://github.com/nazeer004" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
           <a href="https://wa.me/919825764333" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="https://www.figma.com/@nazeer" target="_blank" aria-label="Figma"><i class="bi bi-figma"></i></a>
+          <a href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
         </div>
         <p class="footer-text">© 2025 Nazeer Mukhasam. All rights reserved.</p>
       </div>
@@ -1739,15 +1659,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
   <script>
-    // Preloader
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-        setTimeout(() => preloader.remove(), 600);
-      }, 1000);
-    });
-
     // Progress Bar
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -1791,13 +1702,33 @@
       });
     });
 
-    // Parallax Effect for Shapes
+    // Enhanced Parallax Effect for Shapes
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
+      
+      // Parallax for background shapes
       document.querySelectorAll('.shape').forEach(shape => {
         const speed = shape.getAttribute('data-speed');
         shape.style.transform = `translateY(${scrolled * speed}px)`;
       });
+      
+      // Parallax for aurora layers
+      document.querySelectorAll('.aurora-layer').forEach((layer, index) => {
+        const speed = 0.05 + (index * 0.02);
+        layer.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+      
+      // Parallax for grid overlay
+      const gridOverlay = document.querySelector('.grid-overlay');
+      if (gridOverlay) {
+        gridOverlay.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+      
+      // Parallax for noise overlay
+      const noiseOverlay = document.querySelector('.noise-overlay');
+      if (noiseOverlay) {
+        noiseOverlay.style.transform = `translateY(${scrolled * 0.1}px)`;
+      }
     });
 
     // Fade In Animation on Scroll
