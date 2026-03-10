@@ -31,7 +31,9 @@
 <meta name="twitter:image" content="https://nazeerux.site/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<!-- Non-blocking font load: preload triggers fetch, onload swaps to stylesheet -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -284,8 +286,70 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
   .contact-big{letter-spacing:-2px;}
   body,button,a{cursor:auto;}
   #cursor,#cursor-f{display:none;}
+
+  /* MOBILE PERFORMANCE: kill canvas, CSS background instead */
+  #bgc{display:none;}
+  body{background:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(200,241,53,.06) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(200,241,53,.04) 0%,transparent 55%),var(--black);}
+  body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:80px 80px;}
+
+  /* Kill scroll reveal on mobile — show everything immediately */
+  .rv,.rl{opacity:1 !important;transform:none !important;transition:none !important;}
+  .sg>*{opacity:1 !important;transform:none !important;transition:none !important;}
+
+  /* Lighten card transitions */
+  .proj-card,.d-card,.cert-card,.stat-card{transition:border-color .2s;}
+  .proj-card:hover,.d-card:hover{transform:none;box-shadow:none;}
 }
 @media(max-width:480px){.hero-title{font-size:3.2rem;letter-spacing:-1.5px;}}
+
+/* ── PERFORMANCE ──────────────────────────────────────────── */
+
+/* GPU compositing: promote animated/fixed elements to own layer */
+#cursor,#cursor-f,#bgc,#prog,nav,.strip-track{will-change:transform;}
+.rv,.rl,.sg>*{will-change:opacity,transform;}
+/* Once revealed, stop hinting — saves memory */
+.rv.in,.rl.in,.sg.in>*{will-change:auto;}
+
+/* Hero animations — force GPU path */
+.hero-title,.hero-badge,.hero-foot{transform:translateZ(0);}
+
+/* Layout containment — browser skips re-layout of isolated sections */
+section{contain:layout style;}
+/* Content visibility — skip rendering off-screen sections entirely */
+#about,#experience,#projects,#designs,#certs,#contact{
+  content-visibility:auto;
+  contain-intrinsic-size:0 600px; /* rough height estimate, prevents scroll jump */
+}
+
+/* Hover transitions: use transform + opacity only (compositor thread)
+   border-color & box-shadow force main thread — keep them cheap */
+.proj-card{transition:transform .45s var(--ease),opacity .3s;}
+.stat-card,.cert-card,.award-card,.d-card{transition:transform .35s var(--ease);}
+.nav-hire{transition:transform .25s var(--ease),box-shadow .25s;}
+
+/* Marquee: force GPU */
+.strip-track{transform:translateZ(0);backface-visibility:hidden;}
+
+/* Scroll progress bar — compositor only */
+#prog{transform:translateZ(0);}
+
+/* ── REDUCED MOTION ──────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  /* Kill all transitions and animations */
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  /* Reveal everything immediately */
+  .rv,.rl{opacity:1;transform:none;}
+  .sg>*{opacity:1;transform:none;}
+  /* Kill scroll hint bounce and badge ping */
+  .scroll-line,.badge-dot{animation:none;}
+  /* Kill marquee scroll */
+  .strip-track{animation:none;}
+}
 </style>
 </head>
 <body>
@@ -521,152 +585,211 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
     <div class="rl">
       <h3>Let's build together</h3>
       <p>Open to full-time UI/UX roles, freelance work, and collaborations. I respond within 24 hours.</p>
-      <div class="c-items">
-        <div class="ci"><div class="ci-icon"><svg class="ico"><use href="#i-mail"/></svg></div><div><h4>Email</h4><p><a href="mailto:nazeer.code&#64;gmail.com">nazeer.code&#64;gmail.com</a></p></div></div>
-        <div class="ci"><div class="ci-icon"><svg class="ico"><use href="#i-wa"/></svg></div><div><h4>WhatsApp</h4><p><a href="https://wa.me/919825764333" target="_blank" rel="noopener">+91 98257 64333</a></p></div></div>
-        <div class="ci"><div class="ci-icon"><svg class="ico"><use href="#i-li"/></svg></div><div><h4>LinkedIn</h4><p><a href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener">nazeer-mukhasam</a></p></div></div>
-        <div class="ci"><div class="ci-icon"><svg class="ico"><use href="#i-geo"/></svg></div><div><h4>Location</h4><p>Ahmedabad, Gujarat, India</p></div></div>
-      </div>
-    </div>
-    <div class="form-box rv">
-      <form method="POST" action="https://api.web3forms.com/submit">
-        <input type="hidden" name="access_key" value="b3510973-a458-4d32-86ae-00697e1dd0bb">
-        <div class="fg"><label class="fl" for="f-name">Your Name</label><input type="text" id="f-name" class="fi" required placeholder="Enter Your Name" name="Name" autocomplete="name"></div>
-        <div class="fg"><label class="fl" for="f-email">Email Address</label><input type="email" id="f-email" class="fi" required placeholder="example@company.com" name="Email" autocomplete="email"></div>
-        <div class="fg"><label class="fl" for="f-msg">Message</label><textarea id="f-msg" class="fi" required placeholder="Tell me about the project or role..." name="Message"></textarea></div>
-        <input type="hidden" name="redirect" value="https://web3forms.com/success">
-        <button type="submit" class="btn-submit"><svg class="ico"><use href="#i-send"/></svg> Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">NM.</div>
-  <div class="socials">
-    <a href="mailto:nazeer.code&#64;gmail.com" class="soc" aria-label="Email"><svg class="ico"><use href="#i-mail"/></svg></a>
-    <a href="https://github.com/nazeer004" target="_blank" rel="noopener" class="soc" aria-label="GitHub"><svg class="ico"><use href="#i-gh"/></svg></a>
-    <a href="https://wa.me/919825764333" target="_blank" rel="noopener" class="soc" aria-label="WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
-    <a href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener" class="soc" aria-label="LinkedIn"><svg class="ico"><use href="#i-li"/></svg></a>
-  </div>
-  <p class="foot-copy">© 2026 Nazeer Mukhasam — Designed with intention.</p>
-</footer>
-
-<button id="btt"><svg class="ico"><use href="#i-up"/></svg></button>
-
 <script>
 'use strict';
 
-/* ── LAZY LOADING
-   Strategy:
-   1. Google Fonts: load non-blocking via preload → onload swap
-   2. Canvas: only init when hero is visible (IntersectionObserver)
-   3. Sections below fold: content fades in only when scrolled into view (already done via .rv/.rl/.sg)
-   4. Heavy hover listeners: attached once on first user interaction (pointerover)
-   5. Scroll handler: throttled with requestAnimationFrame
-   6. Marquee listeners: deferred until strip is visible
-   ──────────────────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════
+   PERFORMANCE STRATEGY
+   ─────────────────────────────────────────────────────────
+   1. Device tier detection → reduce work on low-end devices
+   2. Cursor: desktop only, rAF loop with lerp
+   3. Canvas: OffscreenCanvas where supported, reduced particles
+      on low-end, paused when tab hidden or not in viewport
+   4. Scroll handler: single rAF-throttled listener
+   5. Hover listeners: bound once on first pointerover
+   6. Reveals: IntersectionObserver, desktop only
+   7. Marquee pause: lazy via IntersectionObserver
+   8. prefers-reduced-motion: all animations killed in CSS,
+      JS also bails out of canvas + glitch
+   ════════════════════════════════════════════════════════════ */
 
-// ── CURSOR (desktop only) ──────────────────────────────────
-const isMobile = window.matchMedia('(max-width:768px)').matches;
+// ── DEVICE / PREFERENCE DETECTION ─────────────────────────
+const isMobile     = window.matchMedia('(max-width:768px)').matches;
+const prefersLess  = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+const isLowEnd     = (
+  navigator.hardwareConcurrency <= 2 ||
+  (navigator.deviceMemory !== undefined && navigator.deviceMemory <= 2)
+);
+// Particle count: high-end=100, low-end desktop=60, mobile=0 (canvas hidden in CSS)
+const PARTICLE_COUNT = isMobile ? 0 : isLowEnd ? 50 : 100;
+const LINK_DIST      = isLowEnd ? 100 : 150;
+
+// ── CUSTOM CURSOR (desktop only) ───────────────────────────
 if (!isMobile) {
-  const cur = document.getElementById('cursor');
+  const cur  = document.getElementById('cursor');
   const curf = document.getElementById('cursor-f');
-  let mx=0, my=0, fx=0, fy=0;
+  let mx=0, my=0, fx=0, fy=0, curRaf;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    // Direct cursor: no rAF needed, just position
+    cur.style.left = mx + 'px';
+    cur.style.top  = my + 'px';
   }, { passive: true });
 
-  (function animCur() {
-    fx += (mx - fx) * .11; fy += (my - fy) * .11;
-    curf.style.left = fx + 'px'; curf.style.top = fy + 'px';
-    requestAnimationFrame(animCur);
-  })();
+  function animCur() {
+    fx += (mx - fx) * .11;
+    fy += (my - fy) * .11;
+    curf.style.left = fx + 'px';
+    curf.style.top  = fy + 'px';
+    curRaf = requestAnimationFrame(animCur);
+  }
+  animCur();
 
-  // LAZY: attach cursor-grow listeners only on first pointer interaction
+  // Hover grow: lazy bind on first pointer interaction
   let hoverBound = false;
   document.addEventListener('pointerover', () => {
     if (hoverBound) return;
     hoverBound = true;
-    document.querySelectorAll('a,button,.proj-card,.d-card,.exp-item,.stat-card,.cert-card,.award-card').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cg'), { passive: true });
+    document.querySelectorAll(
+      'a,button,.proj-card,.d-card,.exp-item,.stat-card,.cert-card,.award-card'
+    ).forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cg'),    { passive: true });
       el.addEventListener('mouseleave', () => document.body.classList.remove('cg'), { passive: true });
     });
-  }, { once: false, passive: true });
+  }, { passive: true });
+
+  // Pause cursor loop when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(curRaf);
+    else animCur();
+  });
 }
 
-// ── CANVAS - lazy init (only when hero scrolls into view) ──
-let cvStarted = false;
-let cvPaused = false;
+// ── CANVAS BACKGROUND ──────────────────────────────────────
+if (!isMobile && !prefersLess && PARTICLE_COUNT > 0) {
+  let cvPaused = false;
+  let cvRaf;
 
-document.addEventListener('visibilitychange', () => { cvPaused = document.hidden; });
+  document.addEventListener('visibilitychange', () => {
+    cvPaused = document.hidden;
+    if (!document.hidden && !cvRaf) startCanvas();
+  });
 
-function initCanvas() {
-  if (cvStarted) return;
-  cvStarted = true;
+  function startCanvas() {
+    const canvasEl = document.getElementById('bgc');
 
-  const cv = document.getElementById('bgc');
-  const ctx = cv.getContext('2d');
-  let W, H, pts = [];
-
-  function rsz() { W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
-  rsz();
-  window.addEventListener('resize', rsz, { passive: true });
-
-  class Pt {
-    constructor() { this.r(); }
-    r() {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.s = Math.random() * 1.4 + .2;
-      this.vx = (Math.random() - .5) * .25; this.vy = (Math.random() - .5) * .25;
-      this.o = Math.random() * .35 + .04;
-      this.lime = Math.random() > .82;
+    // Use OffscreenCanvas if available (runs on worker thread, off main)
+    let ctx;
+    if (canvasEl.transferControlToOffscreen) {
+      // OffscreenCanvas path — paint fully off main thread
+      const offscreen = canvasEl.transferControlToOffscreen();
+      const workerCode = `
+        let W,H,pts=[],cvPaused=false,limeCount=0;
+        const CHARS=[];
+        const PC=${PARTICLE_COUNT}, LD=${LINK_DIST};
+        class Pt{
+          constructor(){this.r();}
+          r(){this.x=Math.random()*W;this.y=Math.random()*H;this.s=Math.random()*1.4+.2;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.o=Math.random()*.35+.04;this.lime=Math.random()>.82;}
+          u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r();}
+        }
+        self.onmessage=e=>{
+          if(e.data.type==='init'){
+            const canvas=e.data.canvas;
+            const ctx=canvas.getContext('2d');
+            W=canvas.width=e.data.w; H=canvas.height=e.data.h;
+            for(let i=0;i<PC;i++)pts.push(new Pt());
+            function draw(){
+              if(!cvPaused){
+                ctx.clearRect(0,0,W,H);
+                ctx.strokeStyle='rgba(255,255,255,0.022)';ctx.lineWidth=.5;
+                for(let x=0;x<W;x+=80){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+                for(let y=0;y<H;y+=80){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+                const limes=[];
+                pts.forEach(p=>{
+                  p.u();
+                  ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);
+                  ctx.fillStyle=p.lime?'rgba(200,241,53,'+p.o+')':'rgba(245,245,247,'+(p.o*.4)+')';
+                  ctx.fill();
+                  if(p.lime)limes.push(p);
+                });
+                limes.forEach((p,i)=>{
+                  for(let j=i+1;j<limes.length;j++){
+                    const d=Math.hypot(p.x-limes[j].x,p.y-limes[j].y);
+                    if(d<LD){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(limes[j].x,limes[j].y);ctx.strokeStyle='rgba(200,241,53,'+(0.07*(1-d/LD))+')';ctx.lineWidth=.5;ctx.stroke();}
+                  }
+                });
+              }
+              requestAnimationFrame(draw);
+            }
+            draw();
+          } else if(e.data.type==='pause'){cvPaused=e.data.v;}
+            else if(e.data.type==='resize'){W=e.data.w;H=e.data.h;}
+        };
+      `;
+      try {
+        const blob   = new Blob([workerCode], { type: 'application/javascript' });
+        const worker = new Worker(URL.createObjectURL(blob));
+        worker.postMessage({ type: 'init', canvas: offscreen, w: window.innerWidth, h: window.innerHeight }, [offscreen]);
+        document.addEventListener('visibilitychange', () => worker.postMessage({ type: 'pause', v: document.hidden }));
+        window.addEventListener('resize', () => worker.postMessage({ type: 'resize', w: window.innerWidth, h: window.innerHeight }), { passive: true });
+        return; // Worker handles everything
+      } catch(e) {
+        // OffscreenCanvas failed, fall through to main-thread canvas
+      }
     }
-    u() { this.x += this.vx; this.y += this.vy; if (this.x<0||this.x>W||this.y<0||this.y>H) this.r(); }
-    d() {
-      ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI*2);
-      ctx.fillStyle = this.lime ? `rgba(200,241,53,${this.o})` : `rgba(245,245,247,${this.o*.4})`;
-      ctx.fill();
+
+    // Main-thread canvas fallback
+    ctx = canvasEl.getContext('2d');
+    let W, H, pts = [];
+
+    function rsz() { W = canvasEl.width = window.innerWidth; H = canvasEl.height = window.innerHeight; }
+    rsz();
+    window.addEventListener('resize', rsz, { passive: true });
+
+    class Pt {
+      constructor() { this.r(); }
+      r() {
+        this.x  = Math.random()*W; this.y = Math.random()*H;
+        this.s  = Math.random()*1.4+.2;
+        this.vx = (Math.random()-.5)*.25; this.vy = (Math.random()-.5)*.25;
+        this.o  = Math.random()*.35+.04;
+        this.lime = Math.random() > .82;
+      }
+      u() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>W||this.y<0||this.y>H) this.r(); }
+      d(ctx) {
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.s,0,Math.PI*2);
+        ctx.fillStyle = this.lime ? `rgba(200,241,53,${this.o})` : `rgba(245,245,247,${this.o*.4})`;
+        ctx.fill();
+      }
     }
+
+    for (let i=0; i<PARTICLE_COUNT; i++) pts.push(new Pt());
+
+    function drawFrame() {
+      if (!cvPaused) {
+        ctx.clearRect(0,0,W,H);
+        ctx.strokeStyle='rgba(255,255,255,0.022)'; ctx.lineWidth=.5;
+        for (let x=0;x<W;x+=80){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+        for (let y=0;y<H;y+=80){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+        const limes=[];
+        pts.forEach(p=>{p.u();p.d(ctx);if(p.lime)limes.push(p);});
+        limes.forEach((p,i)=>{
+          for(let j=i+1;j<limes.length;j++){
+            const d=Math.hypot(p.x-limes[j].x,p.y-limes[j].y);
+            if(d<LINK_DIST){
+              ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(limes[j].x,limes[j].y);
+              ctx.strokeStyle=`rgba(200,241,53,${.07*(1-d/LINK_DIST)})`;ctx.lineWidth=.5;ctx.stroke();
+            }
+          }
+        });
+      }
+      cvRaf = requestAnimationFrame(drawFrame);
+    }
+    drawFrame();
   }
 
-  for (let i = 0; i < 100; i++) pts.push(new Pt());
-
-  (function animCv() {
-    if (!cvPaused) {
-      ctx.clearRect(0, 0, W, H);
-      ctx.strokeStyle = 'rgba(255,255,255,0.022)'; ctx.lineWidth = .5;
-      for (let x=0; x<W; x+=80) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
-      for (let y=0; y<H; y+=80) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
-      pts.forEach(p => { p.u(); p.d(); });
-      const limes = pts.filter(p => p.lime);
-      limes.forEach((p, i) => {
-        for (let j=i+1; j<limes.length; j++) {
-          const d = Math.hypot(p.x - limes[j].x, p.y - limes[j].y);
-          if (d < 150) {
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(limes[j].x, limes[j].y);
-            ctx.strokeStyle = `rgba(200,241,53,${.07*(1-d/150)})`; ctx.lineWidth = .5; ctx.stroke();
-          }
-        }
-      });
-    }
-    requestAnimationFrame(animCv);
-  })();
+  // Lazy: only init canvas when hero is visible
+  const heroObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { startCanvas(); heroObs.disconnect(); }
+  }, { threshold: 0 });
+  heroObs.observe(document.getElementById('home'));
 }
 
-// Trigger canvas init when hero section enters viewport
-const heroObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { initCanvas(); heroObserver.disconnect(); } });
-}, { threshold: 0 });
-heroObserver.observe(document.getElementById('home'));
-
-// ── SCROLL (throttled via rAF) ─────────────────────────────
-const prog = document.getElementById('prog');
+// ── SCROLL (single rAF-throttled handler) ──────────────────
+const prog  = document.getElementById('prog');
 const navEl = document.getElementById('nav');
-const btt = document.getElementById('btt');
+const btt   = document.getElementById('btt');
 let scrollTicking = false;
 
 window.addEventListener('scroll', () => {
@@ -682,87 +805,85 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+btt.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
 // ── MOBILE MENU ────────────────────────────────────────────
 const ham = document.getElementById('ham');
 const mob = document.getElementById('mob');
-const mc = document.getElementById('mobClose');
-ham.addEventListener('click', () => { mob.classList.add('open'); ham.setAttribute('aria-expanded', 'true'); });
-mc.addEventListener('click', () => { mob.classList.remove('open'); ham.setAttribute('aria-expanded', 'false'); });
+const mc  = document.getElementById('mobClose');
+ham.addEventListener('click', () => { mob.classList.add('open');    ham.setAttribute('aria-expanded','true'); });
+mc.addEventListener('click',  () => { mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); });
 mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mob.classList.remove('open'); ham.setAttribute('aria-expanded', 'false');
+  mob.classList.remove('open'); ham.setAttribute('aria-expanded','false');
 }));
 
 // ── SMOOTH SCROLL ──────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: prefersLess ? 'auto' : 'smooth' }); }
   });
 });
 
-// ── INTERSECTION OBSERVER (scroll reveals) ─────────────────
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { threshold: .07, rootMargin: '0px 0px -36px 0px' });
-document.querySelectorAll('.rv,.rl,.sg').forEach(el => io.observe(el));
-
-// ── MARQUEE - lazy: attach hover pause only when strip visible ──
-const strip = document.getElementById('st');
-if (strip) {
-  const stripObserver = new IntersectionObserver(entries => {
+// ── SCROLL REVEALS ─────────────────────────────────────────
+if (!isMobile && !prefersLess) {
+  const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        strip.addEventListener('mouseenter', () => strip.style.animationPlayState = 'paused', { passive: true });
-        strip.addEventListener('mouseleave', () => strip.style.animationPlayState = 'running', { passive: true });
-        stripObserver.disconnect();
-      }
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0 });
-  stripObserver.observe(strip);
+  }, { threshold: .07, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.rv,.rl,.sg').forEach(el => io.observe(el));
+} else {
+  // Mobile or reduced-motion: show everything immediately, no layout thrash
+  document.querySelectorAll('.rv,.rl,.sg').forEach(el => el.classList.add('in'));
 }
 
-// ── FONT: load display font non-blocking after page paint ──
-// Syne (headings) loads normally for above-fold text.
-// No additional deferred fonts needed — Google Fonts handles display=swap.
-
-// ── GLITCH EFFECT on hero title (safe, textContent only) ───
-const CHARS = '!<>-_\\/[]{}—=+*^?#';
-function glitch(el, dur=700) {
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-  const textNodes = [];
-  let node;
-  while ((node = walker.nextNode())) textNodes.push({ node, orig: node.textContent });
-  if (!textNodes.length) return;
-  let start = null;
-  const frame = ts => {
-    if (!start) start = ts;
-    const p = Math.min((ts - start) / dur, 1);
-    textNodes.forEach(({ node, orig }) => {
-      if (p >= 1) { node.textContent = orig; return; }
-      const rev = Math.floor(p * orig.length);
-      let out = '';
-      for (let i = 0; i < orig.length; i++) {
-        if (orig[i] === ' ' || orig[i] === '\n') { out += orig[i]; continue; }
-        out += i < rev ? orig[i] : CHARS[Math.floor(Math.random() * CHARS.length)];
-      }
-      node.textContent = out;
-    });
-    if (p < 1) requestAnimationFrame(frame);
-    else textNodes.forEach(({ node, orig }) => node.textContent = orig);
-  };
-  requestAnimationFrame(frame);
+// ── MARQUEE PAUSE (lazy) ───────────────────────────────────
+const strip = document.getElementById('st');
+if (strip && !isMobile) {
+  const stripObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      strip.addEventListener('mouseenter', () => strip.style.animationPlayState='paused',  { passive:true });
+      strip.addEventListener('mouseleave', () => strip.style.animationPlayState='running', { passive:true });
+      stripObs.disconnect();
+    }
+  }, { threshold:0 });
+  stripObs.observe(strip);
 }
 
-// Run glitch after fonts are likely loaded (after first paint)
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.hero-title').forEach(el => glitch(el));
-  }, 400);
-});
+// ── HERO GLITCH (safe textContent, skipped on reduced-motion) ─
+if (!prefersLess) {
+  const CHARS = '!<>-_\\/[]{}—=+*^?#';
+  function glitch(el, dur=700) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push({ n, orig: n.textContent });
+    if (!nodes.length) return;
+    let start = null;
+    const frame = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      nodes.forEach(({ n, orig }) => {
+        if (p >= 1) { n.textContent = orig; return; }
+        const rev = Math.floor(p * orig.length);
+        let out = '';
+        for (let i=0; i<orig.length; i++) {
+          if (orig[i]===' '||orig[i]==='\n') { out+=orig[i]; continue; }
+          out += i < rev ? orig[i] : CHARS[Math.floor(Math.random()*CHARS.length)];
+        }
+        n.textContent = out;
+      });
+      if (p < 1) requestAnimationFrame(frame);
+      else nodes.forEach(({ n, orig }) => n.textContent = orig);
+    };
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => document.querySelectorAll('.hero-title').forEach(el => glitch(el)), 350);
+  });
+}
 </script>
 </body>
 </html>
