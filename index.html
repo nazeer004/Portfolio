@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Nazeer Mukhasam — UI/UX Designer"/>
 <meta name="twitter:description" content="UI/UX Designer from Ahmedabad creating digital experiences that convert and delight."/>
 <meta name="twitter:image" content="https://nazeerux.site/my-profile-img.jpg"/>
+<meta name="robots" content="index, follow"/>
+<meta name="googlebot" content="index, follow"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -67,6 +69,7 @@ body::before{
 /* NAV */
 nav{position:fixed;top:0;left:0;width:100%;padding:clamp(16px,5vw,28px) clamp(20px,6vw,56px);display:flex;align-items:center;justify-content:space-between;z-index:1000;transition:padding .4s var(--ease),background .4s;}
 nav.solid{padding:16px 56px;background:rgba(12,12,14,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--line);}
+@media(max-width:768px){nav.solid{padding:14px 24px;}}
 .nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:800;color:var(--lime);letter-spacing:-1px;}
 .nav-links{display:flex;gap:clamp(20px,4vw,32px);}
 .nav-links a{font-size:.88rem;font-weight:500;color:var(--dim);letter-spacing:.3px;position:relative;transition:color .3s;}
@@ -125,6 +128,7 @@ section:not(#home){padding:clamp(40px,8vw,120px) clamp(24px,6vw,56px);position:r
 .sec-num{font-family:var(--serif);font-size:5rem;font-weight:800;color:rgba(255,255,255,.04);letter-spacing:-4px;line-height:1;}
 
 /* ABOUT */
+#about{border-top:1px solid var(--line);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .about-heading{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:800;line-height:1.02;letter-spacing:-2.5px;margin-bottom:32px;}
 .about-heading em{font-style:italic;color:var(--lime);}
@@ -147,7 +151,7 @@ section:not(#home){padding:clamp(40px,8vw,120px) clamp(24px,6vw,56px);position:r
 #experience{border-top:1px solid var(--line);}
 .exp-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:16px;}
 .exp-item{display:grid;grid-template-columns:180px 1fr 44px;gap:40px;align-items:start;padding:36px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .3s var(--ease);}
-.exp-item::before{content:'';position:absolute;left:-56px;right:-56px;top:0;bottom:0;background:transparent;transition:background .3s;z-index:-1;}
+.exp-item::before{content:'';position:absolute;left:calc(clamp(24px,6vw,56px) * -1);right:calc(clamp(24px,6vw,56px) * -1);top:0;bottom:0;background:transparent;transition:background .3s;z-index:-1;}
 .exp-item:hover::before{background:rgba(255,255,255,.018);}
 .exp-item:hover{padding-left:10px;}
 .exp-date{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.3px;padding-top:5px;}
@@ -253,7 +257,7 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
 /* About image */
 .about-img-wrap{width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:1px solid var(--line);margin-bottom:32px;position:relative;}
 .about-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;}
-.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--black) 100%);}
+.about-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--black) 100%);}
 
 /* SVG ICON */
 .ico{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;}
@@ -262,54 +266,64 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
 @media(max-width:1024px){
   .proj-grid{grid-template-columns:1fr 1fr;}
   .exp-item{grid-template-columns:140px 1fr 40px;}
+  footer{padding:32px 40px 24px;}
 }
 @media(max-width:768px){
   nav,nav.solid{padding:18px 24px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  #home{padding:0 24px 56px;}
+  /* Fix: top padding accounts for fixed nav height so content isn't hidden behind it */
+  #home{padding:100px 24px 56px;justify-content:flex-start;}
   section:not(#home){padding:72px 24px;}
   footer{padding:28px 24px;}
   .about-grid{grid-template-columns:1fr;gap:40px;}
   .exp-item{grid-template-columns:1fr;gap:8px;}
+  /* on mobile exp-item::before should be flush */
+  .exp-item::before{left:-24px;right:-24px;}
   .exp-arr{display:none;}
   .proj-grid{grid-template-columns:1fr;}
   .certs-grid{grid-template-columns:1fr;}
   .award-card{grid-column:span 1;}
   .contact-grid{grid-template-columns:1fr;}
-  .hero-title{letter-spacing:-2px;}
-  .contact-big{letter-spacing:-2px;}
+  .hero-title{font-size:clamp(2.8rem,8vw,4.5rem);letter-spacing:-2px;margin-bottom:28px;}
+  /* Fix: contact-big letter-spacing at -4px crushes text on mobile */
+  .contact-big{letter-spacing:-1.5px;font-size:clamp(2.4rem,7vw,4rem);}
 
-  /* Hero mobile-first CTA layout */
-  .hero-foot{gap:18px;}
-  .hero-btns{flex-direction:column;align-items:flex-start;}
+  /* Hero mobile layout */
+  .hero-badge{margin-bottom:20px;}
+  .hero-foot{flex-direction:column;align-items:flex-start;gap:20px;}
+  .hero-desc{max-width:unset;font-size:1rem;}
+  /* Cap button container width so they don't stretch on wide tablets */
+  .hero-btns{flex-direction:column;align-items:stretch;width:100%;max-width:360px;gap:10px;}
+  .btn-lime,.btn-ghost{justify-content:center;width:100%;}
   .btn-lime{box-shadow:0 18px 50px rgba(200,241,53,0.22);}
-  .btn-lime,.btn-ghost{justify-content:center;}
-  .hero-desc{max-width:unset;}
+  /* Hide scroll hint on mobile — wastes space and doesn't work on touch */
+  .scroll-hint{display:none;}
 
   body,button,a{cursor:auto;}
   #cursor,#cursor-f{display:none;}
 }
 @media(max-width:480px){
-  .hero-title{font-size:2.55rem;letter-spacing:-1px;}
-  .hero-foot{gap:12px;align-items:flex-start;}
-  .hero-desc{font-size:.95rem;line-height:1.5;max-width:100%;}
-  .hero-btns{max-width:100%;}
-  .btn-lime,.btn-ghost{padding:10px 16px;font-size:.88rem;max-width:100%;}
+  #home{padding:88px 20px 48px;}
+  .hero-title{font-size:2.4rem;letter-spacing:-1.5px;}
+  .hero-foot{gap:16px;}
+  .hero-desc{font-size:.93rem;line-height:1.6;}
+  .btn-lime,.btn-ghost{padding:12px 20px;font-size:.9rem;}
 }
 @media(max-width:380px){
-  .hero-title{font-size:2.05rem;letter-spacing:-.9px;}
+  #home{padding:80px 18px 40px;}
+  .hero-title{font-size:2rem;letter-spacing:-1px;}
   .hero-desc{font-size:.88rem;}
-  .btn-lime,.btn-ghost{font-size:.86rem;}
-  #home{padding-bottom:40px;}
+  .btn-lime,.btn-ghost{padding:11px 16px;font-size:.86rem;}
 }
 @media(max-width:340px){
-  .hero-title{font-size:1.85rem;letter-spacing:-.7px;}
+  #home{padding:76px 16px 36px;}
+  .hero-title{font-size:1.8rem;letter-spacing:-.8px;}
   .hero-desc{font-size:.85rem;line-height:1.45;}
-  .btn-lime,.btn-ghost{padding:9px 14px;font-size:.84rem;}
-  #home{padding:28px 18px 36px;}
+  .btn-lime,.btn-ghost{padding:10px 14px;font-size:.84rem;}
 }
 </style>
+<noscript><style>.rv,.rl,.sg,.sg>*{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
 
@@ -358,7 +372,6 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
 
 <!-- HERO -->
 <section id="home">
-  <div style="position:absolute;inset:0;background-image:url('hero-bg.png');background-size:cover;background-position:center;opacity:0.07;z-index:0;pointer-events:none;"></div>
   <div class="hero-badge">
     <span class="badge-dot"></span>
     Available for opportunities
@@ -396,7 +409,7 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
     <div class="rl">
       <div class="eyebrow">About me</div>
       <div class="about-img-wrap">
-        <img src="my-profile-img.jpg" alt="Nazeer Mukhasam — UI/UX Designer">
+        <img src="my-profile-img.jpg" alt="Nazeer Mukhasam — UI/UX Designer" loading="lazy" decoding="async" width="600" height="450">
       </div>
       <h2 class="about-heading">I design with<br><em>purpose,</em><br>not just pixels.</h2>
     </div>
@@ -501,21 +514,25 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
       </div>
     </div>
     <div class="proj-card">
-<div class="proj-thumb pt1" style="background:linear-gradient(135deg,#0d0d1f,#1b1b42);display:flex;align-items:center;justify-content:center;position:relative;"><a href="https://nazeer004.github.io/interior/" target="_blank" rel="noopener" style="position:absolute;inset:0;z-index:0;"></a><span class="proj-emoji" style="position:relative;z-index:2;font-size:3rem;">🏠</span></div>
+      <div class="proj-thumb pt1" style="background:linear-gradient(135deg,#0d0d1f,#1b1b42);">
+        <span class="proj-emoji">🏠</span>
+      </div>
       <div class="proj-body">
         <h3 class="proj-title">Nazeer Interior Studio</h3>
         <p class="proj-desc">Luxury design studio portfolio. Ivory/charcoal palette, custom cursor, parallax hero, projects grid, services matrix.</p>
         <div class="proj-tags"><span class="ptag">HTML/CSS</span><span class="ptag">Three.js</span><span class="ptag">Portfolio</span></div>
-        <a href="https://nazeer004.github.io/interior/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:8px;display:inline-flex;">Live Site</a>
+        <a href="https://nazeer004.github.io/interior/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="margin-top:8px;display:inline-flex;">Live Site</a>
       </div>
     </div>
     <div class="proj-card">
-<div class="proj-thumb pt2" style="background:linear-gradient(135deg,#0a0a0a,#1a1a1a);display:flex;align-items:center;justify-content:center;position:relative;"><a href="https://nazeer004.github.io/CarRental/" target="_blank" rel="noopener" style="position:absolute;inset:0;z-index:0;"></a><span class="proj-emoji" style="position:relative;z-index:2;font-size:3rem;">🚗</span></div>
+      <div class="proj-thumb pt2" style="background:linear-gradient(135deg,#0a0a0a,#1a1a1a);">
+        <span class="proj-emoji">🚗</span>
+      </div>
       <div class="proj-body">
         <h3 class="proj-title">DRIVEX Car Rental</h3>
         <p class="proj-desc">Premium 3D luxury car rental. Three.js GLTF models, parallax experience, booking form, immersive automotive showcase.</p>
         <div class="proj-tags"><span class="ptag">HTML/CSS/JS</span><span class="ptag">Three.js</span><span class="ptag">3D Web</span></div>
-        <a href="https://nazeer004.github.io/CarRental/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:8px;display:inline-flex;">Live Site</a>
+        <a href="https://nazeer004.github.io/CarRental/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="margin-top:8px;display:inline-flex;">Live Site</a>
       </div>
     </div>
   </div>
@@ -579,13 +596,13 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
     Got a<br><span class="lime">project</span><br>in <span class="outline">mind?</span>
   </h2>
   <div class="contact-grid">
-    <div class="rl">
+    <div class="contact-lhs rl">
       <h3>Let's build together</h3>
       <p>Open to full-time UI/UX roles, freelance work, and collaborations. I respond within 24 hours.</p>
       <div class="c-items">
         <a class="ci" href="mailto:nazeer.code@gmail.com"><div class="ci-icon"><svg class="ico"><use href="#i-mail"/></svg></div><div><h4>Email</h4><p>nazeer.code@gmail.com</p></div></a>
-        <a class="ci" href="https://wa.me/919825764333" target="_blank" rel="noopener"><div class="ci-icon"><svg class="ico"><use href="#i-wa"/></svg></div><div><h4>WhatsApp</h4><p>+91 98257 64333</p></div></a>
-        <a class="ci" href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener"><div class="ci-icon"><svg class="ico"><use href="#i-li"/></svg></div><div><h4>LinkedIn</h4><p>nazeer-mukhasam</p></div></a>
+        <a class="ci" href="https://wa.me/919825764333" target="_blank" rel="noopener noreferrer"><div class="ci-icon"><svg class="ico"><use href="#i-wa"/></svg></div><div><h4>WhatsApp</h4><p>+91 98257 64333</p></div></a>
+        <a class="ci" href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener noreferrer"><div class="ci-icon"><svg class="ico"><use href="#i-li"/></svg></div><div><h4>LinkedIn</h4><p>nazeer-mukhasam</p></div></a>
         <div class="ci"><div class="ci-icon"><svg class="ico"><use href="#i-geo"/></svg></div><div><h4>Location</h4><p>Ahmedabad, Gujarat, India</p></div></div>
       </div>
     </div>
@@ -593,9 +610,9 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
       <form method="POST" action="https://api.web3forms.com/submit">
         <input type="hidden" name="access_key" value="b3510973-a458-4d32-86ae-00697e1dd0bb">
         <input type="checkbox" name="botcheck" style="display:none">
-        <div class="fg"><label class="fl">Your Name</label><input type="text" class="fi" required placeholder="Rahul Sharma" name="Name"></div>
-        <div class="fg"><label class="fl">Email Address</label><input type="email" class="fi" required placeholder="rahul@company.com" name="Email"></div>
-        <div class="fg"><label class="fl">Message</label><textarea class="fi" required placeholder="Tell me about the project or role..." name="Message"></textarea></div>
+        <div class="fg"><label class="fl" for="f-name">Your Name</label><input type="text" id="f-name" class="fi" required placeholder="Rahul Sharma" name="Name"></div>
+        <div class="fg"><label class="fl" for="f-email">Email Address</label><input type="email" id="f-email" class="fi" required placeholder="rahul@company.com" name="Email"></div>
+        <div class="fg"><label class="fl" for="f-msg">Message</label><textarea id="f-msg" class="fi" required placeholder="Tell me about the project or role..." name="Message"></textarea></div>
         <input type="hidden" name="redirect" value="https://nazeerux.site?sent=1">
         <button type="submit" class="btn-submit"><svg class="ico"><use href="#i-send"/></svg> Send Message</button>
       </form>
@@ -607,10 +624,10 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
 <footer>
   <div class="foot-logo">NM.</div>
   <div class="socials">
-    <a href="mailto:nazeer.code@gmail.com" class="soc"><svg class="ico"><use href="#i-mail"/></svg></a>
-    <a href="https://github.com/nazeer004" target="_blank" rel="noopener" class="soc"><svg class="ico"><use href="#i-gh"/></svg></a>
-    <a href="https://wa.me/919825764333" target="_blank" rel="noopener" class="soc"><svg class="ico"><use href="#i-wa"/></svg></a>
-    <a href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener" class="soc"><svg class="ico"><use href="#i-li"/></svg></a>
+    <a href="mailto:nazeer.code@gmail.com" class="soc" aria-label="Email Nazeer"><svg class="ico"><use href="#i-mail"/></svg></a>
+    <a href="https://github.com/nazeer004" target="_blank" rel="noopener noreferrer" class="soc" aria-label="GitHub"><svg class="ico"><use href="#i-gh"/></svg></a>
+    <a href="https://wa.me/919825764333" target="_blank" rel="noopener noreferrer" class="soc" aria-label="WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
+    <a href="https://www.linkedin.com/in/nazeer-mukhasam/" target="_blank" rel="noopener noreferrer" class="soc" aria-label="LinkedIn"><svg class="ico"><use href="#i-li"/></svg></a>
   </div>
   <p class="foot-copy">© 2026 Nazeer Mukhasam — Designed with intention.</p>
 </footer>
@@ -618,22 +635,27 @@ footer{padding:36px 56px 28px;border-top:1px solid var(--line);position:relative
 <button id="btt"><svg class="ico"><use href="#i-up"/></svg></button>
 
 <script>
-// CURSOR
+// CURSOR — only run on non-touch devices
 const cur=document.getElementById('cursor'),curf=document.getElementById('cursor-f');
-let mx=-100,my=-100,fx=-100,fy=-100;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-});
-(function animCur(){
-  fx+=(mx-fx)*.11;fy+=(my-fy)*.11;
-  curf.style.left=fx+'px';curf.style.top=fy+'px';
-  requestAnimationFrame(animCur);
-})();
-document.querySelectorAll('a,button,.proj-card,.d-card,.exp-item,.stat-card,.cert-card,.award-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cg'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cg'));
-});
+const isTouchDevice=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(!isTouchDevice && cur && curf){
+  let mx=-100,my=-100,fx=-100,fy=-100;
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+  });
+  (function animCur(){
+    fx+=(mx-fx)*.11;fy+=(my-fy)*.11;
+    curf.style.left=fx+'px';curf.style.top=fy+'px';
+    requestAnimationFrame(animCur);
+  })();
+  // Use a Set to avoid double-registration (e.g. .d-card is already an <a>)
+  const hoverEls=new Set(document.querySelectorAll('a,button,.proj-card,.exp-item,.stat-card,.cert-card,.award-card'));
+  hoverEls.forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cg'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cg'));
+  });
+}
 
 // CANVAS
 const cv=document.getElementById('bgc');
@@ -690,14 +712,19 @@ ham.addEventListener('click',openMenu);
 mc.addEventListener('click',closeMenu);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 
-// SMOOTH SCROLL
+// SMOOTH SCROLL — offset for fixed nav
+const NAV_H=()=>document.getElementById('nav').getBoundingClientRect().height;
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(!t)return;
+    const target=document.querySelector(a.getAttribute('href'));
+    if(!target)return;
     e.preventDefault();
-    if(mob.contains(a)){closeMenu();setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),360);}
-    else{t.scrollIntoView({behavior:'smooth'});}
+    const doScroll=()=>{
+      const top=target.getBoundingClientRect().top+window.scrollY-NAV_H()-8;
+      window.scrollTo({top,behavior:'smooth'});
+    };
+    if(mob.contains(a)){closeMenu();setTimeout(doScroll,360);}
+    else{doScroll();}
   });
 });
 
