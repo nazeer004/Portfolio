@@ -51,6 +51,8 @@ footer{padding:65px 0 25px}.footer-main{display:flex;justify-content:space-betwe
   display:flex!important;
   flex:0 0 auto!important;
   width:max-content!important;
+  padding:0!important;
+  margin:0!important;
   max-width:none!important;
   white-space:nowrap!important;
   align-items:center;
@@ -62,7 +64,7 @@ footer{padding:65px 0 25px}.footer-main{display:flex;justify-content:space-betwe
 }
 @keyframes portfolioMarquee{
   from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(calc(-1 * var(--marquee-distance,0px)),0,0)}
+  to{transform:translate3d(calc(0px - var(--marquee-distance,0px)),0,0)}
 }
 @media(prefers-reduced-motion:reduce){
   .ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
