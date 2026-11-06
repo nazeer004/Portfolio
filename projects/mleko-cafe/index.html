@@ -86,7 +86,7 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 /* Fill each marquee with exact repeated copies so the -50% loop never exposes an empty gap. */
 (()=>{
   const selector='.ticker-inner,.ticker-track,.marquee-track,.ribbon-track';
-  const pixelsPerSecond=10;
+  const pixelsPerSecond=20;
   let resizeTimer=0;
   function prepareMarquees(){
     const viewport=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
@@ -99,7 +99,7 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
         copies++;
       }
       const travelDistance=track.scrollWidth/2;
-      const duration=Math.max(45,travelDistance/pixelsPerSecond);
+      const duration=Math.max(50,travelDistance/pixelsPerSecond);
       track.style.setProperty('--marquee-duration',duration.toFixed(2)+'s');
     });
   }
