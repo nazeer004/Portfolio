@@ -27,6 +27,28 @@ footer{padding:65px 0 25px}.footer-main{display:flex;justify-content:space-betwe
 @media(max-width:800px){.wrap{width:min(100% - 38px,600px)}.topline{font-size:8px}.nav{height:70px}.nav-links{display:none;position:absolute;top:70px;left:0;width:100%;background:#151813;padding:25px 22px;flex-direction:column;align-items:flex-start;gap:22px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-cta{display:none}.menu-btn{display:block}.hero{height:790px;min-height:740px}.hero:before{background:linear-gradient(90deg,rgba(10,12,10,.82),rgba(10,12,10,.2)),linear-gradient(0deg,rgba(10,12,10,.9),transparent 70%),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85') 58% center/cover}.hero-content{padding-bottom:90px}.hero h1{font-size:clamp(78px,18vw,135px)}.hero h1 span{padding-left:3vw}.hero-bottom{display:block;margin-top:30px}.hero-copy{max-width:300px}.hero-actions{margin-top:25px}.hero-index{right:14px}.scroll-cue{left:20px;bottom:20px}.intro{padding:90px 0;grid-template-columns:1fr;gap:25px}.intro h2{font-size:clamp(58px,14vw,90px)}.intro-right{padding:0}.intro-right p{font-size:15px}.experience{padding-bottom:90px}.section-head{display:block}.section-head p{margin-top:22px}.feature-grid{grid-template-columns:1fr;grid-template-rows:420px 260px 260px}.feature:first-child{grid-row:auto}.feature-copy{left:22px;right:22px;bottom:22px}.statement{padding:85px 0}.statement-inner{grid-template-columns:1fr;gap:35px}.statement h2{font-size:clamp(65px,15vw,105px)}.statement:after{font-size:260px;bottom:-70px}.training{padding:90px 0}.training-head{display:block}.training-row{grid-template-columns:32px 1fr 24px;gap:12px;padding:22px 0}.training-row p{grid-column:2;grid-row:2}.training-row .arrow{grid-column:3;grid-row:1}.training-row h3{font-size:36px}.gallery{grid-template-columns:1fr}.gallery-image{min-height:360px;height:360px}.gallery-copy{padding:65px 24px 75px}.gallery-copy h2{font-size:68px}.proof{padding:85px 0}.proof-top{display:block}.proof-grid{grid-template-columns:1fr}.proof-item,.proof-item+.proof-item{border-right:0;border-bottom:1px solid var(--line);padding:24px 0}.proof-item:last-child{border:0}.proof-item strong{font-size:50px}.cta{padding:80px 0}.cta-inner{display:block}.cta h2{font-size:clamp(68px,16vw,110px)}.cta p{margin-top:25px}.cta:after{font-size:190px;bottom:-55px}.footer-main{display:block}.footer-links{gap:40px;margin-top:40px}.footer-bottom{gap:20px;flex-wrap:wrap}.ticker{font-size:16px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 </style>
+
+<style id="site-marquee-tuning">
+/* Consistent slow, seamless, responsive marquee treatment across the portfolio. */
+.ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
+  animation-duration:var(--marquee-duration,110s)!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  will-change:transform;
+}
+.ticker-inner{gap:0!important}
+.ticker-inner>div{flex:0 0 auto;padding-right:24px}
+.ticker:hover .ticker-inner,.ticker:hover .ticker-track,
+.marquee:hover .marquee-track,.ribbon:hover .ribbon-track{
+  animation-play-state:paused;
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
+    animation:none!important;transform:none!important;will-change:auto;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="topline"><span>Ahmedabad · Gujarat · India</span><span>Strength / Conditioning / Performance</span></div>
@@ -96,5 +118,41 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classLi
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
+
+<script id="site-marquee-engine">
+/* Fill each marquee with exact repeated copies so the -50% loop never exposes an empty gap. */
+(()=>{
+  const selector='.ticker-inner,.ticker-track,.marquee-track,.ribbon-track';
+  const pixelsPerSecond=10;
+  let resizeTimer=0;
+  function prepareMarquees(){
+    const viewport=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
+    document.querySelectorAll(selector).forEach(track=>{
+      if(!track.dataset.marqueeSeed) track.dataset.marqueeSeed=track.innerHTML;
+      track.setAttribute('aria-hidden','true');
+      let copies=0;
+      while(track.scrollWidth < viewport*2+2 && copies<20){
+        track.insertAdjacentHTML('beforeend',track.dataset.marqueeSeed);
+        copies++;
+      }
+      const travelDistance=track.scrollWidth/2;
+      const duration=Math.max(45,travelDistance/pixelsPerSecond);
+      track.style.setProperty('--marquee-duration',duration.toFixed(2)+'s');
+    });
+  }
+  function schedule(){requestAnimationFrame(prepareMarquees);}
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',schedule,{once:true});
+  }else{
+    schedule();
+  }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(schedule);
+  window.addEventListener('resize',()=>{
+    window.clearTimeout(resizeTimer);
+    resizeTimer=window.setTimeout(schedule,140);
+  },{passive:true});
+})();
+</script>
+
 </body>
 </html>
