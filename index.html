@@ -235,6 +235,28 @@ footer{padding-block:26px;font-size:11px}
 .concept-card-bottom b{font-size:18px;font-weight:400;color:var(--red)}
 @media(max-width:700px){.concept-showcase{margin-top:42px}.concept-showcase-head{grid-template-columns:1fr;gap:15px}.concept-cards{grid-template-columns:1fr}.concept-card{min-height:220px;padding:23px}}
 </style>
+
+<style id="site-marquee-tuning">
+/* Consistent slow, seamless, responsive marquee treatment across the portfolio. */
+.ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
+  animation-duration:var(--marquee-duration,110s)!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  will-change:transform;
+}
+.ticker-inner{gap:0!important}
+.ticker-inner>div{flex:0 0 auto;padding-right:24px}
+.ticker:hover .ticker-inner,.ticker:hover .ticker-track,
+.marquee:hover .marquee-track,.ribbon:hover .ribbon-track{
+  animation-play-state:paused;
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
+    animation:none!important;transform:none!important;will-change:auto;
+  }
+}
+</style>
+
 </head>
 <body>
 <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
@@ -441,5 +463,41 @@ if(!reduceMotion && matchMedia('(hover:hover) and (pointer:fine)').matches){
   });
 }
 requestFrame();</script>
+
+<script id="site-marquee-engine">
+/* Fill each marquee with exact repeated copies so the -50% loop never exposes an empty gap. */
+(()=>{
+  const selector='.ticker-inner,.ticker-track,.marquee-track,.ribbon-track';
+  const pixelsPerSecond=10;
+  let resizeTimer=0;
+  function prepareMarquees(){
+    const viewport=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
+    document.querySelectorAll(selector).forEach(track=>{
+      if(!track.dataset.marqueeSeed) track.dataset.marqueeSeed=track.innerHTML;
+      track.setAttribute('aria-hidden','true');
+      let copies=0;
+      while(track.scrollWidth < viewport*2+2 && copies<20){
+        track.insertAdjacentHTML('beforeend',track.dataset.marqueeSeed);
+        copies++;
+      }
+      const travelDistance=track.scrollWidth/2;
+      const duration=Math.max(45,travelDistance/pixelsPerSecond);
+      track.style.setProperty('--marquee-duration',duration.toFixed(2)+'s');
+    });
+  }
+  function schedule(){requestAnimationFrame(prepareMarquees);}
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',schedule,{once:true});
+  }else{
+    schedule();
+  }
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(schedule);
+  window.addEventListener('resize',()=>{
+    window.clearTimeout(resizeTimer);
+    resizeTimer=window.setTimeout(schedule,140);
+  },{passive:true});
+})();
+</script>
+
 </body>
 </html>
