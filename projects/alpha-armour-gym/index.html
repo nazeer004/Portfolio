@@ -29,18 +29,40 @@ footer{padding:65px 0 25px}.footer-main{display:flex;justify-content:space-betwe
 </style>
 
 <style id="site-marquee-tuning">
-/* Consistent slow, seamless, responsive marquee treatment across the portfolio. */
+/* Seamless marquee: the script measures a real content segment and the animation
+   advances by exactly that segment, while extra copies always cover the viewport. */
 .ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
-  animation-duration:var(--marquee-duration,110s)!important;
+  display:flex!important;
+  width:max-content!important;
+  max-width:none!important;
+  gap:0!important;
+  white-space:nowrap!important;
+  animation-name:portfolioMarquee!important;
+  animation-duration:var(--marquee-duration,100s)!important;
   animation-timing-function:linear!important;
   animation-iteration-count:infinite!important;
+  animation-fill-mode:both!important;
   will-change:transform;
 }
-.ticker-inner{gap:0!important}
-.ticker-inner>div{flex:0 0 auto;padding-right:24px}
+.ticker-inner>.marquee-segment,
+.ticker-track>.marquee-segment,
+.marquee-track>.marquee-segment,
+.ribbon-track>.marquee-segment{
+  display:flex!important;
+  flex:0 0 auto!important;
+  width:max-content!important;
+  max-width:none!important;
+  white-space:nowrap!important;
+  align-items:center;
+}
+.ticker-inner>.marquee-segment>div{flex:0 0 auto}
 .ticker:hover .ticker-inner,.ticker:hover .ticker-track,
 .marquee:hover .marquee-track,.ribbon:hover .ribbon-track{
   animation-play-state:paused;
+}
+@keyframes portfolioMarquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(calc(-1 * var(--marquee-distance,0px)),0,0)}
 }
 @media(prefers-reduced-motion:reduce){
   .ticker-inner,.ticker-track,.marquee-track,.ribbon-track{
@@ -120,36 +142,45 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
 <script id="site-marquee-engine">
-/* Fill each marquee with exact repeated copies so the -50% loop never exposes an empty gap. */
 (()=>{
   const selector='.ticker-inner,.ticker-track,.marquee-track,.ribbon-track';
-  const pixelsPerSecond=20;
+  const speed=20; // px per second: calm enough to read without feeling static
   let resizeTimer=0;
-  function prepareMarquees(){
+  function build(){
     const viewport=Math.max(document.documentElement.clientWidth,window.innerWidth||0);
     document.querySelectorAll(selector).forEach(track=>{
       if(!track.dataset.marqueeSeed) track.dataset.marqueeSeed=track.innerHTML;
+      const seed=track.dataset.marqueeSeed;
+      track.style.animation='none';
+      track.innerHTML='';
+      const makeSegment=()=>{
+        const segment=document.createElement('span');
+        segment.className='marquee-segment';
+        segment.innerHTML=seed;
+        track.appendChild(segment);
+        return segment;
+      };
+      const first=makeSegment();
+      const segmentWidth=Math.ceil(first.getBoundingClientRect().width);
+      if(!segmentWidth) return;
+      // After moving one segment, the remaining segments must still cover
+      // the viewport. Keep at least three copies for a safe seamless handoff.
+      const copies=Math.max(3,Math.ceil(viewport/segmentWidth)+1);
+      for(let i=1;i<copies;i++) makeSegment();
+      track.style.setProperty('--marquee-distance',segmentWidth+'px');
+      track.style.setProperty('--marquee-duration',Math.max(50,segmentWidth/speed)+'s');
       track.setAttribute('aria-hidden','true');
-      let copies=0;
-      while(track.scrollWidth < viewport*2+2 && copies<20){
-        track.insertAdjacentHTML('beforeend',track.dataset.marqueeSeed);
-        copies++;
-      }
-      const travelDistance=track.scrollWidth/2;
-      const duration=Math.max(50,travelDistance/pixelsPerSecond);
-      track.style.setProperty('--marquee-duration',duration.toFixed(2)+'s');
+      track.style.animation='';
+      void track.offsetWidth; // restart with the newly measured distance
     });
   }
-  function schedule(){requestAnimationFrame(prepareMarquees);}
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',schedule,{once:true});
-  }else{
-    schedule();
-  }
+  function schedule(){requestAnimationFrame(build);}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',schedule,{once:true});
+  else schedule();
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(schedule);
   window.addEventListener('resize',()=>{
-    window.clearTimeout(resizeTimer);
-    resizeTimer=window.setTimeout(schedule,140);
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(schedule,160);
   },{passive:true});
 })();
 </script>
