@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4f1ea">
+<title>Waypoint Logistics — Operations dashboard concept | Nazeer Mukhasam</title>
+<meta name="description" content="A self-initiated logistics operations dashboard concept exploring shipment visibility, dispatch coordination and fleet oversight by Nazeer Mukhasam.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Waypoint Logistics — Operations dashboard concept">
+<meta property="og:description" content="A self-initiated product design and frontend exploration for logistics operations.">
+<meta property="og:url" content="https://nazeerux.site/projects/waypoint-logistics/">
+<link rel="canonical" href="https://nazeerux.site/projects/waypoint-logistics/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--paper:#ebe6dc;--ink:#151412;--muted:#625d55;--line:#d9d4c9;--red:#c82e10;--dark:#171614;--serif:"Instrument Serif",Georgia,serif;--sans:"Manrope",sans-serif;--mono:"DM Mono",monospace;--pad:clamp(20px,5vw,76px);--max:1320px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.7 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 2*var(--pad)));margin:auto}.mono{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.topbar{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font:30px/1 var(--serif);letter-spacing:-.05em;text-decoration:none}.brand i{font-style:normal;color:var(--red)}.toplinks{display:flex;align-items:center;gap:24px}.toplinks a{font-size:11px;text-decoration:none;color:var(--muted)}.toplinks a:hover{color:var(--red)}.toplinks .button{background:var(--ink);color:var(--bg);padding:13px 17px}.hero{padding:clamp(72px,10vw,130px) 0 62px;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,7vw,100px);align-items:end}.eyebrow{display:flex;gap:10px;align-items:center;color:var(--red)}.eyebrow:before{content:"";width:7px;height:7px;background:var(--red);border-radius:50%}.hero h1{font:400 clamp(4.5rem,9vw,8rem)/.85 var(--serif);letter-spacing:-.055em;margin:27px 0 25px;max-width:700px}.hero h1 em{font-style:italic;color:var(--red)}.hero-lead{font-size:clamp(16px,1.5vw,19px);line-height:1.8;color:var(--muted);max-width:54ch;margin:0}.hero-side{border-left:1px solid var(--line);padding-left:28px}.hero-side p{font-size:13px;line-height:1.85;color:var(--muted);margin:0 0 22px}.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;padding-top:20px;border-top:1px solid var(--line)}.meta-grid span{display:block;font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}.meta-grid b{font-size:12px;font-weight:600}.hero-bottom{display:flex;justify-content:space-between;gap:20px;padding:16px 0 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.hero-bottom span:last-child{color:var(--muted)}.prototype{padding:clamp(54px,7vw,92px) 0 76px}.prototype-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:22px}.prototype-head h2,.section-title{font:400 clamp(2.8rem,5vw,5rem)/.95 var(--serif);letter-spacing:-.04em;margin:12px 0 0}.prototype-head h2 em,.section-title em{font-style:italic;color:var(--red)}.prototype-actions{display:flex;gap:10px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:46px;padding:0 16px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);transition:transform .25s cubic-bezier(.16,1,.3,1),background .25s,color .25s}.button.dark{background:var(--ink);color:var(--bg)}.button:hover{transform:translateY(-2px)}.button.light:hover{background:var(--ink);color:var(--bg)}.demo-frame{background:#dfe4dc;border:1px solid #c9d2c8;padding:10px;box-shadow:16px 18px 0 rgba(21,20,18,.06)}.demo-frame iframe{display:block;width:100%;height:820px;border:0;background:#f3f5f0}.frame-caption{display:flex;justify-content:space-between;gap:16px;padding:12px 4px 2px;font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.content-section{padding:clamp(70px,9vw,118px) 0;border-top:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(35px,9vw,125px)}.section-copy{max-width:66ch}.section-copy h2{font:400 clamp(2.7rem,5vw,4.8rem)/.94 var(--serif);letter-spacing:-.04em;margin:13px 0 24px}.section-copy h2 em{font-style:italic;color:var(--red)}.section-copy p{color:var(--muted);font-size:14px;line-height:1.9;margin:0 0 18px}.decision-list{border-top:1px solid var(--line)}.decision{display:grid;grid-template-columns:38px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}.decision .num{font:10px var(--mono);color:var(--red);padding-top:5px}.decision h3{font:400 27px/1.1 var(--serif);margin:0 0 7px}.decision p{font-size:12px;line-height:1.8;color:var(--muted);max-width:58ch;margin:0}.scope{background:var(--dark);color:var(--bg);padding:clamp(66px,8vw,100px) 0}.scope .mono{color:#c4b9a9}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.scope h2{font:400 clamp(3rem,6vw,5.8rem)/.9 var(--serif);letter-spacing:-.04em;margin:16px 0 20px}.scope h2 em{color:#e36c51;font-style:italic}.scope p{font-size:14px;line-height:1.85;color:#c2bbaf;max-width:54ch}.scope-list{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;border-top:1px solid #4b4740}.scope-list div{padding:16px 0;border-bottom:1px solid #4b4740}.scope-list small{display:block;font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#c4b9a9;margin-bottom:7px}.scope-list b{font-size:13px;font-weight:600}.next{padding:clamp(68px,9vw,110px) 0;display:flex;justify-content:space-between;align-items:center;gap:40px}.next h2{font:400 clamp(2.8rem,5vw,5rem)/.95 var(--serif);letter-spacing:-.04em;margin:12px 0 0}.next h2 em{color:var(--red);font-style:italic}.next p{max-width:44ch;color:var(--muted);font-size:13px;line-height:1.8}footer{border-top:1px solid var(--line);padding:22px 0 30px;display:flex;justify-content:space-between;gap:20px;font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}footer a{text-decoration:none}a:focus-visible,button:focus-visible,iframe:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:35px}.hero-side{border-left:0;border-top:1px solid var(--line);padding:20px 0 0}.section-grid{grid-template-columns:1fr;gap:28px}.scope-grid{grid-template-columns:1fr;gap:30px}.prototype-head{display:block}.prototype-actions{margin-top:20px}.demo-frame iframe{height:760px}.next{align-items:flex-start;flex-direction:column;gap:10px}}
+@media(max-width:560px){.topbar{height:68px}.toplinks{gap:12px}.toplinks a{font-size:10px}.toplinks .button{padding:10px 11px}.hero{padding-top:68px}.hero h1{font-size:clamp(4.2rem,18vw,6.5rem)}.hero-bottom{flex-direction:column;gap:7px}.meta-grid{gap:16px}.prototype{padding-top:44px}.prototype-head h2{font-size:2.9rem}.demo-frame{padding:5px}.demo-frame iframe{height:720px}.frame-caption{font-size:8px;flex-direction:column;gap:4px}.decision{grid-template-columns:26px 1fr;gap:12px}.scope-list{grid-template-columns:1fr}.next{padding-block:65px}footer{flex-direction:column;line-height:1.8}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <a class="brand" href="/">Nazeer<i>.</i></a>
+  <nav class="toplinks" aria-label="Project navigation">
+    <a href="/#work">Selected work</a>
+    <a class="button dark" href="./app/" target="_blank" rel="noopener">Open dashboard ↗</a>
+  </nav>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="mono eyebrow">Product interface · Self-initiated concept · 2026</div>
+    <h1>Waypoint<br><em>Logistics.</em></h1>
+    <p class="hero-lead">A logistics operations dashboard concept designed to make shipment activity, dispatch priorities and fleet coordination easier to scan and act on.</p>
+  </div>
+  <aside class="hero-side">
+    <p>This is an independent product-design and frontend exploration. It uses illustrative UK route data and sample shipment records to demonstrate interface structure and interactions — it is not connected to a live logistics network.</p>
+    <div class="meta-grid">
+      <div><span>Role</span><b>UI/UX &amp; frontend</b></div>
+      <div><span>Platform</span><b>Responsive web app</b></div>
+      <div><span>Focus</span><b>Operations visibility</b></div>
+      <div><span>Tools</span><b>HTML · CSS · JavaScript</b></div>
+    </div>
+  </aside>
+</section>
+<div class="hero-bottom mono"><span>01 / Selected product concept</span><span>Shipment visibility · Dispatch · Fleet oversight</span></div>
+<section class="prototype" id="prototype">
+  <div class="prototype-head">
+    <div><div class="mono">02 / Interactive prototype</div><h2>Inside the <em>workspace.</em></h2></div>
+    <div class="prototype-actions">
+      <a class="button dark" href="./app/" target="_blank" rel="noopener">Open full dashboard ↗</a>
+      <a class="button light" href="/#work">Back to portfolio</a>
+    </div>
+  </div>
+  <div class="demo-frame">
+    <iframe src="./app/" title="Waypoint logistics operations dashboard interactive prototype" loading="lazy" allow="clipboard-write"></iframe>
+    <div class="frame-caption"><span>Waypoint · Operations workspace</span><span>Illustrative sample data · No live GPS connection</span></div>
+  </div>
+</section>
+<section class="content-section">
+  <div class="section-grid">
+    <div class="section-copy"><div class="mono">03 / The design challenge</div><h2>Make complex operations feel <em>clear.</em></h2></div>
+    <div class="section-copy">
+      <p>Logistics teams work across a constant flow of shipments, routes, vehicles, drivers and exceptions. When these details are scattered across separate views, it becomes harder to understand what needs attention first.</p>
+      <p>For this concept, I focused on a single operations workspace that surfaces the current state of the network and gives dispatchers a direct path into the records behind each status.</p>
+    </div>
+  </div>
+</section>
+<section class="content-section">
+  <div class="section-grid">
+    <div class="section-copy"><div class="mono">04 / UX decisions</div><h2>Designed around the next <em>action.</em></h2></div>
+    <div class="decision-list">
+      <article class="decision"><span class="num">01</span><div><h3>Start with network health</h3><p>Shipment totals, delivery reliability and exceptions establish a quick operational picture before users move into detailed records.</p></div></article>
+      <article class="decision"><span class="num">02</span><div><h3>Keep shipment discovery close</h3><p>Search, status filters and a compact shipment table help users narrow the list without switching context.</p></div></article>
+      <article class="decision"><span class="num">03</span><div><h3>Make details progressive</h3><p>Selecting a shipment reveals its route, status, driver, vehicle and journey milestones without crowding the main overview.</p></div></article>
+      <article class="decision"><span class="num">04</span><div><h3>Respect operational exceptions</h3><p>Delayed shipments and activity events receive clear status treatment so they are easier to distinguish from routine movement.</p></div></article>
+      <article class="decision"><span class="num">05</span><div><h3>Make common actions testable</h3><p>The prototype includes shipment creation, filtering, detail views, global search and CSV export using browser-side sample data.</p></div></article>
+    </div>
+  </div>
+</section>
+<section class="scope">
+  <div class="wrap scope-grid">
+    <div><div class="mono">05 / Scope &amp; boundaries</div><h2>A working frontend <em>concept.</em></h2><p>The interface demonstrates responsive layouts and client-side interactions. It is not a production logistics system, and its sample records should not be interpreted as real operational performance.</p></div>
+    <div class="scope-list">
+      <div><small>Included</small><b>Operations overview</b></div>
+      <div><small>Included</small><b>Shipment board &amp; filters</b></div>
+      <div><small>Included</small><b>Shipment creation flow</b></div>
+      <div><small>Included</small><b>Fleet &amp; driver views</b></div>
+      <div><small>Included</small><b>Analytics &amp; CSV export</b></div>
+      <div><small>Not connected</small><b>Live GPS / backend APIs</b></div>
+    </div>
+  </div>
+</section>
+<section class="wrap next">
+  <div><div class="mono">06 / Next exploration</div><h2>From interface to <em>real operations.</em></h2></div>
+  <div><p>A next iteration would validate these workflows with logistics operators, define role-specific permissions and connect shipment, fleet and location data through secure backend services.</p><a class="button dark" href="./app/" target="_blank" rel="noopener">Explore the prototype ↗</a></div>
+</section>
+</main>
+<footer><span>© 2026 Nazeer Mukhasam</span><a href="/#work">Back to selected work ↑</a></footer>
+</div>
+</body>
+</html>
