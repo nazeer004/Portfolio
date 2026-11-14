@@ -1,0 +1,1 @@
+console.log("Valconic Website Demo Initialized");
