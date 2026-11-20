@@ -60,6 +60,25 @@ body{background:#f0efeb;color:#171817}
 .founder-image{filter:saturate(.75)}
 @media(max-width:700px){.hero-lead{font-size:clamp(4.2rem,18vw,6.5rem)}}
 
+
+/* DESIGN QA PASS — project-first architectural portfolio */
+.hero-grid{grid-template-columns:.8fr 1.2fr;align-items:end}
+.hero-lead{max-width:8ch;text-wrap:balance}
+.hero-image{height:clamp(450px,58vw,700px)}
+.hero-image img{object-position:center 48%}
+.project-grid{grid-template-columns:1.15fr .85fr;align-items:start}
+.project:nth-child(2){margin-top:clamp(30px,8vw,110px)}
+.project:nth-child(3){grid-column:1;max-width:75%}
+.project:nth-child(4){grid-column:2;margin-top:-30px}
+.project-photo{aspect-ratio:4/3}
+.project-note{padding:18px 0}
+.project-meta{display:flex;justify-content:space-between;gap:16px}
+.services{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px}
+.service-list{display:grid;grid-template-columns:1fr}
+.service{display:grid;grid-template-columns:50px 1fr auto;align-items:center}
+.steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:700px){.hero-grid,.project-grid,.services{grid-template-columns:1fr}.project:nth-child(2),.project:nth-child(3),.project:nth-child(4){margin:0;grid-column:auto;max-width:none}.steps{grid-template-columns:1fr 1fr}}
+
 </style>
 
 <style id="site-marquee-tuning">
@@ -123,7 +142,7 @@ body{background:#f0efeb;color:#171817}
 <div class="service"><span class="num">05</span><h3>Turnkey execution</h3><p>Design and execution coordinated through a clear process, from planning to on-site delivery.</p><b>↗</b></div>
 </div></div></section>
 <section class="projects wrap reveal" id="projects"><div class="projects-head"><div><div class="tiny eyebrow">03 / Visual stories</div><h2>Spaces that<br>speak softly.</h2></div><p>A curated visual direction across the kinds of spaces the studio designs. Each image below is illustrative, not a verified Magic Space project.</p></div><div class="project-grid">
-<article class="project"><div class="project-photo"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="Contemporary residential living room concept"></div><div class="project-meta"><h3>The considered home</h3><span>Residential / Concept visual</span></div><div class="project-note">Warm textures · Natural light · Quiet forms</div></article>
+<article class="project"><div class="project-photo"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85" alt="Contemporary residential living room concept"></div><div class="project-meta"><h3>The considered home</h3><span>Residential / Concept visual</span></div><div class="project-note">Warm textures · Natural light · Quiet forms</div></article>
 <article class="project"><div class="project-photo"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85" alt="Minimal modern residence interior concept"></div><div class="project-meta"><h3>Room to breathe</h3><span>Residence / Concept visual</span></div><div class="project-note">Material palette · Spatial flow · Detail</div></article>
 <article class="project"><div class="project-photo"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="Contemporary office interior concept"></div><div class="project-meta"><h3>Work, reimagined</h3><span>Commercial / Concept visual</span></div><div class="project-note">Purposeful planning · Calm productivity</div></article>
 <article class="project"><div class="project-photo"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Contemporary hospitality interior concept"></div><div class="project-meta"><h3>A welcoming pause</h3><span>Hospitality / Concept visual</span></div><div class="project-note">Atmosphere · Warmth · Guest experience</div></article>
