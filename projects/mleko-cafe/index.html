@@ -81,6 +81,14 @@ body{background:#f4eadb;color:#342018}
 @media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{padding-block:30px 55px}.hero-copy h1{font-size:clamp(54px,14vw,82px);line-height:.9}.hero-grid{gap:24px}.hero-photo{height:auto;min-height:0;aspect-ratio:4/3}.story,.philosophy,.visit-grid{gap:24px}.section{padding-block:65px}}
 @media(max-width:430px){.wrap{width:calc(100% - 32px)}.hero-copy h1{font-size:clamp(48px,13vw,68px)}.hero-photo{aspect-ratio:3/4}}
 
+
+/* PERSONAL BRAND SYSTEM — NM monogram + NAZEER wordmark */
+.personal-brand{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none!important}
+.nm-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid currentColor;font:800 11px/1 var(--sans,Arial,sans-serif);letter-spacing:-.08em}
+.nm-word{font:800 13px/1 var(--sans,Arial,sans-serif);letter-spacing:.22em}
+.portfolio-credit{padding:14px 0 0;border-top:1px solid rgba(128,128,128,.25);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.portfolio-credit a{font-weight:700;text-decoration:none}
+@media(max-width:500px){.nm-mark{width:30px;height:30px}.nm-word{font-size:11px;letter-spacing:.18em}}
 </style>
 
 <style id="site-marquee-tuning">
@@ -155,7 +163,7 @@ body{background:#f4eadb;color:#342018}
 </div></div></section>
 <section class="visit wrap reveal" id="visit"><div class="visit-grid"><div class="visit-copy"><div class="micro section-label">05 / Find your Mleko</div><h2>Your table<br>is waiting.</h2><p>Two Ahmedabad stops. Same thoughtful coffee. Choose the one closest to your day.</p><div class="locations"><div class="location"><strong>Navrangpura</strong><span>Falgun Society, near Commerce Six Road<br>Ahmedabad, Gujarat 380009</span></div><div class="location"><strong>Aurelien</strong><span>L.J. Institute of Management Studies<br>Makarba, Ahmedabad</span></div></div></div><div class="visit-card"><div class="big">A little more time for the things that matter.</div><div class="detail">MONDAY — SUNDAY<br>9:00 AM — 12:00 AM<br><br>+91 84607 05009</div><a href="https://www.google.com/maps/search/?api=1&query=Mleko+Cafe+Commerce+Six+Road+Ahmedabad" target="_blank" rel="noreferrer">Get directions ↗</a></div></div></section>
 </main>
-<footer><div class="wrap"><div class="footer-top"><div><div class="footer-logo">mleko.</div><p>Coffee crafted for unhurried moments. Find a little pause in your day.</p></div><div class="footer-nav"><div class="footer-col"><small>Explore</small><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a></div><div class="footer-col"><small>Say hello</small><a href="tel:+918460705009">+91 84607 05009</a><a href="https://mlekocafe.in/" target="_blank" rel="noreferrer">Official website ↗</a><span>Ahmedabad, Gujarat</span></div></div></div><div class="footer-bottom"><span>© Mleko Cafe — Independent redesign concept</span><span>Unofficial concept · Not affiliated with Mleko</span></div></div></footer>
+<footer><div class="wrap"><div class="footer-top"><div><div class="footer-logo">mleko.</div><p>Coffee crafted for unhurried moments. Find a little pause in your day.</p></div><div class="footer-nav"><div class="footer-col"><small>Explore</small><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a></div><div class="footer-col"><small>Say hello</small><a href="tel:+918460705009">+91 84607 05009</a><a href="https://mlekocafe.in/" target="_blank" rel="noreferrer">Official website ↗</a><span>Ahmedabad, Gujarat</span></div></div></div><div class="footer-bottom"><span>© Mleko Cafe — Independent redesign concept</span><span>Unofficial concept · Not affiliated with Mleko</span></div></div><div class="portfolio-credit">Concept & interface design by <a href="https://nazeerux.site">NM · NAZEER</a></div></footer>
 <script>
 const menu=document.getElementById('menu'),links=document.getElementById('links');
 menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
