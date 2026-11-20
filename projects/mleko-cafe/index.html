@@ -24,6 +24,40 @@ footer{background:var(--ink);color:var(--cream);padding:60px 0 25px}.footer-top{
 @media(max-width:800px){.wrap{width:calc(100% - 40px)}.nav{height:72px}.links{display:none;position:absolute;top:106px;left:0;width:100%;background:var(--cream);padding:25px 20px;flex-direction:column;align-items:flex-start;gap:22px;z-index:10;border-bottom:1px solid var(--line)}.links.open{display:flex}.nav-cta{display:none}.menu{display:block}.hero{padding:30px 0 70px}.hero-top p{display:none}.hero-grid{grid-template-columns:1fr;gap:30px}.hero h1{font-size:clamp(75px,17vw,120px)}.hero-photo{height:440px}.vertical-note{display:none}.story{padding:90px 0;grid-template-columns:1fr;gap:15px}.story-copy{padding-top:0}.story-copy p{font-size:21px}.coffee{padding:85px 0}.menu-head{display:block}.menu-head p{margin-top:20px}.menu-grid{grid-template-columns:1fr 1fr;gap:28px 18px}.philosophy{padding:90px 0;grid-template-columns:1fr;gap:35px}.philo-image{height:400px}.rituals{padding:85px 0}.ritual-head{display:block}.ritual-head p{margin-top:20px}.plans{grid-template-columns:1fr}.plan,.plan+.plan{border-left:0;border-bottom:1px solid rgba(32,43,34,.25);padding:26px 0}.plan:last-child{border-bottom:0}.visit{padding:90px 0}.visit-grid{grid-template-columns:1fr;gap:35px}.visit-card{min-height:340px;padding:30px}.footer-top{display:block}.footer-nav{gap:40px;margin-top:35px}.footer-bottom{flex-wrap:wrap}.menu-foot{gap:15px;flex-wrap:wrap}}
 @media(max-width:440px){.menu-grid{grid-template-columns:1fr}.hero-photo{height:370px}.hero-actions{gap:14px}.button{padding:14px 15px}.plan .cost{font-size:32px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* NICHE ART DIRECTION — SPECIALTY COFFEE */
+:root{--paper:#f4eadb;--cream:#fff8ee;--ink:#342018;--olive:#b65b35;--muted:#826c5d;--line:rgba(52,32,24,.2)}
+body{background:#f4eadb;color:#342018}
+.top{background:#342018;color:#f4eadb}
+.top span{color:#e8a26d}
+.nav{border-color:rgba(52,32,24,.22)}
+.logo{font-size:clamp(30px,3vw,42px)}
+.logo small{letter-spacing:.3em;color:#b65b35}
+.nav-cta{border-color:#342018;background:#342018;color:#f4eadb}
+.nav-cta:hover{background:#b65b35;border-color:#b65b35;color:#fff8ee}
+.hero{padding-top:clamp(35px,5vw,70px)}
+.hero-grid{grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px)}
+.hero-copy h1{font-size:clamp(4rem,8.5vw,8.5rem);line-height:.83;letter-spacing:-.075em}
+.hero-copy h1 em{color:#b65b35}
+.hero-photo{border-radius:2px;overflow:hidden;position:relative}
+.hero-photo:after{content:"";position:absolute;inset:0;border:1px solid rgba(52,32,24,.15);pointer-events:none}
+.button{background:#b65b35;color:#fff8ee;border-color:#b65b35}
+.button:hover{background:#342018;border-color:#342018}
+.marquee{background:#342018;color:#f4eadb}
+.marquee-track{color:#f4eadb}
+.marquee-track i{color:#e8a26d}
+.story{background:#e9d9c5}
+.story-copy .lead{color:#342018}
+.menu-tabs .tab.active{background:#342018;color:#f4eadb;border-color:#342018}
+.drink{border-color:rgba(52,32,24,.18)}
+.drink:hover{background:#e9d9c5}
+.price{color:#b65b35}
+.philosophy{background:#342018;color:#f4eadb}
+.philosophy .micro,.philosophy p{color:#d6c2ae}
+.principle{border-color:rgba(244,234,219,.2)}
+.visit-card{background:#e9d9c5;border-color:rgba(52,32,24,.18)}
+@media(max-width:700px){.hero-copy h1{font-size:clamp(4rem,18vw,6rem)}.hero-grid{grid-template-columns:1fr}.hero-photo{min-height:420px}}
+
 </style>
 
 <style id="site-marquee-tuning">
