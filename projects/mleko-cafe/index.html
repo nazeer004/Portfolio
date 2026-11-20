@@ -237,3 +237,31 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 @media(max-width:700px){.cafe-hero-scene{min-height:690px}.cafe-hero-top{padding:20px;width:100%;font-size:7px;letter-spacing:.12em}.cafe-hero-content{padding:70px 24px 90px}.cafe-hero-content h1{font-size:clamp(58px,15vw,90px)}.cafe-hero-copy{font-size:11px;max-width:300px}.cafe-hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.cafe-hero-bottom{padding:15px 20px;font-size:7px;letter-spacing:.09em;gap:10px}.cafe-hero-bottom span:nth-child(2){display:none}}
 @media(max-width:400px){.cafe-hero-scene{min-height:620px}.cafe-hero-content h1{font-size:56px}}
 </style>
+<style id="coffee-drip-art-direction">
+/* Coffee-liquid transition: hero spills into the next section */
+.cafe-hero-scene{overflow:visible;z-index:2}
+.cafe-hero-scene:after{content:"";position:absolute;z-index:5;left:0;right:0;bottom:-1px;height:72px;background:#342018;clip-path:polygon(0 0,100% 0,100% 18%,95% 18%,95% 68%,92% 68%,92% 18%,82% 18%,82% 42%,79% 42%,79% 18%,68% 18%,68% 82%,65% 82%,65% 18%,54% 18%,54% 48%,51% 48%,51% 18%,38% 18%,38% 60%,35% 60%,35% 18%,22% 18%,22% 44%,19% 44%,19% 18%,8% 18%,8% 70%,5% 70%,5% 18%,0 18%)}
+.marquee{position:relative;background:#342018;color:#f4eadb;border:0;padding:42px 0 22px;overflow:hidden}
+.marquee:before{content:"";position:absolute;left:0;right:0;top:-1px;height:46px;background:#342018;clip-path:polygon(0 0,100% 0,100% 14%,97% 14%,97% 74%,94% 74%,94% 14%,85% 14%,85% 42%,82% 42%,82% 14%,71% 14%,71% 86%,68% 86%,68% 14%,57% 14%,57% 54%,54% 54%,54% 14%,42% 14%,42% 74%,39% 74%,39% 14%,28% 14%,28% 48%,25% 48%,25% 14%,13% 14%,13% 90%,10% 90%,10% 14%,0 14%)}
+.marquee-track{position:relative;z-index:1}
+.marquee span{color:#f4eadb}.marquee i{color:#d98b55}
+.story{position:relative}
+.story h2{position:relative}
+.story h2:after{content:"";display:block;width:56px;height:5px;border-radius:50%;background:#b65b35;margin-top:24px;box-shadow:0 12px 0 -1px #b65b35}
+.story-copy p:first-child:first-letter{font:italic 52px var(--serif);color:#b65b35;float:left;line-height:.8;padding:5px 8px 0 0}
+.drink{position:relative;transition:transform .3s var(--ease),background .3s}
+.drink:before{content:"";display:block;width:9px;height:9px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#b65b35;position:absolute;top:17px;right:0;opacity:.65}
+.drink:hover{transform:translateY(-4px)}
+.drink h3{transition:color .2s}
+.drink:hover h3{color:#e4a176}
+.philo-image{position:relative}
+.philo-image:after{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(0deg,rgba(52,32,24,.28),transparent);pointer-events:none}
+.philo-copy h2 em{color:#e4a176}
+.plan{position:relative}
+.plan:before{content:"";position:absolute;top:0;left:0;width:36px;height:5px;background:#b65b35;border-radius:0 0 8px 8px}
+.visit-card{position:relative;overflow:hidden}
+.visit-card:after{content:"";position:absolute;right:-42px;top:-42px;width:150px;height:150px;border-radius:50%;background:#b65b35;opacity:.12}
+.cafe-hero-cta{transition:transform .25s,background .25s}
+.cafe-hero-cta:hover{transform:translateY(-3px);background:#f1bd91}
+@media(max-width:700px){.cafe-hero-scene:after{height:48px}.marquee{padding-top:32px}.marquee:before{height:32px}}
+</style>
