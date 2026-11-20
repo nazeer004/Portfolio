@@ -79,6 +79,66 @@ body{background:#f0efeb;color:#171817}
 .steps{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:700px){.hero-grid,.project-grid,.services{grid-template-columns:1fr}.project:nth-child(2),.project:nth-child(3),.project:nth-child(4){margin:0;grid-column:auto;max-width:none}.steps{grid-template-columns:1fr 1fr}}
 
+
+/* VISUAL QA FIX — restore readable hierarchy and compact responsive layout */
+.hero-lead{
+  font-size:clamp(13px,1.05vw,16px)!important;
+  line-height:1.8!important;
+  letter-spacing:normal!important;
+  max-width:440px!important;
+  text-wrap:pretty!important;
+  color:#666b60!important;
+}
+.hero h1{
+  font-size:clamp(58px,7.3vw,112px)!important;
+  line-height:.92!important;
+  letter-spacing:-.065em!important;
+  margin-bottom:24px!important;
+}
+.hero{padding-top:clamp(28px,4vw,58px)!important;padding-bottom:clamp(55px,7vw,90px)!important}
+.hero-meta{margin-bottom:clamp(18px,3vw,30px)!important}
+.hero-grid{gap:clamp(28px,5vw,72px)!important}
+.hero-copy{padding-top:0!important}
+.hero-image{height:clamp(420px,48vw,620px)!important}
+.intro{padding-top:clamp(75px,9vw,115px)!important;padding-bottom:clamp(75px,9vw,115px)!important}
+.projects,.process,.contact{padding-top:clamp(75px,9vw,115px)!important;padding-bottom:clamp(75px,9vw,115px)!important}
+.services{padding-top:clamp(70px,8vw,105px)!important;padding-bottom:clamp(70px,8vw,105px)!important}
+@media(max-width:800px){
+  .hero{padding-top:24px!important;padding-bottom:54px!important}
+  .hero-meta{margin-bottom:18px!important}
+  .hero-grid{gap:22px!important}
+  .hero h1{font-size:clamp(60px,13.5vw,92px)!important;line-height:.9!important;margin-bottom:20px!important}
+  .hero-lead{font-size:14px!important;line-height:1.75!important;max-width:36ch!important}
+  .hero-actions{margin-top:24px!important;gap:16px!important;flex-wrap:wrap}
+  .hero-image{height:min(430px,105vw)!important}
+  .intro{padding:65px 0!important}
+  .intro h2,.services h2,.projects h2,.process h2,.founder h2{font-size:clamp(42px,10vw,66px)!important}
+  .services,.projects,.process,.contact{padding:65px 0!important}
+  .projects-head{margin-bottom:28px!important}
+  .project-grid{gap:28px!important}
+  .project-photo,.project:nth-child(2) .project-photo,.project:nth-child(4) .project-photo{height:auto!important;aspect-ratio:4/3!important}
+  .quote{padding:65px 0!important}
+  .founder{padding:65px 0!important}
+  .founder-image{height:auto!important;aspect-ratio:4/5!important}
+  .contact h2{font-size:clamp(52px,12vw,78px)!important}
+  .enquiry{min-height:280px!important}
+}
+@media(max-width:430px){
+  .wrap{width:calc(100% - 32px)!important}
+  .topline{padding:0 16px!important}
+  .brand{font-size:15px!important}
+  .hero h1{font-size:clamp(54px,13.5vw,72px)!important}
+  .hero-lead{font-size:13px!important}
+  .hero-image{height:340px!important}
+  .hero-actions .button{padding:14px 16px!important}
+  .intro h2,.services h2,.projects h2,.process h2,.founder h2{font-size:44px!important}
+  .service h3{font-size:26px!important}
+  .project-meta h3{font-size:21px!important}
+  .quote blockquote{font-size:27px!important}
+  .contact h2{font-size:52px!important}
+  .enquiry{padding:24px!important}
+}
+
 </style>
 
 <style id="site-marquee-tuning">
