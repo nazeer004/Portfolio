@@ -77,12 +77,20 @@ body{background:#eef4f6;color:#102c3a}
 @media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{padding-block:30px 55px;gap:24px}.hero h1{font-size:clamp(48px,13vw,78px)}.hero-side{padding:20px}.section-grid,.scope-grid{gap:25px}.content-section,.scope,.next{padding-block:60px}}
 @media(max-width:430px){.wrap{width:calc(100% - 32px)}.hero h1{font-size:clamp(44px,12vw,64px)}.hero-side{padding:16px}}
 
+
+/* PERSONAL BRAND SYSTEM — NM monogram + NAZEER wordmark */
+.personal-brand{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none!important}
+.nm-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid currentColor;font:800 11px/1 var(--sans,Arial,sans-serif);letter-spacing:-.08em}
+.nm-word{font:800 13px/1 var(--sans,Arial,sans-serif);letter-spacing:.22em}
+.portfolio-credit{padding:14px 0 0;border-top:1px solid rgba(128,128,128,.25);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.portfolio-credit a{font-weight:700;text-decoration:none}
+@media(max-width:500px){.nm-mark{width:30px;height:30px}.nm-word{font-size:11px;letter-spacing:.18em}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header class="topbar">
-  <a class="brand" href="/">Nazeer<i>.</i></a>
+  <a class="brand personal-brand" href="/"><span class="nm-mark">NM</span><span class="nm-word">NAZEER</span></a>
   <nav class="toplinks" aria-label="Project navigation">
     <a href="/#work">Selected work</a>
     <a class="button dark" href="./app/" target="_blank" rel="noopener">Open dashboard ↗</a>
@@ -158,7 +166,7 @@ body{background:#eef4f6;color:#102c3a}
   <div><p>A next iteration would validate these workflows with logistics operators, define role-specific permissions and connect shipment, fleet and location data through secure backend services.</p><a class="button dark" href="./app/" target="_blank" rel="noopener">Explore the prototype ↗</a></div>
 </section>
 </main>
-<footer><span>© 2026 Nazeer Mukhasam</span><a href="/#work">Back to selected work ↑</a></footer>
+<footer><span>© Nazeer Mukhasam · NM</span><a href="/#work">Back to selected work ↑</a></footer>
 </div>
 </body>
 </html>
