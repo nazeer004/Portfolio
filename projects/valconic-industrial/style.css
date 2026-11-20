@@ -96,3 +96,34 @@ footer{border-color:rgba(240,242,239,.18);color:#a3adb6}
 .hero-copy p{font-size:clamp(14px,1.1vw,17px);line-height:1.7}
 .hero h1{font-size:clamp(56px,7vw,96px);line-height:.92}
 @media(max-width:700px){.wrap{width:calc(100% - 32px)}.hero{padding-block:35px 55px;gap:24px}.hero h1{font-size:clamp(48px,13vw,76px)}.hero-visual{min-height:280px}.section{padding-block:60px}.feature-grid,.work-secondary,.steps,.prototype-grid{gap:18px}}
+
+/* MOBILE QA FIXES — VALCONIC */
+@media(max-width:650px){
+ .top{height:auto;min-height:68px;flex-direction:column;align-items:flex-start;gap:14px;padding-block:16px}
+ .top nav{width:100%;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:flex-start}
+ .top nav a{font-size:11px;padding:4px 0}
+ .hero{min-height:auto;overflow:visible}
+ .hero h1 span:nth-child(2){white-space:normal;flex-wrap:wrap}
+ .hero-intro{max-width:100%;font-size:15px}
+ .hero-visual{width:100%;min-width:0;overflow:hidden}
+ .screen{max-width:100%}
+ .visual-index{right:5px;top:5px;font-size:8px}
+ .visual-sticker{width:66px;height:66px;font-size:7px}
+ .step{grid-template-columns:32px minmax(0,1fr);gap:12px}
+ .step span{text-align:left;grid-column:2}
+ .skills{grid-template-columns:1fr;gap:24px}
+ .contact h2{font-size:clamp(54px,14vw,82px)}
+ .email{overflow-wrap:anywhere;word-break:break-word}
+ footer{flex-direction:column;align-items:flex-start;gap:10px;line-height:1.8;overflow-wrap:anywhere}
+}
+@media(max-width:400px){
+ .top nav{gap:8px 13px}
+ .hero-tag{font-size:8px;letter-spacing:.08em}
+ .hero h1{font-size:clamp(43px,12vw,58px)}
+ .hero-visual{min-height:250px}
+ .screen{width:90%;padding:10px}
+ .screen-ui{min-height:260px;gap:8px}
+ .visual-label{font-size:34px}
+ .actions{gap:14px}
+ .btn{padding-inline:16px;gap:12px}
+}
