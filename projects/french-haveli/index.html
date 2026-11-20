@@ -273,5 +273,40 @@ const menu=document.getElementById('menu'),links=document.getElementById('links'
 </script>
 
 <script id="fh-room-horizontal-scroll-controller">
-(()=>{const section=document.querySelector('.fh-room-carousel'),scroll=section?.querySelector('.fh-room-scroll');if(!section||!scroll)return;const stage=section.querySelector('.fh-room-stage'),track=section.querySelector('.fh-room-track'),cards=[...section.querySelectorAll('.fh-room-card')],progress=section.querySelector('.fh-room-progress span'),count=section.querySelector('.fh-room-count');let raf=0;function update(){raf=0;const rect=scroll.getBoundingClientRect(),travel=Math.max(1,scroll.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/travel)),max=Math.max(0,track.scrollWidth-stage.clientWidth);track.style.transform='translate3d('+(-max*p)+'px,0,0)';const index=Math.min(cards.length-1,Math.floor(p*cards.length));if(progress)progress.style.width=(p*100)+'%';if(count)count.textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');}function schedule(){if(!raf)raf=requestAnimationFrame(update)}window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});update();})();
+(()=>{
+  const section=document.querySelector('.fh-room-carousel');
+  const scroll=section?.querySelector('.fh-room-scroll');
+  const sticky=section?.querySelector('.fh-room-sticky');
+  const stage=section?.querySelector('.fh-room-stage');
+  const track=section?.querySelector('.fh-room-track');
+  const cards=section?[...section.querySelectorAll('.fh-room-card')]:[];
+  const progress=section?.querySelector('.fh-room-progress span');
+  const count=section?.querySelector('.fh-room-count');
+  if(!section||!scroll||!sticky||!stage||!track||!cards.length)return;
+  let raf=0;
+  function measure(){
+    const width=stage.clientWidth;
+    cards.forEach(card=>{card.style.flex='0 0 '+width+'px';card.style.width=width+'px'});
+    track.style.gap=window.matchMedia('(max-width:800px)').matches?'16px':'3vw';
+    update();
+  }
+  function update(){
+    raf=0;
+    const start=scroll.getBoundingClientRect().top+window.scrollY;
+    const travel=Math.max(1,scroll.offsetHeight-sticky.offsetHeight);
+    const p=Math.max(0,Math.min(1,(window.scrollY-start)/travel));
+    const gap=parseFloat(getComputedStyle(track).gap)||0;
+    const max=Math.max(0,(cards.length*stage.clientWidth+gap*(cards.length-1))-stage.clientWidth);
+    track.style.transform='translate3d('+(-max*p)+'px,0,0)';
+    const index=Math.min(cards.length-1,Math.floor(p*cards.length));
+    if(progress)progress.style.width=(p*100)+'%';
+    if(count)count.textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
+    cards.forEach((card,i)=>card.classList.toggle('active',i===index));
+  }
+  function schedule(){if(!raf)raf=requestAnimationFrame(update)}
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',measure,{passive:true});
+  if('ResizeObserver' in window)new ResizeObserver(measure).observe(stage);
+  measure();
+})();
 </script>
