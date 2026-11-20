@@ -174,6 +174,89 @@ body{background:#f4eadb;color:#342018}
 .footer-logo{position:relative}
 .footer-logo:after{content:"";display:inline-block;margin-left:9px;width:8px;height:8px;border-radius:100% 0 100% 0;background:#b77c53;transform:rotate(-35deg)}
 @media(max-width:700px){.story:after{width:90px;height:90px;right:-10px;top:20%}.coffee:before{width:42px;height:42px;right:10px;top:12px}.rituals:after{width:140px;height:140px;right:-50px}.visit-card:before{width:58px;height:58px;right:12px;top:12px;font-size:6px}}
+</style><style id="nm-editorial-redesign">
+:root{--paper:#e9e5db;--cream:#f5f1e8;--ink:#242624;--olive:#59665a;--muted:#72736b;--line:rgba(36,38,36,.22);--accent:#b66b4b}
+body{background:var(--paper);color:var(--ink)}
+.top{background:#242624;color:#e9e5db}
+.top span{color:#b6c0a9}
+.nav{border-bottom:1px solid var(--line)}
+.logo{font:600 30px 'DM Sans',sans-serif;letter-spacing:-.09em}
+.logo small{letter-spacing:.2em;color:var(--accent)}
+.links{gap:25px;font-size:9px}
+.nav-cta{border:0;background:#242624;color:#f5f1e8}
+.hero{padding:25px 0 75px}
+.hero-grid{grid-template-columns:1fr 1.05fr;gap:4vw}
+.hero h1{font:500 clamp(68px,8vw,122px)/.82 var(--serif);letter-spacing:-.085em}
+.hero h1 em{color:var(--accent)}
+.hero-top{margin-bottom:28px}
+.hero-photo{height:clamp(430px,52vw,660px);border-radius:0}
+.hero-photo img{filter:saturate(.72) contrast(1.06)}
+.photo-caption{background:#242624;color:#f5f1e8}
+.hero-copy{font-size:12px;max-width:340px}
+.button{background:var(--accent);color:#fff7ed}
+.button:hover{background:#242624}
+.marquee{background:#242624;border:0;padding:18px 0}
+.marquee span{font:italic 21px var(--serif);color:#e9e5db}
+.marquee i{color:var(--accent)}
+.story{padding:120px 0 110px;grid-template-columns:.8fr 1.2fr;gap:8vw}
+.story h2{font-size:clamp(58px,7vw,100px)}
+.story h2 em{color:var(--accent)}
+.story-copy p:first-child{font-size:clamp(25px,3vw,42px);line-height:1.25;letter-spacing:-.03em}
+.story-copy .sub{font:11px/1.9 var(--sans);max-width:420px}
+.coffee{background:#242624;color:#e9e5db;padding:100px 0}
+.menu-head h2{font-size:clamp(60px,8vw,112px);line-height:.86}
+.menu-head h2 em{color:#c28b62}
+.menu-head p{font-size:11px;color:#b6b7ad}
+.menu-tabs{gap:7px}
+.tab{border-radius:0;border-color:rgba(233,229,219,.3);color:#bfc1b7}
+.tab.active,.tab:hover{background:#c28b62;color:#242624;border-color:#c28b62}
+.menu-grid{grid-template-columns:1fr 1fr;gap:0 36px}
+.drink{padding:22px 0 25px;border-top:1px solid rgba(233,229,219,.25)}
+.drink h3{font-size:clamp(24px,3vw,36px)}
+.drink .price{color:#c28b62}
+.drink p{max-width:330px}
+.menu-foot{color:#b6b7ad}
+.menu-foot a{color:#c28b62;border-color:#c28b62}
+.philosophy{padding:110px 0;grid-template-columns:1.1fr .9fr;gap:7vw}
+.philo-image{height:clamp(420px,50vw,650px)}
+.philo-image img{filter:saturate(.65)}
+.philo-copy h2{font-size:clamp(60px,7vw,96px)}
+.philo-copy h2 em{color:var(--accent)}
+.principle{font:500 17px var(--serif)}
+.principle span{color:var(--accent)}
+.brew-lab{background:#c7c9bd;padding:100px 0}
+.brew-lab .ritual-head h2{font-size:clamp(65px,8vw,110px)}
+.brew-lab .ritual-head h2 em{color:var(--accent)}
+.brew-lab-grid{display:grid;grid-template-columns:1fr 1fr;min-height:430px;border-top:1px solid rgba(36,38,36,.25);border-bottom:1px solid rgba(36,38,36,.25)}
+.brew-controls{padding:35px 8vw 35px 0;display:flex;flex-direction:column;gap:22px}
+.brew-controls label{display:flex;flex-direction:column;gap:10px;font-size:8px;letter-spacing:.18em;font-weight:700}
+.brew-controls select,.brew-controls input{background:transparent;border:0;border-bottom:1px solid rgba(36,38,36,.4);padding:12px 0;font:16px var(--serif);color:#242624;outline:none}
+.brew-result{background:#242624;color:#e9e5db;padding:30px;margin-top:10px}
+.brew-result small{font-size:8px;letter-spacing:.2em;color:#c28b62}
+.brew-result strong{display:block;font:500 clamp(60px,7vw,100px)/1 var(--serif);margin:15px 0}
+.brew-result strong span{font-size:25px}
+.brew-result p{font-size:10px;color:#c3c5ba}
+.brew-note{font-size:10px;color:#64685e;line-height:1.7}
+.brew-visual{position:relative;background:#d9d8ce;display:flex;flex-direction:column;justify-content:space-between;padding:35px;overflow:hidden}
+.brew-number,.brew-bottom{font-size:8px;letter-spacing:.2em}
+.brew-big{font:500 clamp(65px,8vw,110px)/.8 var(--serif);letter-spacing:-.08em;position:relative;z-index:2}
+.brew-big em{color:var(--accent)}
+.brew-bean{position:absolute;width:200px;right:8%;top:15%;transform:rotate(25deg);opacity:.85}
+.brew-bean svg{width:100%}
+.visit{padding:110px 0}
+.visit h2{font-size:clamp(60px,7vw,100px)}
+.visit h2 em{color:var(--accent)}
+.visit-card{background:#242624;color:#e9e5db;min-height:440px;padding:38px}
+.visit-card .big{font-size:clamp(35px,4vw,55px)}
+.visit-card .detail{color:#b9bcb2}
+.visit-card a{border-color:#c28b62;color:#c28b62}
+footer{background:#242624}
+.footer-logo{font-family:var(--sans);font-weight:600;letter-spacing:-.1em}
+.footer-logo:after{background:var(--accent)}
+.footer-top p{color:#b9bcb2}
+.footer-col small{color:#c28b62}
+.footer-bottom{color:#9da297}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(76px,16vw,115px)}.hero-photo{height:450px}.story{grid-template-columns:1fr;gap:25px}.menu-grid{grid-template-columns:1fr}.philosophy{grid-template-columns:1fr}.brew-lab-grid{grid-template-columns:1fr}.brew-controls{padding:28px 0}.brew-visual{min-height:330px}.brew-bean{width:150px}.visit-grid{grid-template-columns:1fr}.nav-cta{display:none}}
 </style></head>
 <body>
 <div class="top">NM CAFÉ <span>·</span> Specialty coffee concept <span>·</span> Designed by Nazeer</div>
@@ -194,12 +277,7 @@ body{background:#f4eadb;color:#342018}
 <article class="drink" data-type="special"><div class="drink-top"><h3>Ocean's Kiss</h3><span class="price">₹230</span></div><p>Coffee poured over chantilly cream with a delicate touch of salt.</p></article>
 </div><div class="menu-foot"><span>Illustrative menu and prices for this concept. Not a real menu.</span><a href="https://nazeerux.site" target="_blank" rel="noreferrer">Visit NM Café online ↗</a></div></div></section>
 <section class="philosophy wrap reveal"><div class="philo-image"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=88" alt="Freshly brewed coffee being prepared"></div><div class="philo-copy"><div class="micro section-label">03 / What we believe</div><h2>Crafted slowly.<br>Served <em>thoughtfully.</em></h2><p>We care about the details behind the cup: where the beans come from, how they're brewed, and what makes the whole experience feel considered.</p><div class="principles"><div class="principle">Coffee as craft <span>01</span></div><div class="principle">Food that complements <span>02</span></div><div class="principle">Spaces that feel grounded <span>03</span></div><div class="principle">Community over trends <span>04</span></div></div></div></section>
-<section class="rituals" id="rituals"><div class="wrap"><div class="ritual-head"><div><div class="micro section-label">04 / Make it a ritual</div><h2>Good coffee.<br>On repeat.</h2></div><p>Make your everyday coffee ritual a little easier with fictional coffee moments.</p></div><div class="plans">
-<article class="plan"><small>For the occasional regular</small><h3>Slow Start</h3><div class="cost"><span>Concept</span></div><ul><li>A coffee for a slow morning</li><li>Something fresh alongside</li><li>A moment to stay</li><li>A thoughtful coffee ritual</li></ul><a href="mailto:nmukhasam@gmail.com">Explore the concept ↗</a></article>
-<article class="plan"><small>For the daily pause</small><h3>Daily Pause</h3><div class="cost"><span>Concept</span></div><ul><li>Your everyday favourite</li><li>Something to share</li><li>A little afternoon pause</li><li>Concept experience</li></ul><a href="mailto:nmukhasam@gmail.com">Ask about this plan ↗</a></article>
-<article class="plan"><small>For the curious coffee lover</small><h3>NM Café Explorer</h3><div class="cost"><span>Concept</span></div><ul><li>Explore the coffee menu</li><li>Try something new</li><li>Make time for coffee</li><li>15% off beans or merchandise</li></ul><a href="mailto:nmukhasam@gmail.com">Ask about this plan ↗</a></article>
-</div></div></section>
-<section class="visit wrap reveal" id="visit"><div class="visit-grid"><div class="visit-copy"><div class="micro section-label">05 / Find your NM Café</div><h2>Your table<br>is waiting.</h2><p>A fictional café identity and website concept. Contact the designer to discuss a project.</p><div class="locations"><div class="location"><strong>Ahmedabad</strong><span>Gujarat, India</span></div><div class="location"><strong>Portfolio</strong><span>nazeerux.site</span></div></div></div><div class="visit-card"><div class="big">A little more time for the things that matter.</div><div class="detail">CONTACT<br>NM · NAZEER<br><br>nmukhasam@gmail.com</div><a href="mailto:nmukhasam@gmail.com" target="_blank" rel="noreferrer">Contact Nazeer ↗</a></div></div></section>
+<section class="rituals brew-lab" id="rituals"><div class="wrap"><div class="ritual-head"><div><div class="micro section-label">04 / The brewing lab</div><h2>Find your<br><em>ratio.</em></h2></div><p>Good coffee is a little science. Choose your method and let us calculate the brew.</p></div><div class="brew-lab-grid"><div class="brew-controls"><label>BREW METHOD<select id="brewMethod"><option value="15">Pour over · 1:15</option><option value="16">French press · 1:16</option><option value="12">Espresso · 1:2 (dose ratio)</option><option value="14">Aeropress · 1:14</option><option value="18">Cold brew · 1:18</option></select></label><label>COFFEE AMOUNT<input id="coffeeGrams" type="number" value="20" min="5" max="100" step="1"></label><div class="brew-result"><small>WATER TO USE</small><strong id="waterResult">300 <span>ml</span></strong><p id="ratioResult">20g coffee · 1:15 ratio</p></div><div class="brew-note">A starting point. Adjust to taste, grind and your beans.</div></div><div class="brew-visual"><div class="brew-number">01—05</div><div class="brew-big">Brew<br><em>better.</em></div><div class="brew-bean" aria-hidden="true"><svg viewBox="0 0 160 220"><ellipse cx="80" cy="110" rx="62" ry="86" fill="#8d5738" transform="rotate(25 80 110)"/><path d="M34 54 C70 75 87 106 118 166 C94 149 71 133 52 107 C35 84 30 65 34 54Z" fill="#c68b61"/><path d="M58 37 C34 78 54 112 92 144 C110 159 123 167 128 170" fill="none" stroke="#382419" stroke-width="8" stroke-linecap="round"/></svg></div><div class="brew-bottom">MEASURE · POUR · WAIT · ENJOY</div></div></div></div></section><section class="visit wrap reveal" id="visit"><div class="visit-grid"><div class="visit-copy"><div class="micro section-label">05 / Find your NM Café</div><h2>Your table<br>is waiting.</h2><p>A fictional café identity and website concept. Contact the designer to discuss a project.</p><div class="locations"><div class="location"><strong>Ahmedabad</strong><span>Gujarat, India</span></div><div class="location"><strong>Portfolio</strong><span>nazeerux.site</span></div></div></div><div class="visit-card"><div class="big">A little more time for the things that matter.</div><div class="detail">CONTACT<br>NM · NAZEER<br><br>nmukhasam@gmail.com</div><a href="mailto:nmukhasam@gmail.com" target="_blank" rel="noreferrer">Contact Nazeer ↗</a></div></div></section>
 </main>
 <footer><div class="wrap"><div class="footer-top"><div><div class="footer-logo">nm-cafe.</div><p>An original café concept designed by Nazeer Mukhasam.</p></div><div class="footer-nav"><div class="footer-col"><small>Explore</small><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a></div><div class="footer-col"><small>Say hello</small><a href="mailto:nmukhasam@gmail.com">nmukhasam@gmail.com</a><a href="https://nazeerux.site" target="_blank" rel="noreferrer">Portfolio ↗</a><span>Ahmedabad, Gujarat</span></div></div></div><div class="footer-bottom"><span>© NM Café — Independent redesign concept</span><span>Concept website · Fictional brand</span></div></div><div class="portfolio-credit">Concept & interface design by <a href="https://nazeerux.site">NM · NAZEER</a></div></footer>
 <script>
@@ -256,6 +334,8 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 
 <script id="coffee-flow-scroll">
 (()=>{const flow=document.querySelector('.coffee-flow');if(!flow)return;const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){flow.classList.add('is-visible');io.unobserve(flow)}}),{threshold:.05});io.observe(flow)})();
+</script><script id="brew-calculator">
+(()=>{const method=document.getElementById('brewMethod'),grams=document.getElementById('coffeeGrams'),water=document.getElementById('waterResult'),ratio=document.getElementById('ratioResult');if(!method||!grams)return;function calc(){const g=Math.max(0,Number(grams.value)||0),r=Number(method.value);water.innerHTML=Math.round(g*r)+' <span>ml</span>';ratio.textContent=g+'g coffee · 1:'+r+' ratio'}method.addEventListener('change',calc);grams.addEventListener('input',calc);calc()})();
 </script></body></html>\n<style id="nm-cafe-minimal-hero">
 .cafe-hero{padding:0;margin:0;background:#342018;color:#fff8ee;overflow:hidden}
 .cafe-hero-inner{width:100%}
