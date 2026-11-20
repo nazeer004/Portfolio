@@ -238,11 +238,11 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 @media(max-width:400px){.cafe-hero-scene{min-height:620px}.cafe-hero-content h1{font-size:56px}}
 </style>
 <style id="coffee-drip-art-direction">
-/* Coffee-liquid transition: hero spills into the next section */
+/* Organic coffee spill — smooth liquid silhouette, no polygonal edges */
 .cafe-hero-scene{overflow:visible;z-index:2}
-.cafe-hero-scene:after{content:"";position:absolute;z-index:5;left:0;right:0;bottom:-1px;height:72px;background:#342018;clip-path:polygon(0 0,100% 0,100% 18%,95% 18%,95% 68%,92% 68%,92% 18%,82% 18%,82% 42%,79% 42%,79% 18%,68% 18%,68% 82%,65% 82%,65% 18%,54% 18%,54% 48%,51% 48%,51% 18%,38% 18%,38% 60%,35% 60%,35% 18%,22% 18%,22% 44%,19% 44%,19% 18%,8% 18%,8% 70%,5% 70%,5% 18%,0 18%)}
+.cafe-hero-scene:after{content:"";position:absolute;z-index:5;left:0;right:0;bottom:-1px;height:100px;background:#342018;pointer-events:none;clip-path:path("M 0 0 C 90 0 120 4 160 2 C 185 0 190 8 194 30 C 198 58 208 70 220 70 C 235 70 244 52 247 28 C 250 7 260 0 290 0 L 390 0 C 415 0 420 8 424 24 C 430 45 442 52 454 50 C 470 48 476 28 480 8 C 484 0 495 0 520 0 L 610 0 C 635 0 640 8 644 40 C 648 66 660 82 676 82 C 692 82 704 64 708 36 C 712 8 720 0 745 0 L 835 0 C 860 0 868 12 872 28 C 876 48 890 56 902 52 C 918 48 924 24 928 8 C 932 0 942 0 970 0 L 1060 0 C 1088 0 1094 8 1098 34 C 1102 58 1114 72 1130 72 C 1146 72 1158 52 1162 28 C 1166 6 1175 0 1200 0 L 1200 100 L 0 100 Z")}
 .marquee{position:relative;background:#342018;color:#f4eadb;border:0;padding:42px 0 22px;overflow:hidden}
-.marquee:before{content:"";position:absolute;left:0;right:0;top:-1px;height:46px;background:#342018;clip-path:polygon(0 0,100% 0,100% 14%,97% 14%,97% 74%,94% 74%,94% 14%,85% 14%,85% 42%,82% 42%,82% 14%,71% 14%,71% 86%,68% 86%,68% 14%,57% 14%,57% 54%,54% 54%,54% 14%,42% 14%,42% 74%,39% 74%,39% 14%,28% 14%,28% 48%,25% 48%,25% 14%,13% 14%,13% 90%,10% 90%,10% 14%,0 14%)}
+.marquee:before{content:"";position:absolute;left:0;right:0;top:-1px;height:56px;background:#342018;pointer-events:none;clip-path:path("M 0 0 L 1200 0 L 1200 56 C 1160 56 1154 48 1150 28 C 1146 8 1135 0 1120 0 C 1105 0 1095 12 1090 34 C 1085 50 1078 56 1060 56 L 980 56 C 960 56 954 48 950 28 C 946 8 935 0 920 0 C 905 0 895 12 890 34 C 885 50 878 56 860 56 L 760 56 C 740 56 734 48 730 28 C 726 8 715 0 700 0 C 685 0 675 12 670 34 C 665 50 658 56 640 56 L 540 56 C 520 56 514 48 510 28 C 506 8 495 0 480 0 C 465 0 455 12 450 34 C 445 50 438 56 420 56 L 320 56 C 300 56 294 48 290 28 C 286 8 275 0 260 0 C 245 0 235 12 230 34 C 225 50 218 56 200 56 L 100 56 C 80 56 74 48 70 28 C 66 8 55 0 40 0 L 0 0 Z")}
 .marquee-track{position:relative;z-index:1}
 .marquee span{color:#f4eadb}.marquee i{color:#d98b55}
 .story{position:relative}
@@ -263,5 +263,5 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 .visit-card:after{content:"";position:absolute;right:-42px;top:-42px;width:150px;height:150px;border-radius:50%;background:#b65b35;opacity:.12}
 .cafe-hero-cta{transition:transform .25s,background .25s}
 .cafe-hero-cta:hover{transform:translateY(-3px);background:#f1bd91}
-@media(max-width:700px){.cafe-hero-scene:after{height:48px}.marquee{padding-top:32px}.marquee:before{height:32px}}
+@media(max-width:700px){.cafe-hero-scene:after{height:76px}.marquee{padding-top:42px}.marquee:before{height:44px}}
 </style>
