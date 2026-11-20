@@ -61,6 +61,22 @@ body{background:#e9e0d1;color:#24243a}
 .visit p,.visit .micro{color:#c8c0b0}
 @media(max-width:700px){.hero-lead{font-size:clamp(4rem,17vw,6rem)}}
 
+
+/* DESIGN QA PASS — heritage hospitality booking journey */
+.hero-grid{grid-template-columns:.82fr 1.18fr}
+.hero-lead{max-width:9ch;text-wrap:balance}
+.hero-image{height:clamp(440px,58vw,700px)}
+.story-grid{grid-template-columns:1fr 1fr;align-items:center}
+.gallery-grid{grid-template-columns:1.25fr .75fr;align-items:stretch}
+.gallery-stack{display:grid;grid-template-rows:1fr 1fr;gap:12px}
+.gallery-large img,.gallery-small img{height:100%;object-fit:cover}
+.room-list{display:grid;grid-template-columns:1fr}
+.room{display:grid;grid-template-columns:70px 1fr auto auto;align-items:center;gap:18px}
+.exp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.visit-grid{grid-template-columns:1fr .8fr;align-items:center}
+.visit-card{padding:clamp(28px,4vw,48px)}
+@media(max-width:700px){.hero-grid,.story-grid,.gallery-grid,.visit-grid{grid-template-columns:1fr}.room{grid-template-columns:40px 1fr auto}.room-note{grid-column:2/-1}.exp-grid{grid-template-columns:1fr}.gallery-stack{grid-template-rows:auto}}
+
 </style>
 
 <style id="site-marquee-tuning">
