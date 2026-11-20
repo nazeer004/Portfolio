@@ -141,7 +141,7 @@ body{background:#f4eadb;color:#342018}
 <div class="top">NM CAFÉ <span>·</span> Specialty coffee concept <span>·</span> Designed by Nazeer</div>
 <header><div class="wrap nav"><a href="#home" class="logo">NM Café<small>COFFEE / CONCEPT</small></a><nav class="links" id="links"><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a><a href="#visit">Visit us</a></nav><a class="nav-cta" href="#visit">Find your NM Café ↗</a><button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
 <main>
-<section class="hero cafe-hero" id="home"><div class="cafe-hero-inner wrap"><div class="cafe-hero-kicker"><span>NM CAFÉ</span><span>COFFEE / CONCEPT</span></div><div class="cafe-hero-heading"><p class="cafe-eyebrow">A little pause, made better.</p><h1>Good coffee.<br><em>Good moments.</em></h1><p class="cafe-hero-copy">Thoughtfully brewed, simply served. Find your favourite and take the day at your own pace.</p><a class="cafe-hero-cta" href="#menu">Explore the menu <span>↗</span></a></div><div class="cafe-hero-visual"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=88" alt="Coffee being prepared in a calm cafe"><div class="cafe-image-caption"><span>01 / THE DAILY RITUAL</span><span>Made with intention</span></div></div><div class="cafe-hero-bottom"><span>ESPRESSO / FILTER / COLD BREW</span><span>SCROLL TO DISCOVER ↓</span></div></div></section>
+<section class="hero cafe-hero" id="home"><div class="cafe-hero-inner wrap"><div class="cafe-hero-kicker"><span>NM CAFÉ</span><span>COFFEE / CONCEPT</span></div><div class="cafe-hero-main"><div class="cafe-hero-heading"><p class="cafe-eyebrow">A little pause, made better.</p><h1>Good coffee.<br><em>Good moments.</em></h1><p class="cafe-hero-copy">Thoughtfully brewed, simply served. Find your favourite and take the day at your own pace.</p><a class="cafe-hero-cta" href="#menu">Explore the menu <span>↗</span></a></div><div class="cafe-hero-visual"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=88" alt="Coffee being prepared in a calm cafe"><div class="cafe-image-caption">A daily ritual, done well.</div></div></div><div class="cafe-hero-bottom"><span>ESPRESSO / FILTER / COLD BREW</span><span>SCROLL TO DISCOVER ↓</span></div></div></section>
 <div class="marquee"><div class="marquee-track"><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i></div></div>
 <section class="story wrap reveal" id="story"><div><div class="micro section-label">01 / The NM Café feeling</div><h2>Make room<br>for <em>moments.</em></h2></div><div class="story-copy"><p>NM Café is built around a simple belief: good things happen when you slow down.</p><p class="sub">This concept explores an editorial, product-first café identity through original layouts, typography, imagery and interaction. It is a portfolio project—not a real café.</p></div></section>
 <section class="coffee" id="menu"><div class="wrap"><div class="menu-head"><div><div class="micro section-label">02 / A thoughtful menu</div><h2>Find your<br>usual. Or don't.</h2></div><p>From familiar espresso classics to slow-steeped cold brews. Explore a few favourites from the NM Café coffee concept.</p></div><div class="menu-tabs" role="tablist"><button class="tab active" data-filter="all">All favourites</button><button class="tab" data-filter="hot">Hot coffee</button><button class="tab" data-filter="cold">Cold brew</button><button class="tab" data-filter="special">Something different</button></div><div class="menu-grid" id="menuGrid">
@@ -218,20 +218,21 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 
 </body></html>\n<style id="nm-cafe-minimal-hero">
 .cafe-hero{background:#f4eadb;color:#342018;margin:0;width:100%;padding:0;overflow:hidden}
-.cafe-hero-inner{padding:25px 0 20px}
-.cafe-hero-kicker,.cafe-hero-bottom{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.17em;color:#826c5d}
-.cafe-hero-kicker{padding-bottom:18px;border-bottom:1px solid rgba(52,32,24,.18)}
-.cafe-hero-heading{text-align:center;padding:clamp(55px,8vw,105px) 0 45px}
-.cafe-eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#b65b35;margin:0 0 24px}
-.cafe-hero-heading h1{font:500 clamp(55px,8vw,110px)/.95 var(--serif);letter-spacing:-.065em;margin:0;color:#342018}
+.cafe-hero-inner{padding:24px 0 20px}
+.cafe-hero-kicker,.cafe-hero-bottom{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.16em;color:#826c5d}
+.cafe-hero-kicker{padding-bottom:17px;border-bottom:1px solid rgba(52,32,24,.18)}
+.cafe-hero-main{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:5vw;padding:48px 0}
+.cafe-hero-heading{padding:20px 0}
+.cafe-eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#b65b35;margin:0 0 22px}
+.cafe-hero-heading h1{font:500 clamp(58px,7.4vw,100px)/.95 var(--serif);letter-spacing:-.07em;margin:0;color:#342018}
 .cafe-hero-heading h1 em{font-weight:500;color:#b65b35}
-.cafe-hero-copy{max-width:370px;margin:23px auto;color:#826c5d;font-size:12px;line-height:1.8}
-.cafe-hero-cta{display:inline-flex;align-items:center;gap:35px;margin-top:8px;border-bottom:1px solid #342018;padding:0 0 9px;color:#342018;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.cafe-hero-copy{max-width:350px;margin:22px 0;color:#826c5d;font-size:12px;line-height:1.8}
+.cafe-hero-cta{display:inline-flex;align-items:center;gap:30px;margin-top:7px;border-bottom:1px solid #342018;padding:0 0 9px;color:#342018;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
 .cafe-hero-cta span{color:#b65b35}
-.cafe-hero-visual{position:relative;height:clamp(280px,42vw,540px);margin:0}
+.cafe-hero-visual{position:relative;height:clamp(320px,40vw,500px);margin:0}
 .cafe-hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
-.cafe-image-caption{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;display:flex;justify-content:space-between;background:linear-gradient(transparent,rgba(25,15,10,.5));font-size:8px;letter-spacing:.15em;color:#fff8ee;text-transform:uppercase}
-.cafe-hero-bottom{border-top:1px solid rgba(52,32,24,.18);padding-top:16px;margin-top:20px}
-@media(max-width:700px){.cafe-hero-inner{width:calc(100% - 36px);padding-top:18px}.cafe-hero-heading{padding:58px 0 32px}.cafe-hero-heading h1{font-size:clamp(48px,12.5vw,75px)}.cafe-hero-copy{font-size:11px;max-width:290px}.cafe-hero-visual{height:300px}.cafe-hero-bottom{font-size:7px;letter-spacing:.1em;gap:12px}.cafe-hero-bottom span:last-child{text-align:right}}
-@media(max-width:400px){.cafe-hero-heading h1{font-size:48px}.cafe-hero-visual{height:260px}}
+.cafe-image-caption{position:absolute;bottom:14px;left:14px;background:#f4eadb;padding:9px 12px;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#342018}
+.cafe-hero-bottom{border-top:1px solid rgba(52,32,24,.18);padding-top:15px}
+@media(max-width:700px){.cafe-hero-inner{width:calc(100% - 36px);padding-top:18px}.cafe-hero-main{grid-template-columns:1fr;gap:30px;padding:42px 0 25px}.cafe-hero-heading{padding:0}.cafe-hero-heading h1{font-size:clamp(54px,13vw,75px)}.cafe-hero-copy{font-size:11px;max-width:290px}.cafe-hero-visual{height:320px}.cafe-hero-bottom{font-size:7px;letter-spacing:.1em;gap:12px}.cafe-hero-bottom span:last-child{text-align:right}}
+@media(max-width:400px){.cafe-hero-heading h1{font-size:48px}.cafe-hero-visual{height:270px}}
 </style>
