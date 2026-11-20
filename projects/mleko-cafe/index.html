@@ -142,7 +142,7 @@ body{background:#f4eadb;color:#342018}
 <header><div class="wrap nav"><a href="#home" class="logo">NM Café<small>COFFEE / CONCEPT</small></a><nav class="links" id="links"><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a><a href="#visit">Visit us</a></nav><a class="nav-cta" href="#visit">Find your NM Café ↗</a><button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
 <main>
 <section class="hero cafe-hero" id="home"><div class="cafe-hero-inner"><div class="cafe-hero-scene"><img class="cafe-hero-bg" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2200&q=90" alt="Warm, inviting cafe interior"><div class="cafe-hero-overlay"></div><div class="cafe-hero-top"><span>NM CAFÉ</span><span>COFFEE · FOOD · SLOW MOMENTS</span></div><div class="cafe-hero-content"><p class="cafe-eyebrow">YOUR NEIGHBOURHOOD COFFEE SPOT</p><h1>Good coffee.<br><em>Good moments.</em></h1><p class="cafe-hero-copy">Coffee worth lingering over. Freshly baked, beautifully brewed, and best enjoyed without rushing.</p><div class="cafe-hero-actions"><a href="#menu" class="cafe-hero-cta">View our menu <span>↗</span></a><span class="cafe-hero-note">MADE SLOW. SERVED WARM.</span></div></div><div class="cafe-hero-bottom"><span>ESPRESSO BAR</span><span>BAKED FRESH DAILY</span><span>GOOD COMPANY</span></div><svg class="coffee-spill-edge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 C90 4 155 0 220 4 C255 6 265 22 270 54 C274 79 292 90 312 82 C330 74 334 45 338 20 C342 5 365 0 405 4 L500 4 C535 4 545 18 552 44 C560 72 578 86 598 76 C616 67 620 38 625 16 C630 4 652 0 690 5 L780 4 C820 4 832 18 837 51 C842 81 858 99 880 88 C901 77 907 44 912 20 C916 5 936 0 972 4 L1060 4 C1095 4 1108 20 1114 47 C1121 77 1140 93 1162 82 C1183 71 1187 42 1192 17 C1197 4 1218 0 1250 4 L1440 0 L1440 120 L0 120 Z"/></svg></div></div></section>
-<div class="marquee"><div class="marquee-track"><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i></div></div>
+<div class="marquee"><svg class="coffee-flow" viewBox="0 0 330 430" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 C45 5 90 0 118 8 C144 15 148 36 142 68 C136 98 112 116 105 145 C95 181 119 203 148 206 C177 209 198 188 208 161 C221 124 235 119 251 133 C270 149 265 184 249 214 C230 249 218 276 240 301 C261 326 286 314 300 289 C314 266 318 238 330 220 L330 430 L0 430 Z"/></svg><div class="marquee-track"><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i></div></div>
 <section class="story wrap reveal" id="story"><div><div class="micro section-label">01 / The NM Café feeling</div><h2>Make room<br>for <em>moments.</em></h2></div><div class="story-copy"><p>NM Café is built around a simple belief: good things happen when you slow down.</p><p class="sub">This concept explores an editorial, product-first café identity through original layouts, typography, imagery and interaction. It is a portfolio project—not a real café.</p></div></section>
 <section class="coffee" id="menu"><div class="wrap"><div class="menu-head"><div><div class="micro section-label">02 / A thoughtful menu</div><h2>Find your<br>usual. Or don't.</h2></div><p>From familiar espresso classics to slow-steeped cold brews. Explore a few favourites from the NM Café coffee concept.</p></div><div class="menu-tabs" role="tablist"><button class="tab active" data-filter="all">All favourites</button><button class="tab" data-filter="hot">Hot coffee</button><button class="tab" data-filter="cold">Cold brew</button><button class="tab" data-filter="special">Something different</button></div><div class="menu-grid" id="menuGrid">
 <article class="drink" data-type="hot"><div class="drink-top"><h3>Americano</h3><span class="price">₹200</span></div><p>Espresso opened with hot water. Clean, direct and quietly satisfying.</p></article>
@@ -216,7 +216,9 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 })();
 </script>
 
-</body></html>\n<style id="nm-cafe-minimal-hero">
+<script id="coffee-flow-scroll">
+(()=>{const flow=document.querySelector('.coffee-flow');if(!flow)return;const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){flow.classList.add('is-visible');io.unobserve(flow)}}),{threshold:.05});io.observe(flow)})();
+</script></body></html>\n<style id="nm-cafe-minimal-hero">
 .cafe-hero{padding:0;margin:0;background:#342018;color:#fff8ee;overflow:hidden}
 .cafe-hero-inner{width:100%}
 .cafe-hero-scene{position:relative;min-height:clamp(650px,52vw,780px);overflow:hidden;display:flex;flex-direction:column;background:#342018}
@@ -238,14 +240,14 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 @media(max-width:400px){.cafe-hero-scene{min-height:620px}.cafe-hero-content h1{font-size:56px}}
 </style>
 <style id="coffee-drip-art-direction">
-/* Coffee spill edge: asymmetric, flowing liquid silhouette */
+/* Coffee spill flows from the hero's bottom-left into the next section */
 .cafe-hero-scene{overflow:visible;z-index:2}
-.coffee-spill-edge{position:absolute;z-index:5;left:0;right:0;bottom:-1px;width:100%;height:clamp(65px,8vw,120px);fill:#342018;pointer-events:none}
-.marquee{position:relative;background:#342018;color:#f4eadb;border:0;padding:30px 0 22px;overflow:hidden}
+.coffee-spill-edge{display:none}
+.marquee{position:relative;background:#342018;color:#f4eadb;border:0;padding:30px 0 22px;overflow:visible;z-index:3}
 .marquee:before{content:none}
 .marquee-track{position:relative;z-index:1}
 .marquee span{color:#f4eadb}.marquee i{color:#d98b55}
-.story{position:relative}
+.story{position:relative;z-index:1}
 .story h2{position:relative}
 .story h2:after{content:"";display:block;width:56px;height:5px;border-radius:50%;background:#b65b35;margin-top:24px;box-shadow:0 12px 0 -1px #b65b35}
 .story-copy p:first-child:first-letter{font:italic 52px var(--serif);color:#b65b35;float:left;line-height:.8;padding:5px 8px 0 0}
@@ -263,5 +265,11 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 .visit-card:after{content:"";position:absolute;right:-42px;top:-42px;width:150px;height:150px;border-radius:50%;background:#b65b35;opacity:.12}
 .cafe-hero-cta{transition:transform .25s,background .25s}
 .cafe-hero-cta:hover{transform:translateY(-3px);background:#f1bd91}
-@media(max-width:700px){.coffee-spill-edge{height:70px}.marquee{padding-top:24px}}
+
+/* Organic spill overlay: begins at hero bottom-left, crosses ticker,
+   then curls into the story section. Revealed as the visitor scrolls. */
+.coffee-flow{position:absolute;z-index:4;left:0;top:-2px;width:min(330px,38vw);height:430px;pointer-events:none;overflow:visible}
+.coffee-flow path{fill:#342018;transform-origin:top left;clip-path:inset(0 100% 0 0);transition:clip-path 1.25s cubic-bezier(.22,1,.36,1)}
+.coffee-flow.is-visible path{clip-path:inset(0 0 0 0)}
+@media(max-width:700px){.marquee{padding-top:24px}.coffee-flow{width:190px;height:300px}}
 </style>
