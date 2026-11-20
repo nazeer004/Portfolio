@@ -14,3 +14,62 @@ section{padding-block:clamp(76px,9vw,120px)}.section-label{margin-bottom:26px}.s
 .hero-visual{position:relative;min-height:350px}
 .hero-image{opacity:0.8;filter:grayscale(40%) contrast(1.1);}}
 </style>
+
+/* NICHE ART DIRECTION — INDUSTRIAL ENGINEERING */
+:root{--bg:#111820;--ink:#f0f2ef;--muted:#a3adb6;--line:rgba(240,242,239,.18);--red:#f28b22;--paper:#1a232c;--dark:#0b1117}
+body{background:#111820;color:#f0f2ef}
+.top{border-color:rgba(240,242,239,.18)}
+.logo i{color:#f28b22}
+nav a{color:#a3adb6}
+nav a:hover{color:#f28b22}
+nav .contact-link{color:#f0f2ef;border-color:#f28b22}
+.hero{background:linear-gradient(135deg,rgba(242,139,34,.09),transparent 42%),#111820}
+.hero-tag:before{background:#f28b22}
+h1{font-family:var(--sans);font-weight:800;letter-spacing:-.07em;text-transform:uppercase}
+h1 em{color:#f28b22}
+.hero-copy,.section-intro{color:#a3adb6}
+.hero-visual{background:#1a232c;border:1px solid rgba(240,242,239,.18)}
+.visual-backdrop{background:#1a232c;border-color:rgba(240,242,239,.18)}
+.visual-backdrop:before{background:repeating-linear-gradient(90deg,transparent 0 59px,rgba(240,242,239,.05) 60px),repeating-linear-gradient(0deg,transparent 0 59px,rgba(240,242,239,.05) 60px)}
+.screen{background:#0b1117;border-color:#35424d}
+.screen-side{background:#1a232c}
+.ui-nav{background:#35424d}
+.ui-nav.active{background:#f28b22}
+.ui-stat,.ui-chart{background:#1a232c}
+.ui-chart:before{border-color:#f28b22}
+.visual-label{color:#f28b22}
+.visual-sticker{background:#111820;border-color:#f28b22;color:#f28b22}
+.ticker{background:#f28b22;color:#111820}
+.ticker-inner i{color:#f0f2ef}
+.feature-visual{background:#1a232c}
+.feature-copy .eyebrow{color:#f28b22}
+.feature-copy h3{font-family:var(--sans);font-weight:800;letter-spacing:-.07em}
+.tags span{border-color:rgba(240,242,239,.2);color:#a3adb6}
+.feature-status{border-color:rgba(240,242,239,.18);color:#a3adb6}
+.work-secondary .mini-project{border-color:rgba(240,242,239,.18)}
+.mini-project .num{color:#f28b22}
+.mini-project p{color:#a3adb6}
+.mini-project:hover h3{color:#f28b22}
+.approach{background:#1a232c}
+.approach-copy h2 em{color:#f28b22}
+.steps,.step{border-color:rgba(240,242,239,.18)}
+.step small{color:#f28b22}
+.step span{color:#a3adb6}
+.about-symbol{color:#f28b22}
+.skills{border-color:rgba(240,242,239,.18)}
+.skill-chips span{border-color:rgba(240,242,239,.18);color:#a3adb6}
+.experience{background:#0b1117;color:#f0f2ef}
+.experience .section-title em{color:#f28b22}
+.role,.timeline{border-color:rgba(240,242,239,.18)}
+.role time,.role p,.edu-grid div{color:#a3adb6}
+.role h3 span,.edu-grid b{color:#f0f2ef}
+.prototype-grid{border-color:rgba(240,242,239,.18)}
+.prototype{border-color:rgba(240,242,239,.18)}
+.prototype p{color:#a3adb6}
+.prototype span{color:#f28b22}
+.contact{border-color:rgba(240,242,239,.18)}
+.contact h2 em{color:#f28b22}
+.contact p,.social a{color:#a3adb6}
+.email{border-color:#f28b22}
+footer{border-color:rgba(240,242,239,.18);color:#a3adb6}
+@media(max-width:700px){h1{font-size:clamp(3.7rem,16vw,6rem)}}
