@@ -73,6 +73,11 @@ footer{border-color:rgba(255,255,255,.2)}
 .cta .cta-inner{display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px}
 @media(max-width:700px){.hero-bottom,.cta .cta-inner{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.feature{min-height:210px}.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.training-row{grid-template-columns:40px 1fr auto}.gallery{grid-template-columns:1fr}}
 
+/* QA: responsive spacing and readable supporting copy */
+.hero-copy{max-width:46ch}
+.hero-copy p,.hero-bottom p{font-size:clamp(14px,1.2vw,17px);line-height:1.65}
+@media(max-width:700px){.wrap{width:calc(100% - 32px)}.hero{padding-block:48px 56px}.hero .display{font-size:clamp(56px,15vw,84px);line-height:.88}.hero-copy{font-size:14px;line-height:1.65}.hero-bottom{gap:20px}.section{padding-block:64px}.cta{padding-block:60px}}
+
 </style>
 
 <style id="site-marquee-tuning">
