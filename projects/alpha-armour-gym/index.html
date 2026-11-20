@@ -55,6 +55,24 @@ body{background:#0b0b0b;color:#f2f0e8}
 footer{border-color:rgba(255,255,255,.2)}
 @media(max-width:700px){.hero .display{font-size:clamp(4.5rem,20vw,7rem)}.hero{background:radial-gradient(circle at 70% 35%,rgba(255,75,34,.18),transparent 45%),#0b0b0b}}
 
+
+/* DESIGN QA PASS — fitness conversion, movement and performance */
+.hero-content{max-width:1180px}
+.hero h1{max-width:9ch;text-wrap:balance}
+.hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}
+.hero-copy{font-size:clamp(15px,1.4vw,18px);line-height:1.65;max-width:42ch}
+.hero-actions .btn{padding:18px 24px;letter-spacing:.09em}
+.feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.feature{min-height:260px}
+.feature .micro{font-size:10px;letter-spacing:.15em}
+.training-row{display:grid;grid-template-columns:72px 1fr auto;align-items:center}
+.gallery{grid-template-columns:1.2fr .8fr;align-items:stretch}
+.gallery-image:nth-child(2){min-height:380px}
+.proof-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.proof-item{padding:24px 0}
+.cta .cta-inner{display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px}
+@media(max-width:700px){.hero-bottom,.cta .cta-inner{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.feature{min-height:210px}.proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.training-row{grid-template-columns:40px 1fr auto}.gallery{grid-template-columns:1fr}}
+
 </style>
 
 <style id="site-marquee-tuning">
