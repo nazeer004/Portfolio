@@ -325,7 +325,7 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 (()=>{const flow=document.querySelector('.coffee-flow');if(!flow)return;const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){flow.classList.add('is-visible');io.unobserve(flow)}}),{threshold:.05});io.observe(flow)})();
 </script><script id="brew-calculator">
 (()=>{const method=document.getElementById('brewMethod'),grams=document.getElementById('coffeeGrams'),water=document.getElementById('waterResult'),ratio=document.getElementById('ratioResult');if(!method||!grams)return;function calc(){const g=Math.max(0,Number(grams.value)||0),r=Number(method.value);water.innerHTML=Math.round(g*r)+' <span>ml</span>';ratio.textContent=g+'g coffee · 1:'+r+' ratio'}method.addEventListener('change',calc);grams.addEventListener('input',calc);calc()})();
-</script></body></html><style id="nm-cafe-poster-hero">
+</script><style id="nm-cafe-poster-hero">
 .cafe-hero{padding:0!important;background:#eee6d6!important;color:#281b16!important;overflow:hidden}
 .poster-hero{min-height:calc(100vh - 120px);padding:24px clamp(20px,4vw,58px) 18px;display:flex;flex-direction:column;background:#eee6d6;position:relative}
 .poster-meta,.poster-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;font:700 9px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(40,27,22,.24);padding:15px 0}
@@ -448,4 +448,4 @@ section.philosophy{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;a
 .philosophy .principles{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 40px!important}
 .philosophy .principle{padding:22px 0!important;font-size:clamp(20px,2.5vw,30px)!important}
 @media(max-width:700px){.philosophy{padding:75px 0!important}.philosophy .philo-copy h2{font-size:clamp(54px,13vw,80px)!important}.philosophy .philo-copy p{margin-bottom:35px}.philosophy .principles{grid-template-columns:1fr!important}}
-</style>
+</style></body></html>
