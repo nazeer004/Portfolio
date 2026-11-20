@@ -75,6 +75,12 @@ body{background:#f4eadb;color:#342018}
 .visit-card{padding:clamp(25px,4vw,46px)}
 @media(max-width:700px){.hero-grid,.story,.philosophy,.visit-grid{grid-template-columns:1fr}.menu-grid,.principles{grid-template-columns:1fr}.hero-photo{height:430px}}
 
+/* QA: tighter mobile rhythm, readable cafe storytelling */
+.hero{padding-block:clamp(35px,5vw,75px)}
+.hero-copy p,.lead{font-size:clamp(14px,1.1vw,17px);line-height:1.75}
+@media(max-width:800px){.wrap{width:calc(100% - 40px)}.hero{padding-block:30px 55px}.hero-copy h1{font-size:clamp(54px,14vw,82px);line-height:.9}.hero-grid{gap:24px}.hero-photo{height:auto;min-height:0;aspect-ratio:4/3}.story,.philosophy,.visit-grid{gap:24px}.section{padding-block:65px}}
+@media(max-width:430px){.wrap{width:calc(100% - 32px)}.hero-copy h1{font-size:clamp(48px,13vw,68px)}.hero-photo{aspect-ratio:3/4}}
+
 </style>
 
 <style id="site-marquee-tuning">
