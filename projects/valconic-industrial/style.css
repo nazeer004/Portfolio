@@ -91,3 +91,8 @@ footer{border-color:rgba(240,242,239,.18);color:#a3adb6}
 .prototype-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .contact{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
 @media(max-width:700px){.hero,.feature,.contact{grid-template-columns:1fr}.feature-visual{min-height:240px}.work-secondary,.steps,.prototype-grid{grid-template-columns:1fr}.hero-visual{min-height:350px}}
+
+/* QA: balanced industrial portfolio layouts */
+.hero-copy p{font-size:clamp(14px,1.1vw,17px);line-height:1.7}
+.hero h1{font-size:clamp(56px,7vw,96px);line-height:.92}
+@media(max-width:700px){.wrap{width:calc(100% - 32px)}.hero{padding-block:35px 55px;gap:24px}.hero h1{font-size:clamp(48px,13vw,76px)}.hero-visual{min-height:280px}.section{padding-block:60px}.feature-grid,.work-secondary,.steps,.prototype-grid{gap:18px}}
