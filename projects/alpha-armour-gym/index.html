@@ -78,6 +78,14 @@ footer{border-color:rgba(255,255,255,.2)}
 .hero-copy p,.hero-bottom p{font-size:clamp(14px,1.2vw,17px);line-height:1.65}
 @media(max-width:700px){.wrap{width:calc(100% - 32px)}.hero{padding-block:48px 56px}.hero .display{font-size:clamp(56px,15vw,84px);line-height:.88}.hero-copy{font-size:14px;line-height:1.65}.hero-bottom{gap:20px}.section{padding-block:64px}.cta{padding-block:60px}}
 
+
+/* PERSONAL BRAND SYSTEM — NM monogram + NAZEER wordmark */
+.personal-brand{display:inline-flex!important;align-items:center;gap:10px;text-decoration:none!important}
+.nm-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid currentColor;font:800 11px/1 var(--sans,Arial,sans-serif);letter-spacing:-.08em}
+.nm-word{font:800 13px/1 var(--sans,Arial,sans-serif);letter-spacing:.22em}
+.portfolio-credit{padding:14px 0 0;border-top:1px solid rgba(128,128,128,.25);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.portfolio-credit a{font-weight:700;text-decoration:none}
+@media(max-width:500px){.nm-mark{width:30px;height:30px}.nm-word{font-size:11px;letter-spacing:.18em}}
 </style>
 
 <style id="site-marquee-tuning">
@@ -186,7 +194,7 @@ footer{border-color:rgba(255,255,255,.2)}
 </section>
 <section class="cta" id="contact"><div class="wrap cta-inner"><div><div class="eyebrow">Your next chapter starts here</div><h2 class="display">READY<br>TO WORK?</h2></div><div><p>Take the first step. Speak with the team about training, access and the right way to get started.</p><a class="btn" href="tel:+919726100311">Call the gym <span class="arrow">↗</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-name">ALPHA ARMOUR<small>GYM · AHMEDABAD</small></span></a><p>Built different. Trained different. Find your arena.</p></div><div class="footer-links"><div class="footer-col"><small>Explore</small><a href="#experience">The experience</a><a href="#training">Training</a><a href="#facility">The facility</a></div><div class="footer-col"><small>Visit</small><p>Shivalik-3, Drive-In Road<br>Ahmedabad, Gujarat</p><a href="tel:+919726100311">+91 97261 00311</a><a href="https://www.instagram.com/alphaarmourgym/" target="_blank" rel="noreferrer">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© Alpha Armour Gym — Concept website</span><span class="concept">Unofficial design concept · Not affiliated with the gym</span></div></div></footer>
+<footer><div class="wrap"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-name">ALPHA ARMOUR<small>GYM · AHMEDABAD</small></span></a><p>Built different. Trained different. Find your arena.</p></div><div class="footer-links"><div class="footer-col"><small>Explore</small><a href="#experience">The experience</a><a href="#training">Training</a><a href="#facility">The facility</a></div><div class="footer-col"><small>Visit</small><p>Shivalik-3, Drive-In Road<br>Ahmedabad, Gujarat</p><a href="tel:+919726100311">+91 97261 00311</a><a href="https://www.instagram.com/alphaarmourgym/" target="_blank" rel="noreferrer">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© Alpha Armour Gym — Concept by Nazeer Mukhasam</span><span class="concept">Unofficial design concept · Not affiliated with the gym</span></div></div><div class="portfolio-credit">Concept & interface design by <a href="https://nazeerux.site">NM · NAZEER</a></div></footer>
 <script>
 const menu=document.getElementById('menuBtn'),nav=document.getElementById('navLinks');
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
