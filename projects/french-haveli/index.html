@@ -139,7 +139,60 @@ body{background:#e9e0d1;color:#24243a}
 }
 </style>
 
-</head>
+<style id="fh-3d-room-scroll">
+.fh-room-carousel{padding:0;background:#24243a;color:#e9e0d1;position:relative}
+.fh-room-scroll{height:310vh;position:relative}
+.fh-room-sticky{position:sticky;top:0;height:100vh;min-height:650px;overflow:hidden;display:grid;grid-template-columns:.62fr 1.38fr;align-items:center;gap:5vw;padding:5vh 5vw}
+.fh-room-heading{align-self:center;position:relative;z-index:2}
+.fh-room-heading h2{font:500 clamp(48px,6.3vw,90px)/.92 var(--serif);letter-spacing:-.06em;margin:20px 0}
+.fh-room-heading h2 em{color:#c29a5c}
+.fh-room-heading p{font-size:11px;color:#c8c0b0;line-height:1.8}
+.fh-room-progress{width:100%;height:2px;background:rgba(233,224,209,.22);margin:35px 0 12px;overflow:hidden}
+.fh-room-progress span{display:block;width:33.333%;height:100%;background:#c29a5c;transform-origin:left;transition:width .3s}
+.fh-room-count{font-size:8px;letter-spacing:.18em;color:#c29a5c}
+.fh-room-stage{height:min(78vh,760px);position:relative;perspective:1500px;display:grid;place-items:center}
+.fh-room-card{position:absolute;width:min(100%,850px);height:100%;display:grid;grid-template-columns:1.05fr .95fr;background:#f5efe4;color:#24243a;overflow:hidden;transform-origin:center center;opacity:0;pointer-events:none;transition:transform .75s cubic-bezier(.22,1,.36,1),opacity .55s,filter .75s;box-shadow:0 30px 70px rgba(0,0,0,.28)}
+.fh-room-card.active{opacity:1;pointer-events:auto;transform:translate3d(0,0,0) rotateY(0deg) scale(1);z-index:3}
+.fh-room-card.prev{opacity:.38;transform:translate3d(-8%,0,-260px) rotateY(14deg) scale(.88);z-index:1}
+.fh-room-card.next{opacity:.38;transform:translate3d(8%,0,-260px) rotateY(-14deg) scale(.88);z-index:2}
+.fh-room-image{position:relative;min-height:100%;overflow:hidden;background:#a99a84}
+.fh-room-image img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
+.fh-room-card.active .fh-room-image img{transform:scale(1.04)}
+.fh-room-image-tag{position:absolute;left:20px;bottom:20px;padding:10px 12px;background:#24243a;color:#c29a5c;font-size:8px;letter-spacing:.15em}
+.fh-room-info{padding:clamp(24px,4vw,54px);display:flex;flex-direction:column;justify-content:center}
+.fh-room-top{display:flex;justify-content:space-between;gap:15px;font-size:8px;letter-spacing:.15em;color:#722c3d}
+.fh-room-info h3{font:500 clamp(44px,5vw,68px)/.95 var(--serif);letter-spacing:-.06em;margin:28px 0 18px}
+.fh-room-info p{font-size:12px;line-height:1.9;color:#6f6a61;max-width:340px}
+.fh-room-spec{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+.fh-room-spec span{font-size:7px;letter-spacing:.12em;padding:8px 9px;border:1px solid rgba(36,36,58,.22)}
+.fh-room-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid rgba(36,36,58,.2);margin-top:32px;padding-top:18px}
+.fh-room-rate{font:italic 20px var(--serif);color:#722c3d}
+.fh-room-bottom a{font-size:8px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:5px}
+.fh-room-disclaimer{padding:22px 0 30px;font-size:9px;line-height:1.7;color:#c8c0b0;display:flex;justify-content:space-between;gap:20px}
+.fh-room-disclaimer a{color:#c29a5c;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:800px){
+.fh-room-scroll{height:300vh}
+.fh-room-sticky{min-height:0;height:100svh;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:14px;padding:5vh 20px 4vh}
+.fh-room-heading h2{font-size:clamp(40px,10vw,60px);margin:12px 0}
+.fh-room-heading p{margin:0}
+.fh-room-progress{margin:14px 0 7px}
+.fh-room-stage{height:100%;min-height:0}
+.fh-room-card{grid-template-columns:1fr;grid-template-rows:48% 52%;width:100%;height:100%;max-height:100%;transform-origin:center center}
+.fh-room-card.prev{transform:translate3d(0,-5%, -160px) rotateX(8deg) scale(.9)}
+.fh-room-card.next{transform:translate3d(0,5%, -160px) rotateX(-8deg) scale(.9)}
+.fh-room-image{min-height:0}
+.fh-room-info{padding:18px 20px;justify-content:flex-start}
+.fh-room-info h3{font-size:clamp(36px,9vw,54px);margin:12px 0}
+.fh-room-info p{font-size:10px;line-height:1.65;margin:0}
+.fh-room-spec{margin-top:12px;gap:5px}
+.fh-room-spec span{font-size:6px;padding:6px}
+.fh-room-bottom{margin-top:auto;padding-top:12px}
+.fh-room-rate{font-size:17px}
+.fh-room-disclaimer{display:block;padding:18px 20px 25px}
+.fh-room-disclaimer a{display:inline-block;margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){.fh-room-card{transition:none}}
+</style></head>
 <body>
 <div class="topline"><span>Old City · Ahmedabad · Gujarat</span><span>A restored Gujarati heritage home</span></div>
 <header><div class="wrap nav"><a class="brand" href="#home">French Haveli<small>A BOUTIQUE HERITAGE HOME</small></a><nav class="links" id="links"><a href="#story">The story</a><a href="#rooms">Rooms</a><a href="#experiences">Experiences</a><a href="#visit">Find us</a></nav><a class="book" href="https://live.ipms247.com/booking/book-rooms-thefrenchhaveli" target="_blank" rel="noopener">Check availability ↗</a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button></div></header>
@@ -149,13 +202,19 @@ body{background:#e9e0d1;color:#24243a}
 <section class="intro wrap reveal"><div><div class="micro eyebrow">01 / The place</div><h2>Not just a stay.<br>A <em>sense of place.</em></h2></div><div class="intro-copy"><p class="lead">In the old city, a home is never only a building. It is a courtyard, a neighbour's greeting, a shaded threshold and a story carried through generations.</p><p>French Haveli brings guests into the life of Ahmedabad's historic pol neighbourhoods. Its restored Gujarati home pairs traditional architectural character with the comforts of a small, welcoming heritage stay.</p></div></section>
 <section class="story"><div class="wrap story-grid reveal"><div class="story-photo"><img src="https://www.gujarattourism.com/content/gujrattourism/en/accommodation/heritage-hotel/french-haveli/_jcr_content/root/responsivegrid/tourbanner.coreimg.jpeg/1580361706044/french-haveli2.jpeg" alt="French Haveli courtyard with wooden swing and carved pillars"></div><div class="story-copy"><div class="micro eyebrow">02 / A home with history</div><h2>Where the<br>courtyard is the<br><em>heart of home.</em></h2><p>At the centre of the haveli, the open court welcomes daylight and air. A traditional jhula offers a place to pause, while carved timber, patterned floors and everyday objects keep the character of the house close.</p><p>The home is part of a wider effort to help preserve Ahmedabad's built heritage and strengthen the community around it.</p><div class="story-aside"><span>Old Ahmedabad, lived slowly.</span><small>Heritage · Community · Home</small></div></div></div></section>
 <section class="courtyard wrap reveal"><div class="courtyard-head"><div><div class="micro eyebrow">03 / A closer look</div><h2>Details that<br>hold a memory.</h2></div><p>Look closer: a carved beam, a familiar swing, a patch of patterned tile. The little things make this home feel like nowhere else.</p></div><div class="gallery-grid"><a class="gallery-large" href="https://frenchhaveli.com/" target="_blank" rel="noopener"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS1.jpg" alt="Heritage interior at French Haveli"></a><div class="gallery-stack"><a class="gallery-small" href="https://frenchhaveli.com/" target="_blank" rel="noopener"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS3.jpg" alt="Traditional interior details at French Haveli"></a><a class="gallery-small" href="https://frenchhaveli.com/" target="_blank" rel="noopener"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS7.jpg" alt="Heritage home interior at French Haveli"></a></div></div><div class="gallery-caption"><span>Photographs from French Haveli's public gallery</span><span>Ahmedabad · Gujarat</span></div></section>
-<section class="rooms" id="rooms"><div class="wrap"><div class="rooms-head"><div><div class="micro eyebrow">04 / Rooms & retreats</div><h2>A room with<br>its own story.</h2></div><p>Five individual rooms, each with a distinct character. Choose the kind of stay that suits your visit, then check current availability directly.</p></div><div class="room-list">
-<a class="room" href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener"><span class="room-num">01</span><h3>Chabutro</h3><p>The Bird Feeder · Compact double room · Private external bathroom · Street view</p><span class="rate">From ₹5,300</span><span class="arrow">↗</span></a>
-<a class="room" href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener"><span class="room-num">02</span><h3>Malo</h3><p>The Nest · Single room · Private external bathroom · Courtyard view</p><span class="rate">From ₹3,750</span><span class="arrow">↗</span></a>
-<a class="room" href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener"><span class="room-num">03</span><h3>Ordo</h3><p>Double bedroom · Ensuite bathroom · Quiet central-court view</p><span class="rate">From ₹6,100</span><span class="arrow">↗</span></a>
-<a class="room" href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener"><span class="room-num">04</span><h3>Agaashi</h3><p>Terrace twin room · Private balcony · Ensuite bathroom</p><span class="rate">From ₹6,600</span><span class="arrow">↗</span></a>
-<a class="room" href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener"><span class="room-num">05</span><h3>Mahajan Suite</h3><p>Suite · Private terrace · Ensuite bathroom</p><span class="rate">From ₹7,100</span><span class="arrow">↗</span></a>
-</div><div class="room-note"><span>Rates shown are the published “from” rates found during research and may change. Confirm current pricing and availability with French Haveli.</span><a href="https://live.ipms247.com/booking/book-rooms-thefrenchhaveli" target="_blank" rel="noopener">Check live availability ↗</a></div></div></section>
+<section class="rooms fh-room-carousel" id="rooms">
+<div class="fh-room-scroll">
+<div class="fh-room-sticky">
+<div class="fh-room-heading"><div class="micro eyebrow">04 / Rooms & retreats</div><h2>Stay somewhere<br><em>with a story.</em></h2><p>Scroll to wander through the rooms.</p><div class="fh-room-progress"><span></span></div><small class="fh-room-count">01 / 03</small></div>
+<div class="fh-room-stage">
+<article class="fh-room-card active" data-room="0"><div class="fh-room-image"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS1.jpg" alt="Heritage interiors at French Haveli"><span class="fh-room-image-tag">01 — CHABUTRO</span></div><div class="fh-room-info"><div class="fh-room-top"><span>THE BIRD FEEDER</span><span>01 / 03</span></div><h3>Chabutro</h3><p>Compact double room with a street view and private external bathroom. A characterful base for exploring the old city.</p><div class="fh-room-spec"><span>DOUBLE ROOM</span><span>STREET VIEW</span><span>PRIVATE BATH</span></div><div class="fh-room-bottom"><span class="fh-room-rate">From ₹5,300</span><a href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener">Room details ↗</a></div></div></article>
+<article class="fh-room-card" data-room="1"><div class="fh-room-image"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS3.jpg" alt="Traditional courtyard details at French Haveli"><span class="fh-room-image-tag">02 — ORDO</span></div><div class="fh-room-info"><div class="fh-room-top"><span>THE QUIET COURT</span><span>02 / 03</span></div><h3>Ordo</h3><p>A double bedroom with ensuite bathroom, tucked beside the central courtyard for a quieter heritage stay.</p><div class="fh-room-spec"><span>DOUBLE ROOM</span><span>COURTYARD VIEW</span><span>ENSUITE</span></div><div class="fh-room-bottom"><span class="fh-room-rate">From ₹6,100</span><a href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener">Room details ↗</a></div></div></article>
+<article class="fh-room-card" data-room="2"><div class="fh-room-image"><img src="https://frenchhaveli.com/wp-content/uploads/2018/11/HS7.jpg" alt="Heritage architecture and interiors at French Haveli"><span class="fh-room-image-tag">03 — AGAASHI</span></div><div class="fh-room-info"><div class="fh-room-top"><span>THE TERRACE ROOM</span><span>03 / 03</span></div><h3>Agaashi</h3><p>A twin room with a private balcony and ensuite bathroom—an invitation to take in the old city's slower rhythm.</p><div class="fh-room-spec"><span>TWIN ROOM</span><span>PRIVATE BALCONY</span><span>ENSUITE</span></div><div class="fh-room-bottom"><span class="fh-room-rate">From ₹6,600</span><a href="https://frenchhaveli.com/accommodations/" target="_blank" rel="noopener">Room details ↗</a></div></div></article>
+</div>
+</div>
+</div>
+<div class="fh-room-disclaimer wrap">Published “from” rates are illustrative and may change. Confirm room details and availability directly with French Haveli. <a href="https://live.ipms247.com/booking/book-rooms-thefrenchhaveli" target="_blank" rel="noopener">Check availability ↗</a></div>
+</section>
 <section class="experiences wrap reveal" id="experiences"><div class="exp-head"><div><div class="micro eyebrow">05 / Beyond the room</div><h2>Experience the<br>neighbourhood.</h2></div><p>Step outside the front door and into the living heritage of the old city. Explore the pol, meet local makers and discover the everyday rhythms of Ahmedabad.</p></div><div class="exp-grid">
 <article class="exp-card"><span class="num">01 / Explore</span><h3>Walk the local markets</h3><p>Wander through the nearby lanes and markets, where old Ahmedabad's craft, colour and commerce meet.</p></article>
 <article class="exp-card"><span class="num">02 / Discover</span><h3>Visit a restored haveli</h3><p>Get closer to the architecture and stories that make the historic pol neighbourhoods distinctive.</p></article>
@@ -212,7 +271,9 @@ const menu=document.getElementById('menu'),links=document.getElementById('links'
 })();
 </script>
 
-</body>
+<script id="fh-room-scroll-controller">
+(()=>{const section=document.querySelector('.fh-room-carousel');if(!section)return;const cards=[...section.querySelectorAll('.fh-room-card')],progress=section.querySelector('.fh-room-progress span'),count=section.querySelector('.fh-room-count');let raf=0;function update(){raf=0;const rect=section.getBoundingClientRect(),travel=section.offsetHeight-innerHeight;const p=Math.max(0,Math.min(1,-rect.top/travel));const index=Math.min(cards.length-1,Math.floor(p*cards.length));cards.forEach((card,i)=>{card.classList.toggle('active',i===index);card.classList.toggle('prev',i===index-1);card.classList.toggle('next',i===index+1);});if(progress)progress.style.width=((index+1)/cards.length*100)+'%';if(count)count.textContent=String(index+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');}function schedule(){if(!raf)raf=requestAnimationFrame(update)}window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});update();})();
+</script></body>
 </html>
 <style id="french-haveli-hero-rebuild">
 .fh-hero{padding:25px 36px 70px;width:100%;}.fh-hero-top{display:flex;justify-content:space-between;align-items:center;margin:0 0 18px;color:var(--red);font-size:9px;letter-spacing:.14em;text-transform:uppercase}.fh-hero-top span:last-child{font:italic 13px var(--serif);letter-spacing:0;text-transform:none;color:var(--muted)}.fh-hero-scene{height:min(720px,75vh);min-height:570px;position:relative;overflow:hidden;background:#9b8c78}.fh-hero-scene>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;}.fh-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,12,.76) 0%,rgba(20,16,12,.44) 38%,rgba(20,16,12,.04) 78%),linear-gradient(0deg,rgba(20,16,12,.34),transparent 30%)}.fh-hero-title{position:absolute;left:clamp(30px,7vw,100px);top:50%;transform:translateY(-50%);max-width:610px;color:#f7f2e9}.fh-title-kicker{font-size:8px;letter-spacing:.2em;color:#d7b77f}.fh-hero-title h1{font:500 clamp(70px,10vw,145px)/.86 var(--serif);letter-spacing:-.075em;margin:25px 0 28px}.fh-hero-title h1 em{color:#d7b77f;font-weight:500}.fh-hero-title p{font-size:13px;line-height:1.9;max-width:390px;color:#e0d8cc}.fh-hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:32px}.fh-text-link{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#f7f2e9;border-bottom:1px solid rgba(247,242,233,.7);padding-bottom:7px}.fh-hero-stamp{position:absolute;right:clamp(22px,4vw,55px);top:clamp(22px,4vw,55px);border:1px solid rgba(247,242,233,.7);border-radius:50%;width:120px;height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#f7f2e9;font-size:8px;letter-spacing:.15em;line-height:1.7;transform:rotate(8deg)}.fh-hero-stamp span{font-size:17px;color:#d7b77f}.fh-hero-caption{position:absolute;bottom:20px;left:25px;color:#f7f2e9;font-size:8px;letter-spacing:.15em;text-transform:uppercase}.fh-hero-foot{display:flex;justify-content:space-between;gap:16px;padding:17px 0 0;font-size:8px;letter-spacing:.16em;color:var(--muted)}
