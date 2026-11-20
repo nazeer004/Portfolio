@@ -136,13 +136,58 @@ body{background:#f4eadb;color:#342018}
 }
 </style>
 
-</head>
+<style id="poster-hero-redesign">
+.poster-hero{background:#f7f4ed;padding:0;position:relative;overflow:visible}
+.poster-hero-inner{min-height:790px;position:relative;padding:26px 5vw 0;display:flex;flex-direction:column;background:#f7f4ed;color:#38291f}
+.poster-top{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid rgba(56,41,31,.18);padding-bottom:18px}
+.poster-title{text-align:center;position:relative;z-index:2;padding:60px 20px 20px}
+.poster-title .cafe-eyebrow{font-size:9px;letter-spacing:.22em;color:#806b58;margin:0 0 22px;text-transform:uppercase}
+.poster-title h1{font:500 clamp(60px,8.5vw,122px)/.88 var(--serif);letter-spacing:-.07em;margin:0;color:#38291f}
+.poster-title h1 em{color:#8a4d2e;font-weight:500}
+.poster-copy{max-width:460px;margin:24px auto 28px;font-size:12px;line-height:1.8;color:#77695d}
+.poster-title .cafe-hero-cta{display:inline-flex}
+.coffee-doodle-art{height:310px;position:relative;margin:auto -5vw 0;overflow:hidden}
+.coffee-doodle-art svg{width:100%;height:100%;display:block}
+.poster-meta{position:relative;z-index:2;display:flex;justify-content:space-between;padding:16px 5vw 28px;font-size:8px;letter-spacing:.18em;color:#6f5b49}
+.coffee-drip-divider{position:absolute;z-index:5;bottom:-1px;left:0;width:100%;height:130px;fill:#342018;pointer-events:none}
+.poster-hero-inner{padding-bottom:0}
+.poster-hero .coffee-drip-divider{bottom:-1px}
+.marquee{background:#342018;color:#f4eadb;border:0;padding:25px 0 22px;overflow:hidden;position:relative;z-index:1}
+.marquee span{color:#f4eadb}.marquee i{color:#d98b55}
+@media(max-width:700px){.poster-hero-inner{min-height:700px;padding:20px 22px 0}.poster-top{font-size:7px;letter-spacing:.1em}.poster-title{padding:65px 0 18px}.poster-title h1{font-size:clamp(56px,14vw,82px)}.poster-copy{font-size:11px;max-width:300px}.coffee-doodle-art{height:250px;margin-left:-22px;margin-right:-22px}.poster-meta{font-size:6px;letter-spacing:.1em;padding:12px 0 25px}.coffee-drip-divider{height:90px}}
+</style></head>
 <body>
 <div class="top">NM CAFÉ <span>·</span> Specialty coffee concept <span>·</span> Designed by Nazeer</div>
 <header><div class="wrap nav"><a href="#home" class="logo">NM Café<small>COFFEE / CONCEPT</small></a><nav class="links" id="links"><a href="#story">Our story</a><a href="#menu">Coffee & food</a><a href="#rituals">Subscriptions</a><a href="#visit">Visit us</a></nav><a class="nav-cta" href="#visit">Find your NM Café ↗</a><button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
 <main>
-<section class="hero cafe-hero" id="home"><div class="cafe-hero-inner"><div class="cafe-hero-scene"><img class="cafe-hero-bg" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2200&q=90" alt="Warm, inviting cafe interior"><div class="cafe-hero-overlay"></div><div class="cafe-hero-top"><span>NM CAFÉ</span><span>COFFEE · FOOD · SLOW MOMENTS</span></div><div class="cafe-hero-content"><p class="cafe-eyebrow">YOUR NEIGHBOURHOOD COFFEE SPOT</p><h1>Good coffee.<br><em>Good moments.</em></h1><p class="cafe-hero-copy">Coffee worth lingering over. Freshly baked, beautifully brewed, and best enjoyed without rushing.</p><div class="cafe-hero-actions"><a href="#menu" class="cafe-hero-cta">View our menu <span>↗</span></a><span class="cafe-hero-note">MADE SLOW. SERVED WARM.</span></div></div><div class="cafe-hero-bottom"><span>ESPRESSO BAR</span><span>BAKED FRESH DAILY</span><span>GOOD COMPANY</span></div><svg class="coffee-spill-edge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 C90 4 155 0 220 4 C255 6 265 22 270 54 C274 79 292 90 312 82 C330 74 334 45 338 20 C342 5 365 0 405 4 L500 4 C535 4 545 18 552 44 C560 72 578 86 598 76 C616 67 620 38 625 16 C630 4 652 0 690 5 L780 4 C820 4 832 18 837 51 C842 81 858 99 880 88 C901 77 907 44 912 20 C916 5 936 0 972 4 L1060 4 C1095 4 1108 20 1114 47 C1121 77 1140 93 1162 82 C1183 71 1187 42 1192 17 C1197 4 1218 0 1250 4 L1440 0 L1440 120 L0 120 Z"/></svg></div></div></section>
-<div class="marquee"><img class="coffee-flow" src="https://freesvg.org/download/198739" alt="" aria-hidden="true"><div class="marquee-track"><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i></div></div>
+<section class="hero cafe-hero poster-hero" id="home">
+<div class="poster-hero-inner">
+<div class="poster-top"><span>NM CAFÉ</span><span>COFFEE · FOOD · SLOW MOMENTS</span></div>
+<div class="poster-title"><p class="cafe-eyebrow">YOUR NEIGHBOURHOOD COFFEE SPOT</p><h1>Good coffee.<br><em>Good moments.</em></h1><p class="poster-copy">Coffee worth lingering over. Freshly baked, beautifully brewed, and best enjoyed without rushing.</p><a href="#menu" class="cafe-hero-cta">View our menu <span>↗</span></a></div>
+<div class="coffee-doodle-art" aria-hidden="true">
+<svg viewBox="0 0 1440 390" preserveAspectRatio="xMidYMid meet">
+<g fill="none" stroke="#4a382a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".82">
+<g transform="translate(120 205) rotate(-18)"><ellipse rx="46" ry="28"/><path d="M-31 -7 Q0 -26 31 7 Q0 26 -31 -7"/><path d="M-28 9 Q0 0 28 -9"/></g>
+<g transform="translate(310 250) rotate(12)"><ellipse rx="36" ry="23"/><path d="M-24 -6 Q0 -19 24 6 Q0 19 -24 -6"/></g>
+<g transform="translate(490 160) rotate(-25)"><ellipse rx="30" ry="20"/><path d="M-20 -6 Q0 -17 20 6 Q0 17 -20 -6"/></g>
+<g transform="translate(720 230) rotate(10)"><ellipse rx="43" ry="26"/><path d="M-29 -7 Q0 -22 29 7 Q0 22 -29 -7"/></g>
+<g transform="translate(940 160) rotate(-14)"><ellipse rx="31" ry="20"/><path d="M-20 -6 Q0 -17 20 6 Q0 17 -20 -6"/></g>
+<g transform="translate(1130 235) rotate(24)"><ellipse rx="45" ry="28"/><path d="M-31 -7 Q0 -26 31 7 Q0 26 -31 -7"/></g>
+<g transform="translate(1320 160) rotate(-10)"><ellipse rx="34" ry="22"/><path d="M-24 -6 Q0 -19 24 6 Q0 19 -24 -6"/></g>
+<g transform="translate(230 340)"><path d="M0 0 Q-40 -50 -20 -60 Q0 -68 10 -40 Q25 -72 40 -60 Q55 -45 20 0 Q40 -20 55 -12"/></g>
+<g transform="translate(860 340)"><path d="M0 0 Q-40 -50 -20 -60 Q0 -68 10 -40 Q25 -72 40 -60 Q55 -45 20 0 Q40 -20 55 -12"/></g>
+<g transform="translate(1200 330)"><path d="M0 0 Q-40 -50 -20 -60 Q0 -68 10 -40 Q25 -72 40 -60 Q55 -45 20 0 Q40 -20 55 -12"/></g>
+<g transform="translate(560 290)"><path d="M-65 0 L-65 40 Q-65 62 -40 62 L35 62 Q60 62 60 40 L60 0 Z"/><path d="M60 8 Q110 -10 100 30 Q90 55 60 45"/><path d="M-50 -8 Q-20 -20 50 -8"/></g>
+<g transform="translate(1030 300)"><path d="M-65 0 L-65 40 Q-65 62 -40 62 L35 62 Q60 62 60 40 L60 0 Z"/><path d="M60 8 Q110 -10 100 30 Q90 55 60 45"/><path d="M-50 -8 Q-20 -20 50 -8"/></g>
+</g>
+<g fill="#4a382a" opacity=".65"><circle cx="48" cy="120" r="4"/><circle cx="170" cy="75" r="3"/><circle cx="385" cy="110" r="5"/><circle cx="610" cy="75" r="3"/><circle cx="800" cy="100" r="4"/><circle cx="990" cy="80" r="3"/><circle cx="1180" cy="110" r="5"/><circle cx="1400" cy="85" r="3"/><circle cx="75" cy="285" r="3"/><circle cx="400" cy="310" r="4"/><circle cx="680" cy="140" r="3"/><circle cx="910" cy="280" r="3"/><circle cx="1280" cy="290" r="4"/></g>
+</svg>
+</div>
+<div class="poster-meta"><span>ESPRESSO BAR</span><span>BAKED FRESH DAILY</span><span>GOOD COMPANY</span></div>
+</div>
+<svg class="coffee-drip-divider" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V26 C1400 28 1388 30 1378 48 C1365 78 1364 125 1338 130 C1314 135 1302 104 1298 75 C1293 42 1283 34 1260 30 C1224 24 1202 28 1182 48 C1160 70 1156 105 1140 115 C1122 127 1104 115 1096 92 C1084 58 1080 36 1052 30 C1014 22 988 29 972 50 C956 72 950 130 924 140 C899 150 883 125 878 92 C872 53 859 35 836 30 C800 22 770 30 752 52 C730 79 728 142 698 154 C670 166 650 138 645 102 C640 59 628 35 600 30 C562 22 530 31 512 52 C490 77 484 126 460 134 C438 141 424 116 420 84 C415 52 404 35 380 30 C340 22 310 29 292 48 C268 72 260 126 236 138 C211 150 193 128 188 96 C182 59 170 35 142 30 C100 22 70 30 50 48 C25 72 20 120 0 128 Z"/></svg>
+</section>
+<div class="marquee"><div class="marquee-track"><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i><span>Slow coffee</span><i>✳</i><span>Shared moments</span><i>✳</i><span>Thoughtful food</span><i>✳</i></div></div>
 <section class="story wrap reveal" id="story"><div><div class="micro section-label">01 / The NM Café feeling</div><h2>Make room<br>for <em>moments.</em></h2></div><div class="story-copy"><p>NM Café is built around a simple belief: good things happen when you slow down.</p><p class="sub">This concept explores an editorial, product-first café identity through original layouts, typography, imagery and interaction. It is a portfolio project—not a real café.</p></div></section>
 <section class="coffee" id="menu"><div class="wrap"><div class="menu-head"><div><div class="micro section-label">02 / A thoughtful menu</div><h2>Find your<br>usual. Or don't.</h2></div><p>From familiar espresso classics to slow-steeped cold brews. Explore a few favourites from the NM Café coffee concept.</p></div><div class="menu-tabs" role="tablist"><button class="tab active" data-filter="all">All favourites</button><button class="tab" data-filter="hot">Hot coffee</button><button class="tab" data-filter="cold">Cold brew</button><button class="tab" data-filter="special">Something different</button></div><div class="menu-grid" id="menuGrid">
 <article class="drink" data-type="hot"><div class="drink-top"><h3>Americano</h3><span class="price">₹200</span></div><p>Espresso opened with hot water. Clean, direct and quietly satisfying.</p></article>
