@@ -430,3 +430,11 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 .philosophy .principles{display:block!important}
 @media(max-width:700px){.philosophy{grid-template-columns:1fr!important;gap:28px!important}.philosophy .philo-image{min-height:0!important;height:auto!important;aspect-ratio:4/5!important}.philosophy .philo-copy{padding:0!important}.philosophy .philo-copy h2{font-size:clamp(50px,13vw,74px)!important}}
 </style>
+
+<style id="nm-cafe-philosophy-hard-fix">
+/* Hard reset conflicting legacy philosophy image rules */
+section.philosophy .philo-image{display:block!important;position:relative!important;width:100%!important;height:clamp(520px,42vw,680px)!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;flex:none!important;align-self:stretch!important}
+section.philosophy .philo-image img{display:block!important;position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;min-height:100%!important;max-height:none!important;object-fit:cover!important;object-position:center!important;margin:0!important;padding:0!important}
+section.philosophy{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:center!important}
+@media(max-width:700px){section.philosophy .philo-image{height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:4/5!important}section.philosophy .philo-image img{height:100%!important}}
+</style>
